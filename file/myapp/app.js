@@ -20,10 +20,17 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
+// Store all JS and Css in Public folder
+app.use(express.static(path.join(__dirname, 'public')));
+// Store all HTML files in view folder.
+app.use(express.static(path.join(__dirname, 'views')));
+
+//app.use('/', index);
+//app.use('/users', users);
+app.get('/', function(req, res) {
+	res.sendFile(path.join(__dirname + '/views/index-6.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
