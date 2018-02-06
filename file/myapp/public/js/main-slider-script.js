@@ -245,7 +245,7 @@
      }); /*ready*/ 
 
 
-var app = new Vue({
+var vue_app = new Vue({
     el: '#rev_slider_one_wrapper',
     data: {
         str_1: "vue_src_1",
