@@ -12,6 +12,7 @@ var app = express();
 
 
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -27,6 +28,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Store all HTML files in view folder.
 app.use(express.static(path.join(__dirname, 'views')));
+
+var str = "http://samples.openweathermap.org/data/2.5/weather?id=2172797&appid=b6907d289e10d714a6e88b30761fae22";
+loadJSON(str,function(data){
+  console.log(data);
+});
+
 
 //app.use('/', index);
 //app.use('/users', users);
