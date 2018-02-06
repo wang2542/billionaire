@@ -31,6 +31,10 @@ app.use(express.static(path.join(__dirname, 'views')));
 app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname + '/views/index-6.html'));
 });
+//get news request
+app.get('News', function(req, res) {
+  console.log("get news request");
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

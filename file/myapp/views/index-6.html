@@ -431,7 +431,30 @@
 
 <!--Scroll to top-->
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
-
+<!--Revolution Slider-->
+<script type="text/javascript">
+function makeTagList(callback) {
+    console.log("jin")
+    $.ajax({
+        url : '/News',
+        type : 'GET',
+        data : {
+            format: 'json'
+        },
+        dataType : 'json',
+        success : function(data) {
+            console.log("success!");
+            console.log(data);
+        },
+        error : function (error) {
+            console.log(error);
+        }
+    }).done(function(result) {
+        console.log("inside done");
+        console.log(result);
+    })
+}
+</script>
 <script src="js/jquery.js"></script> 
 <!--Revolution Slider-->
 <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
