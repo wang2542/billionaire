@@ -242,8 +242,13 @@
                  }
              });
          }
-		 
-		 
-		 
-		 
-     }); /*ready*/
+     }); /*ready*/ 
+
+var app = new Vue({
+    el: '#rev_slider_one_wrapper',
+    data: {
+        str_1: "vue_str_1",
+        str_2: "vue_str_2",
+        vue_url: "https://www.google.com/"
+    }
+});
