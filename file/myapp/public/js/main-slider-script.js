@@ -244,6 +244,10 @@
          }
      }); /*ready*/ 
 
+
+// "http://samples.openweathermap.org/data/2.5/weather?id=2172797&appid=b6907d289e10d714a6e88b30761fae22",
+
+/*
 var a;
 $.ajax({
     //"/questions?questionText"
@@ -256,7 +260,8 @@ $.ajax({
     error: function(res,status,err) {
         alert(JSON.parse(res.responseText).message);
     }
-});
+});*/
+
 
 
 var vue_app = new Vue({
