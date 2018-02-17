@@ -18,9 +18,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+<link href="stylesheets/login_signup.css" rel="stylesheet">
+
 </head>
 
 <body>
+
 
 <div class="page-wrapper">
  	
@@ -44,6 +48,7 @@
                         <!-- Main Menu -->
                         <nav class="main-menu">
                             <div class="navbar-header">
+                      
                                 <!-- Toggle Button -->
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span class="icon-bar"></span>
@@ -52,57 +57,49 @@
                                 </button>
                             </div>
 
-
-
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
-                                    <li class="current"><a href="#">Sign up</a></li>
-                                    <li class="current"><a href="#">Login in</a></li>
+                                    <li class="current" id = "navi_btn_signup" onclick = "navi_btn_signup()"><a>Sign up</a></li>
+                                    <li class="current" id = "navi_bnt_login" onclick = "navi_bnt_login()">
+                                    <a>Login in</a></li>
                                  </ul>
                             </div>
                         </nav>
                         <!-- Main Menu End-->
-
-                    <!--Nav Outer End-->
-
+                    </div>
                 </div>
             </div>
         </div>
-            <!--Sticky Header-->
-            <div class="sticky-header">
-                <div class="auto-container clearfix">
-                    <!--Logo-->
-                    <div class="logo-box">
-                        <div class="logo"><a href="index.html"><img src="images/img/logo_2.png" alt=""></a></div>
-                    </div>
-
-                    <!--Right Col-->
-                    <div class="right-col pull-right">
-                        <!-- Main Menu -->
-                        <nav class="main-menu">
-                            <div class="navbar-header">
-                                <!-- Toggle Button -->
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-
-                            <div class="navbar-collapse collapse clearfix">
-                                <ul class="navigation clearfix">
-                                    <li class="current"><a href="#">Sign up</a></li>
-                                    <li class="current"><a href="#">Login in</a></li>
-                                </ul>
-                            </div>
-                        </nav><!-- Main Menu End-->
-                    </div>
-
-                </div>
-            </div>
-            <!--End Sticky Header-->
     </header>
     <!--End Main Header -->
+
+    <!--login_signup-->
+    <div id = "div_login_signin_back" onclick = "div_login_signin_back_onclick()"></div>
+
+    <form id = "form_login">
+        <header id = "login_header">Login</header>
+        <label class = "login_signup_lbl">Username <span>*</span></label>
+        <input class = "login_signup_input" id = "login_username"/>
+        <label class = "login_signup_lbl">Password <span>*</span></label>
+        <input class = "login_signup_input" id = "login_password"/>
+        <button id = "login_btn" onclick = "login_btn_onclick()">Login</button>
+    </form>
+
+    <form id = "form_signup">
+        <header id = "signup_header">Sign Up</header>
+        <label class = "login_signup_lbl">Username <span>*</span></label>
+        <input class = "login_signup_input" id = "signup_username"/>
+        <label class = "login_signup_lbl">Password <span>*</span></label>
+        <input class = "login_signup_input" id = "signup_password"/>
+        <label class = "login_signup_lbl">Re-Enter Password <span>*</span></label>
+        <input class = "login_signup_input" id = "signup_password_2"/>
+        <button id = "signup_btn" onclick = "signup_btn_onclick()">Sign up</button>
+    </form>
+    <!--End Login_Signup -->
+
+
+
+
 
     <!--Main Slider-->
     <section class="main-slider style-three alternate">
@@ -419,6 +416,8 @@
 <script src="js/wow.js"></script>
 <script src="js/appear.js"></script>
 <script src="js/script.js"></script>
+
+<script src="js/login_signup.js"></script>
 
 </body>
 </html>
