@@ -18,9 +18,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+<link href="stylesheets/login_signup.css" rel="stylesheet">
+
 </head>
 
 <body>
+
 
 <div class="page-wrapper">
  	
@@ -36,7 +40,7 @@
                 <div class="outer-container clearfix">
                     <!--Logo Box-->
                     <div class="logo-box">
-                        <div class="logo"><a href="index.html"><img src="images/img/logo_2.png" alt=""></a></div>
+                        <div class="logo"><a href="#"><img src="images/img/logo_2.png" alt=""></a></div>
                     </div>
 
                     <!--Nav Outer-->
@@ -44,6 +48,7 @@
                         <!-- Main Menu -->
                         <nav class="main-menu">
                             <div class="navbar-header">
+                      
                                 <!-- Toggle Button -->
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span class="icon-bar"></span>
@@ -52,57 +57,49 @@
                                 </button>
                             </div>
 
-
-
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
-                                    <li class="current"><a href="#">Sign up</a></li>
-                                    <li class="current"><a href="#">Login in</a></li>
+                                    <li class="current" id = "navi_btn_signup" onclick = "navi_btn_signup()"><a>Sign up</a></li>
+                                    <li class="current" id = "navi_bnt_login" onclick = "navi_bnt_login()">
+                                    <a>Login in</a></li>
                                  </ul>
                             </div>
                         </nav>
                         <!-- Main Menu End-->
-
-                    <!--Nav Outer End-->
-
+                    </div>
                 </div>
             </div>
         </div>
-            <!--Sticky Header-->
-            <div class="sticky-header">
-                <div class="auto-container clearfix">
-                    <!--Logo-->
-                    <div class="logo-box">
-                        <div class="logo"><a href="index.html"><img src="images/img/logo_2.png" alt=""></a></div>
-                    </div>
-
-                    <!--Right Col-->
-                    <div class="right-col pull-right">
-                        <!-- Main Menu -->
-                        <nav class="main-menu">
-                            <div class="navbar-header">
-                                <!-- Toggle Button -->
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-
-                            <div class="navbar-collapse collapse clearfix">
-                                <ul class="navigation clearfix">
-                                    <li class="current"><a href="#">Sign up</a></li>
-                                    <li class="current"><a href="#">Login in</a></li>
-                                </ul>
-                            </div>
-                        </nav><!-- Main Menu End-->
-                    </div>
-
-                </div>
-            </div>
-            <!--End Sticky Header-->
     </header>
     <!--End Main Header -->
+
+    <!--login_signup-->
+    <div id = "div_login_signin_back" onclick = "div_login_signin_back_onclick()"></div>
+
+    <form id = "form_login">
+        <header id = "login_header">Login</header>
+        <label class = "login_signup_lbl">Username <span>*</span></label>
+        <input class = "login_signup_input" id = "login_username"/>
+        <label class = "login_signup_lbl">Password <span>*</span></label>
+        <input class = "login_signup_input" id = "login_password"/>
+        <button id = "login_btn" onclick = "login_btn_onclick()">Login</button>
+    </form>
+
+    <form id = "form_signup">
+        <header id = "signup_header">Sign Up</header>
+        <label class = "login_signup_lbl">Username <span>*</span></label>
+        <input class = "login_signup_input" id = "signup_username"/>
+        <label class = "login_signup_lbl">Password <span>*</span></label>
+        <input class = "login_signup_input" id = "signup_password"/>
+        <label class = "login_signup_lbl">Re-Enter Password <span>*</span></label>
+        <input class = "login_signup_input" id = "signup_password_2"/>
+        <button id = "signup_btn" onclick = "signup_btn_onclick()">Sign up</button>
+    </form>
+    <!--End Login_Signup -->
+
+
+
+
 
     <!--Main Slider-->
     <section class="main-slider style-three alternate">
@@ -110,9 +107,9 @@
         <div class="rev_slider_wrapper fullwidthbanner-container"  id="rev_slider_one_wrapper" data-source="gallery">
             <div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
                 <ul>
-                	
-                    <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1688" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/main-slider/image-23.jpg" data-title="Slide Title" data-transition="parallaxvertical">
-                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="images/main-slider/image-23.jpg"> 
+                	<!--NEWS I-->
+                    <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1688" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/main-slider/thr1.jpg" data-title="Slide Title" data-transition="parallaxvertical">
+                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" v-bind:src="vue_img_src_1"> 
                     
                     <div class="tp-caption" 
                     data-paddingbottom="[0,0,0,0]"
@@ -131,27 +128,7 @@
                     data-textalign="['top','top','top','top']"
                     data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
                     style="z-index: 7; white-space: nowrap;text-transform:left;">
-                    	<h4 class="bold">The News <br> the news</h4>
-                    </div>
-                    
-                    <div class="tp-caption" 
-                    data-paddingbottom="[0,0,0,0]"
-                    data-paddingleft="[0,0,0,0]"
-                    data-paddingright="[0,0,0,0]"
-                    data-paddingtop="[0,0,0,0]"
-                    data-responsive_offset="on"
-                    data-type="text"
-                    data-height="none"
-                    data-width="['700','700','700','450']"
-                    data-whitespace="normal"
-                    data-hoffset="['15','15','15','15']"
-                    data-voffset="['20','30','30','40']"
-                    data-x="['left','left','left','left']"
-                    data-y="['middle','middle','middle','middle']"
-                    data-textalign="['top','top','top','top']"
-                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
-                    style="z-index: 7; white-space: nowrap;text-transform:left;">
-                    	<div class="text dark">the news detail</div>
+                    	<h4 class="bold">{{str_1}}</h4>
                     </div>
                     
                     <div class="tp-caption tp-resizeme" 
@@ -172,14 +149,15 @@
                     data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
                     style="z-index: 7; white-space: nowrap;text-transform:left;">
                     	<div class="btns-box">
-                    		<a href="#" class="theme-btn btn-style-eleven">more detail &nbsp;<span class="arow flaticon-right-arrow-2"></span></a>
+                    		<a v-bind:href="vue_url_1" class="theme-btn btn-style-eleven">More Detail</a>
                         </div>
                     </div>
-                    
+                
                     </li>
                     
-                    <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1689" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/main-slider/image-23.jpg" data-title="Slide Title" data-transition="parallaxvertical">
-                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="images/main-slider/image-23.jpg"> 
+                    <!--NEWS II-->    
+                    <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1689" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/main-slider/thr3.jpg" data-title="Slide Title" data-transition="parallaxvertical">
+                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" v-bind:src="vue_img_src_2"> 
                     
                     <div class="tp-caption" 
                     data-paddingbottom="[0,0,0,0]"
@@ -198,28 +176,9 @@
                     data-textalign="['top','top','top','top']"
                     data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
                     style="z-index: 7; white-space: nowrap;text-transform:left;">
-                    	<h4 class="bold">the news <br> sub news</h4>
+                    	<h4 class="bold">{{str_2}}</h4>
                     </div>
                     
-                    <div class="tp-caption" 
-                    data-paddingbottom="[0,0,0,0]"
-                    data-paddingleft="[0,0,0,0]"
-                    data-paddingright="[0,0,0,0]"
-                    data-paddingtop="[0,0,0,0]"
-                    data-responsive_offset="on"
-                    data-type="text"
-                    data-height="none"
-                    data-width="['700','700','700','450']"
-                    data-whitespace="normal"
-                    data-hoffset="['15','15','15','15']"
-                    data-voffset="['20','30','30','40']"
-                    data-x="['left','left','left','left']"
-                    data-y="['middle','middle','middle','middle']"
-                    data-textalign="['top','top','top','top']"
-                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
-                    style="z-index: 7; white-space: nowrap;text-transform:left;">
-                    	<div class="text dark">*************************************</div>
-                    </div>
                     
                     <div class="tp-caption tp-resizeme" 
                     data-paddingbottom="[0,0,0,0]"
@@ -239,7 +198,7 @@
                     data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
                     style="z-index: 7; white-space: nowrap;text-transform:left;">
                     	<div class="btns-box">
-                    		<a href="#" class="theme-btn btn-style-eleven">more detail &nbsp;<span class="arow flaticon-right-arrow-2"></span></a>
+                    		<a v-bind:href="vue_url_2" target="_blank" class="theme-btn btn-style-eleven">More Detail</a>
                         </div>
                     </div>
                     
@@ -434,6 +393,8 @@
 
 <script src="js/jquery.js"></script> 
 <!--Revolution Slider-->
+<script src="https://vuejs.org/js/vue.js"></script>
+
 <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
 <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
 <script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
@@ -455,6 +416,8 @@
 <script src="js/wow.js"></script>
 <script src="js/appear.js"></script>
 <script src="js/script.js"></script>
+
+<script src="js/login_signup.js"></script>
 
 </body>
 </html>

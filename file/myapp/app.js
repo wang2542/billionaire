@@ -4,11 +4,24 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+//get news api
+console.log("====================");
+const webhoseio = require('webhoseio');
+/*
+const client = webhoseio.config({token: '3deda486-162a-4e74-bdd8-004b8b323ff4'});
+client.query('filterWebData', {q: 'github'})
+  .then(output => {
+    console.log(output['posts'][0]['text']);
+    console.log(output['posts'][0]['published']);
+});
+*/
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,11 +39,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Store all HTML files in view folder.
 app.use(express.static(path.join(__dirname, 'views')));
 
+
 //app.use('/', index);
 //app.use('/users', users);
 app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname + '/views/index-6.html'));
 });
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
