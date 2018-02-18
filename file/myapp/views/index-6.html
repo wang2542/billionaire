@@ -21,7 +21,6 @@
 </head>
 
 <body>
-
 <div class="page-wrapper">
  	
     <!-- Preloader -->
@@ -428,9 +427,36 @@
     
 </div>
 <!--End pagewrapper-->
-
+    
 <!--Scroll to top-->
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
+
+<!--news-->
+<script type="text/javascript">
+
+function news(){
+     var ne=new XMLHttpRequest();
+     ne.open("GET","/News",true);
+     ne.onreadystatechange=function(){
+        if(ne.readyState==4){
+            if(ne.status==200){
+                obj = JSON.parse(ne.responseText);
+                document.getElementById("res").innerHTML=obj.title;
+                console.log(obj.image);
+            }
+        }
+    }
+    ne.send(null);
+}
+
+window.onload=news();
+</script>
+<p id = "res">pppp</p>
+
+
+
+
+
 
 <script src="js/jquery.js"></script> 
 <!--Revolution Slider-->
