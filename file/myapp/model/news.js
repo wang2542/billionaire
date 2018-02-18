@@ -13,10 +13,9 @@ var query_params = {
 module.exports.getNews = function(callback) {
  client.query('filterWebContent', query_params)
   .then((output) => {
-    news = JSON.parse(output);
-    console.log(JSON.stringify(news));
+    console.log(output);
     //console.log(output['posts'][0]['title']); // Print the text of the first post
     console.log(output['posts'][0]['published']); // Print the text of the first post publication date
-    callback(err,news);
+    callback(output);
 });
 }
