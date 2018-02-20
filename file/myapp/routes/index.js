@@ -8,15 +8,18 @@ router.get('/', function(req, res, next) {
 });
  
 router.post('/', function(req, res, next){
-	console.log('search course');
-	//console.log(req.body.coursename);
+	console.log('search stock');
+	console.log(req.body.stockName);
 	stockInfo.searchStockBySymbl(req.body.stockName, function(err, infom) {
+
 		if (err) {
 			//res.redirect('/error');
 		}
 		else {
-		//	localStorage.setItem('Course',JSON.stringify(course));
-			res.redirect('/stock');
+    //	localStorage.setItem('Course',JSON.stringify(course));
+
+      res.redirect('/stock');
+      
 		}
 	});
 });

@@ -2,7 +2,7 @@ var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
 
-var newInfom ={
+var newsInfom ={
     url: 'https://api.iextrading.com/1.0/stock/market/batch',
     method: 'GET',
     qs: {
@@ -15,13 +15,13 @@ var newInfom ={
 
 
 exports.searchStockBySymbl = function(symbl, callback) {
-    newInfom.qs.symbols = symbl;
-    request(newInfom, function(error,response,body) {
+    newsInfom.qs.symbols = symbl;
+    request(newsInfom, function(error,response,body) {
         if(error) return callback(error);
         else {
             var json = JSON.parse(body);
-            console.log(json.result);
-            if( json.result) {
+            console.log(json);
+            if( json) {
                 //console.log(json.result.formatted_address);
                 callback(null,json);
             }
