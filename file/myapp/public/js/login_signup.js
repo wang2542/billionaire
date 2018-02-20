@@ -25,15 +25,16 @@ function div_login_signin_back_onclick() {
 
 function login_btn_onclick() {
 	alert("login_btn_onclick()");
-	var username = document.getElementById("login_username").value;
+	var email = document.getElementById("login_email").value;
 	var password = document.getElementById("login_password").value;
-	alert("username: " + username + "\npassword: " + password);
+	alert("email: " + email + "\npassword: " + password);
 }
 
 function signup_btn_onclick() {
 	alert("signup_btn_onclick()");
+	var email = document.getElementById("signup_email").value;
 	var username = document.getElementById("signup_username").value;
 	var password = document.getElementById("signup_password").value;
 	var password_2 = document.getElementById("signup_password_2").value;
-	alert("username: " + username + "\npassword: " + password + "\npassword_2: " + password_2);
+	alert("username: " + username + "\nemail" + email + "\npassword: " + password + "\npassword_2: " + password_2);
 }

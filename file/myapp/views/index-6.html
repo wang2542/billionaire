@@ -78,17 +78,22 @@
 
     <form id = "form_login">
         <header id = "login_header">Login</header>
-        <label class = "login_signup_lbl">Username <span>*</span></label>
-        <input class = "login_signup_input" id = "login_username"/>
+        <label class = "login_signup_lbl">Email <span>*</span></label>
+        <input class = "login_signup_input" id = "login_email"/>
         <label class = "login_signup_lbl">Password <span>*</span></label>
         <input class = "login_signup_input" id = "login_password"/>
         <button id = "login_btn" onclick = "login_btn_onclick()">Login</button>
     </form>
 
-    <form id = "form_signup">
+    <form id = "form_signup" method = "post" >
         <header id = "signup_header">Sign Up</header>
-        <label class = "login_signup_lbl">Username <span>*</span></label>
+
+        <label class = "login_signup_lbl">Username<span>*</span></label>
         <input class = "login_signup_input" id = "signup_username"/>
+
+        <label class = "login_signup_lbl">Email<span>*</span></label>
+        <input class = "login_signup_input" id = "signup_email"/>
+        
         <label class = "login_signup_lbl">Password <span>*</span></label>
         <input class = "login_signup_input" id = "signup_password"/>
         <label class = "login_signup_lbl">Re-Enter Password <span>*</span></label>
