@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var fs = require('fs');
 var async = require('async');
+var path = require('path');
 var data;
 var schema = mongoose.Schema;
 
@@ -30,8 +31,9 @@ module.exports.getStockSymbleByName = function (name, callback){
 
 module.exports.init = function (callback){
     var obj;
-fs.readFile('../stock/stockSymbol.json', 'utf8', function(err, data){
-    if (err) callback(err);
+fs.readFile('/Users/sfu/github/billionaire/file/myapp/stock/stockSymbol.json', 'utf8', function(err, data){
+    if (err) console.log(err);
+    console.log(data);
     obj = JSON.parse(data);
 });
 console.log(obj);
