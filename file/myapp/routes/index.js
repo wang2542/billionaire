@@ -16,7 +16,6 @@ router.post('/', function(req, res, next){
 			//res.redirect('/error');
 		}
 		else {
-    //	localStorage.setItem('Course',JSON.stringify(course));
 
       res.redirect('/stock');
       
