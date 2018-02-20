@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var mongoose = require('mongoose');
+var stock = require('./model/stock');  
 mongoose.connect('mongodb://localhost/cs407');
 
 
@@ -38,6 +39,9 @@ app.use(express.static(path.join(__dirname, 'views')));
 
 app.use('/', index);
 
+stock.init( function() {
+   console.log('stock initializing');
+});
 
 /*
 // catch 404 and forward to error handler
