@@ -16,20 +16,12 @@ var app = express();
 //get news api
 console.log("====================");
 const webhoseio = require('webhoseio');
-/*
-const client = webhoseio.config({token: '3deda486-162a-4e74-bdd8-004b8b323ff4'});
-client.query('filterWebData', {q: 'github'})
-  .then(output => {
-    console.log(output['posts'][0]['text']);
-    console.log(output['posts'][0]['published']);
-});
-*/
-
 
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'html');
+app.engine('html', require('hbs').__express); 
+
 app.listen(8080);
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -44,13 +36,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'views')));
 
 
-//app.use('/', index);
-//app.use('/users', users);
-app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname + '/views/index-6.html'));
-});
+app.use('/', index);
 
 
+/*
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -68,5 +57,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+*/
 
 module.exports = app;
