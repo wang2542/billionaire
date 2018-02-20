@@ -242,8 +242,37 @@
                  }
              });
          }
-		 
-		 
-		 
-		 
-     }); /*ready*/
+     }); /*ready*/ 
+
+
+// "http://samples.openweathermap.org/data/2.5/weather?id=2172797&appid=b6907d289e10d714a6e88b30761fae22",
+
+/*
+var a;
+$.ajax({
+    //"/questions?questionText"
+    url: "http://samples.openweathermap.org/data/2.5/weather?id=2172797&appid=b6907d289e10d714a6e88b30761fae22",
+    //type: "GET",
+    success : function(res) {
+        alert(a);
+    },
+
+    error: function(res,status,err) {
+        alert(JSON.parse(res.responseText).message);
+    }
+});*/
+
+
+
+var vue_app = new Vue({
+    el: '#rev_slider_one_wrapper',
+
+    data: {
+        str_1: "vue_src_1",
+        str_2: "vue_str_2",
+        vue_url_1: "https://www.google.com/",
+        vue_url_2: "http://www.baidu.com/",
+        vue_img_src_1: "images/main-slider/thr2.jpg",
+        vue_img_src_2: "images/main-slider/thr1.jpg",
+    }
+});

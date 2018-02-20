@@ -1,0 +1,145 @@
+#div_login_signin_back {
+	background-color: white;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+	display: none;
+  margin: 0px;
+  padding: 0px;
+
+  opacity: 0.5;
+}
+
+#form_login {
+	position: fixed;
+	display: none;
+
+	background: white;
+	width: 40%;
+  top: 30%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+  font-family: lato;
+  color: #333;
+  border-radius: 10px;
+  top: 10%;
+  left: 33%;
+  z-index: 1001;
+}
+
+#form_signup {
+  position: fixed;
+  display: none;
+
+  background: white;
+  width: 40%;
+  top: 30%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+  font-family: lato;
+  color: #333;
+  border-radius: 10px;
+  top: 10%;
+  left: 33%;
+  z-index: 1001;
+}
+
+#login_header {
+  background: #FF3838;
+  padding: 30px 20px;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  border-radius: 10px 10px 0 0;
+}
+
+#signup_header {
+  background: #FF3838;
+  padding: 30px 20px;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  border-radius: 10px 10px 0 0;
+}
+
+.login_signup_lbl {
+	margin-left: 20px;
+	display: inline-block;
+	margin-top: 30px;
+	margin-bottom: 5px;
+	position: relative;
+}
+
+.login_signup_lbl span {
+  color: #FF3838;
+  font-size: 2em;
+  position: absolute;
+  left: 2.3em;
+  top: -10px;
+}
+
+.login_signup_input {
+  display: block;
+  width: 78%;
+  margin-left: 20px;
+  padding: 5px 20px;
+  font-size: 1em;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+#login_btn {
+	position: relative;
+  	margin-top: 30px;
+  	margin-bottom: 30px;
+  	left: 50%;
+  	transform: translate(-50%, 0);
+  	font-family: inherit;
+  	color: white;
+  	background: #FF3838;
+  	outline: none;
+  	border: none;
+  	padding: 5px 15px;
+  	font-size: 1.3em;
+  	font-weight: 400;
+  	border-radius: 3px;
+  	box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.4);
+  	cursor: pointer;
+  	transition: all 0.15s ease-in-out;
+}
+
+#login_btn:hover {
+	background: #ff5252;
+}
+
+#signup_btn {
+  position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-family: inherit;
+    color: white;
+    background: #FF3838;
+    outline: none;
+    border: none;
+    padding: 5px 15px;
+    font-size: 1.3em;
+    font-weight: 400;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.4);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+#signup_btn:hover {
+  background: #ff5252;
+}
+
+.swiper-container{margin:0 auto;position:relative;overflow:hidden;direction:ltr;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-o-backface-visibility:hidden;backface-visibility:hidden;z-index:1}.swiper-wrapper{position:relative;width:100%;-webkit-transition-property:-webkit-transform,left,top;-webkit-transition-duration:0s;-webkit-transform:translate3d(0px,0,0);-webkit-transition-timing-function:ease;-moz-transition-property:-moz-transform,left,top;-moz-transition-duration:0s;-moz-transform:translate3d(0px,0,0);-moz-transition-timing-function:ease;-o-transition-property:-o-transform,left,top;-o-transition-duration:0s;-o-transform:translate3d(0px,0,0);-o-transition-timing-function:ease;-o-transform:translate(0px,0);-ms-transition-property:-ms-transform,left,top;-ms-transition-duration:0s;-ms-transform:translate3d(0px,0,0);-ms-transition-timing-function:ease;transition-property:transform,left,top;transition-duration:0s;transform:translate3d(0px,0,0);transition-timing-function:ease;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}.swiper-free-mode>.swiper-wrapper{-webkit-transition-timing-function:ease-out;-moz-transition-timing-function:ease-out;-ms-transition-timing-function:ease-out;-o-transition-timing-function:ease-out;transition-timing-function:ease-out;margin:0 auto}.swiper-slide{float:left;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}.swiper-wp8-horizontal{-ms-touch-action:pan-y}.swiper-wp8-vertical{-ms-touch-action:pan-x}.swiper-container{}.swiper-slide{}.swiper-slide-active{}.swiper-slide-visible{}.swiper-pagination-switch{}.swiper-active-switch{}.swiper-visible-switch{}
+
+
+
+
