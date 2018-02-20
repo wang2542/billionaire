@@ -4,7 +4,7 @@ var async = require('async');
 var data;
 var schema = mongoose.Schema;
 
-var stockSchema = mongoose.schema({
+var stockSchema = schema({
     name: {
         type:String,
         index: true
@@ -14,7 +14,7 @@ var stockSchema = mongoose.schema({
     },
     isEnabled: {
         type: Boolean
-    }
+    } 
 });
 
 var stock = module.exports= mongoose.model('stock',stockSchema);
@@ -28,11 +28,13 @@ module.exports.getStockSymbleByName = function (name, callback){
     stock.findOne(query, callback);
 }
 
-module.exports.init = function (file, callback){
+module.exports.init = function (callback){
+    var obj;
 fs.readFile('../stock/stockSymbol.json', 'utf8', function(err, data){
-    if (err) throw err;
+    if (err) callback(err);
     obj = JSON.parse(data);
 });
+console.log(obj);
 async.eachSeries(obj, function(keys,callback){
     var newStock = new stock({
         symbol: keys.symbol,
