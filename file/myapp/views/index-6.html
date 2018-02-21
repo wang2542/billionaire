@@ -59,8 +59,14 @@
 
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
-                                    <li class="current" id = "navi_btn_signup" href="/signup"><a>Sign up</a></li>
-                                    <li class="current" id = "navi_bnt_login" onclick = "navi_bnt_login()"><a>Login in</a></li>
+                                    {{#if user}}
+                                    <li class="current"><a>{{username}}</a></li>
+                                    <li class="current" id = "navi_btn_signup"><a href="/user/profile">Profile</a></li>
+                                    <li class="current" id = "navi_bnt_login"><a href="/user/logout">Log Out</a></li>
+                                    {{else}}
+                                    <li class="current" ><a href="/user/signup">Sign up</a></li>
+                                    <li class="current" ><a href="/user/login">Log in</a></li>
+                                    {{/if}}
                                  </ul>
                             </div>
                         </nav>
@@ -73,7 +79,7 @@
     <!--End Main Header -->
 
     <!--login_signup-->
-    <div id = "div_login_signin_back" onclick = "div_login_signin_back_onclick()"></div>
+<!--     <div id = "div_login_signin_back" onclick = "div_login_signin_back_onclick()"></div>
 
     <form id = "form_login">
         <header id = "login_header">Login</header>
@@ -98,7 +104,7 @@
         <label class = "login_signup_lbl">Re-Enter Password <span>*</span></label>
         <input class = "login_signup_input" id = "signup_password_2"/>
         <button id = "signup_btn" onclick = "signup_btn_onclick()">Sign up</button>
-    </form>
+    </form> -->
     <!--End Login_Signup -->
 
 

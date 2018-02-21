@@ -52,6 +52,12 @@ module.exports.getUserByUsername = function(username, callback){
   User.findOne(query, callback);
 };
 
+// Retrieve user by email
+module.exports.getUserByEmail = function(username, callback){
+  var query = {email: email};
+  User.findOne(query, callback);
+};
+
 // Retrieve user by id
 module.exports.getUserById = function(id, callback){
   User.findById(id, callback);

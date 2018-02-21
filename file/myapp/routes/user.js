@@ -6,16 +6,27 @@ var bcrypt = require('bcryptjs');
 var async = require('async');
 var User = require('../model/user');
 
+passport.serializeUser(function(user, done) {
+	done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+	User.getUserById(id, function(err, user) {
+		done(err, user);
+	});
+});
+
 //Deploy local strategy of passport
 passport.use(new LocalStrategy( function(username, password, done) {
+		console.log('username, password:', username, password);
 		User.getUserByUsername(username, function(err, user){
-			if(err) throw err;
+			if(err) done(err);
 			if(!user){
 				return done(null, false, {message: 'Unknown User'});
-		}
+			}
 
-		User.comparePassword(password, user.password, function(err, isMatch){
-				if(err) throw err;
+			User.comparePassword(password, user.password, function(err, isMatch){
+				if(err) done(err);
 				if(isMatch){
 					return done(null, user);
 				} else {
@@ -87,8 +98,8 @@ router.post('/signup', function(req, res, next) {
 			else {
 				User.createUser(newUser, function(err, user){
 				if(err) throw err;
-				//console.log(user);
-					return res.redirect('/user/login');
+				console.log(user);
+				return res.redirect('/user/login');
 				});
 				req.flash('success_msg', 'You are registered and can now login.');
 			}
@@ -98,77 +109,12 @@ router.post('/signup', function(req, res, next) {
 
 });
 
-router.post('/login', function(req, res, next) {
-	// Check if the username and password match
-	passport.authenticate('local', function(err, user, info) {
-		if (err) {return next(err);}
-		if (!user) {
-			req.flash('error_msg', 'Your username and password does not match');
-			return res.redirect('/user/login');
-		}
-		req.logIn(user, function(err) {
-			if (err) {return next(err);}
-		// 	var loginPt = new Promise(function(resolve, reject) {
-		// 		req.flash('success_msg', 'You are logged in');
-				
-		// 		function timeToMidnight() {
-		// 			console.log('2');
-		// 			var now = new Date();
-		// 			var end = moment().endOf("day");
-		// 			return end - now + 1000;
-		// 		}
+router.post('/login', passport.authenticate('local', { failureRedirect: '/user/login' }),
+  function(req, res) {
+    res.redirect('/');
+ });
 
-		// 		function midNightReset() {
-				
-		// 			var reset = new Promise(function(res, rej) {
-		// 				if (flagTwoPt === true) {
-		// 					req.flash('success_msg', ' You got two points!');
-		// 					var newPoint = req.user.point + 2;
-		// 					var query = {'username': req.user.username};
-		// 					// Update points in db
-		// 					User.findOneAndUpdate(query, {
-		// 						'point': newPoint
-		// 					}, {upsert: true},
-		// 					function(err, user){
-		// 						if(err) throw err;
-		// 						flagTwoPt = false;
-		// 					});
-		// 				}	
-		// 				resolve();
-		// 			});
-				
-		// 		// Reset the flag at mid might
-		// 		reset.then(function() {
-		// 			flagTwoPt = true;
-		// 			setTimeout(midNightReset, timeToMidnight());
-		// 		});
-				
-		// 	}
-
-		// 	midNightReset();
-			
-		// 	resolve();
-		// });
-		
-		// loginPt.then(function() {	
-		// 		res.redirect('/');
-		// });
-
-		});
-	})(req, res, next);
-});
-
-
-
-passport.serializeUser(function(user, done) {
-	done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-	User.getUserById(id, function(err, user) {
-		done(err, user);
-	});
-});
+// router.post('/login', passport.authenticate('local'), function(req, res){ res.redirect('/');});
 
 var newHash = function(query, password){
 	bcrypt.genSalt(10, function(err, salt) {
