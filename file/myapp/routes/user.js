@@ -114,7 +114,77 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/user/l
     res.redirect('/');
  });
 
-// router.post('/login', passport.authenticate('local'), function(req, res){ res.redirect('/');});
+router.post('/profile', function(req, res, next){
+
+	// Get the updated information
+	var newEmail = req.body.email;
+	var newPassword = req.body.password;
+	var newConfirmPassword = req.body.passwordConfirm;
+
+	var query = {'username': req.user.username};
+
+	// update password
+	if (newPassword === newConfirmPassword) {	
+		// user does not type password
+		if (newPassword.length === 0) {
+			User.findOneAndUpdate(query, {
+				'email': newEmail || '',
+			}, {upsert: true},
+			function(err, user){
+				if(err) throw err;
+				// Validation
+				req.checkBody('email', 'Email is not valid').isEmail();
+				if (newPassword.length !== 0) {
+					req.checkBody('password', 'Password cannot be less than 6').len(6, 30);
+				}
+				var errors = req.validationErrors();
+				if(errors){
+					req.flash('error_msg', 'Your email is not valid or your password cannot be less than 6');
+					res.redirect('/user/profile');
+				} else {
+					user.save(function(err){
+						if (err) {
+							return next(err);
+						}
+						req.flash('success_msg', 'Profile information has been updated.');
+						res.redirect('/user/profile');
+						});
+				}
+			});
+		} else {
+			// Validation
+			req.checkBody('email', 'Email is not valid').isEmail();
+			if (newPassword !== 0) {
+				req.checkBody('password', 'Password cannot be less than 6').len(6, 30);
+			}
+			var errors = req.validationErrors();
+			console.log(errors);
+			if(errors){
+				req.flash('error_msg', 'Your email is not valid or your password cannot be less than 6');
+				res.redirect('/user/profile');
+			} else {
+				var newHashedPw = newHash(query, newPassword);
+				User.findOneAndUpdate(query, {
+					'email': newEmail || '',
+					'password': newHashedPw
+				}, {upsert: true},
+				function(err, user){
+					if(err) throw err;
+					user.save(function(err){
+						if (err) {
+							return next(err);
+						}
+						req.flash('success_msg', 'Profile information has been updated.');
+						res.redirect('/user/profile');
+					});	
+				});
+			}
+		}			
+	}
+	else {
+		req.flash('error_msg', 'Password does not match');
+	}
+});
 
 var newHash = function(query, password){
 	bcrypt.genSalt(10, function(err, salt) {

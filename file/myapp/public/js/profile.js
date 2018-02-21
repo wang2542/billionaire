@@ -9,9 +9,9 @@ function btn_edit() {
     document.getElementById("btn_save").style.display = "block";
 
     //make username, email, password editable
-    document.getElementById("profile_username").readOnly = false;
     document.getElementById("profile_email").readOnly = false;
     document.getElementById("profile_password").readOnly = false;
+    document.getElementById("profile_passwordConfirm").readOnly = false;
 }
 
 function btn_cancel() {

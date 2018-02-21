@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <title>Conpress Business & Agency HTML Template | Home Six</title>
 <!-- Stylesheets -->
-<link href="stylesheets/bootstrap.css" rel="stylesheet">
-<link href="revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
-<link href="revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
-<link href="revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
-<link href="stylesheets/style.css" rel="stylesheet">
-<link href="stylesheets/responsive.css" rel="stylesheet">
+<link href="/stylesheets/bootstrap.css" rel="stylesheet">
+<link href="/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
+<link href="/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
+<link href="/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
+<link href="/stylesheets/style.css" rel="stylesheet">
+<link href="/stylesheets/responsive.css" rel="stylesheet">
 
 <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 <link rel="icon" href="images/favicon.png" type="image/x-icon">
@@ -19,8 +19,8 @@
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 
-<link href="stylesheets/login_signup.css" rel="stylesheet">
-<link href="stylesheets/profile.css" rel="stylesheet">
+<link href="/stylesheets/login_signup.css" rel="stylesheet">
+<link href="/stylesheets/profile.css" rel="stylesheet">
 
 </head>
 
@@ -59,29 +59,34 @@
 
         <hr id = "divider">
 
-        <form>
+        <form method="post" action="/user/profile">
             <br>
             <label class = "profile_lbl">Username:</label>
-            <input class = "profile_input" id ="profile_username" type="text" name="username" value="username" readOnly>
+            <input class = "profile_input" id ="profile_username" type="text" name="username" value="{{username}}" readOnly>
             <br>
 
             <br>
             <label class = "profile_lbl">Email:</label>
-            <input class = "profile_input" id ="profile_email" type="text" name="email" value="email" readOnly>
+            <input class = "profile_input" id ="profile_email" type="text" name="email" value="{{email}}" readOnly>
             <br>
 
             <br>
             <label class = "profile_lbl">Password:</label>
-            <input class = "profile_input" id ="profile_password" type="text" name="password" value="password" readOnly>
+            <input class = "profile_input" id ="profile_password" type="password" name="password" value="" readOnly>
             <br>
 
             <br>
+            <label class = "profile_lbl">Cofirm Password:</label>
+            <input class = "profile_input" id ="profile_passwordConfirm" type="password" name="passwordConfirm" value="" readOnly>
+            <br>
+
+<!--             <br>
             <label class = "profile_lbl">Coin:</label>
-            <input class = "profile_input" id ="profile_coins" type="text" name="coins" value="coins" readOnly>
+            <input class = "profile_input" id ="profile_coins" type="text" name="coin" value="{{coin}}" readOnly>
             <br>
-
+ -->
             <br>
-            <button id = "btn_save">Save</button>
+            <button id = "btn_save" type="submit">Save</button>
             <br>
         </form>
     </div>
@@ -191,31 +196,31 @@
 <!--Scroll to top-->
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
 
-<script src="js/jquery.js"></script> 
+<script src="/js/jquery.js"></script> 
 <!--Revolution Slider-->
 
-<script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-<script src="revolution/js/jquery.themepunch.tools.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.video.min.js"></script>
 
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="js/jquery.fancybox.pack.js"></script>
-<script src="js/jquery.fancybox-media.js"></script>
-<script src="js/owl.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/appear.js"></script>
-<script src="js/script.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/js/jquery.fancybox.pack.js"></script>
+<script src="/js/jquery.fancybox-media.js"></script>
+<script src="/js/owl.js"></script>
+<script src="/js/wow.js"></script>
+<script src="/js/appear.js"></script>
+<script src="/js/script.js"></script>
 
-<script src="js/profile.js"></script>
+<script src="/js/profile.js"></script>
 
 </body>
 </html>
