@@ -3,7 +3,6 @@ function navi_bnt_login() {
 	//show login form and its backgroud
 	document.getElementById('div_login_signin_back').style.display = 'block';
 	document.getElementById('form_login').style.display = 'block';
-	
 }
 
 function navi_btn_signup() {
@@ -11,7 +10,6 @@ function navi_btn_signup() {
 	//show signin form and its backgroud
 	document.getElementById('div_login_signin_back').style.display = 'block';
 	document.getElementById('form_signup').style.display = 'block';
-	
 }
 
 function div_login_signin_back_onclick() {
@@ -27,19 +25,16 @@ function div_login_signin_back_onclick() {
 
 function login_btn_onclick() {
 	alert("login_btn_onclick()");
-	var username = document.getElementById("login_username").value;
+	var email = document.getElementById("login_email").value;
 	var password = document.getElementById("login_password").value;
-	alert("username: " + username + "\npassword: " + password);
+	alert("email: " + email + "\npassword: " + password);
 }
 
 function signup_btn_onclick() {
 	alert("signup_btn_onclick()");
+	var email = document.getElementById("signup_email").value;
 	var username = document.getElementById("signup_username").value;
 	var password = document.getElementById("signup_password").value;
 	var password_2 = document.getElementById("signup_password_2").value;
-	alert("username: " + username + "\npassword: " + password + "\npassword_2: " + password_2);
-	document.location.href='/login';
-	/*function(res,req){
-		req.redirect('/login');
-	}*/
+	alert("username: " + username + "\nemail" + email + "\npassword: " + password + "\npassword_2: " + password_2);
 }
