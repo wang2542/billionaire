@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   	console.log('lllllll');
 
   	console.log(result['posts'][0]['title']);
-  	res.render('index-6', {
+  	res.render('index', {
     title : result['posts'][0]['title'],
  		});
  	 });
