@@ -18,20 +18,15 @@ var userSchema = mongoose.Schema({
   },
   coin: {
     type: Number
-<<<<<<< HEAD
   },
   resetPasswordToken: String,
   resetPasswordExpires: Date
-=======
-  }
-
->>>>>>> pangrui
 });
 
 // create the model for users and expose it to our app
 var User = module.exports = mongoose.model('User', userSchema);
 
-// methods ======================
+// methods
 // generating a hash
 userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
