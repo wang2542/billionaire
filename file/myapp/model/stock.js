@@ -13,6 +13,9 @@ var stockSchema = schema({
     symbol: {
         type:String
     },
+    type: {
+        type:String
+    },
     isEnabled: {
         type: Boolean
     } 
@@ -31,19 +34,26 @@ module.exports.getStockSymbleByName = function (name, callback){
 
 module.exports.init = function (callback){
     var obj;
-fs.readFile('/Users/sfu/github/billionaire/file/myapp/stock/stockSymbol.json', 'utf8', function(err, data){
+    var p = path.normalize(path.join(__dirname, '/..','stockSymbol.json'));
+    console.log(p);
+fs.readFile(p, 'utf8', function(err, data){
     if (err) console.log(err);
-    console.log(data);
+   // console.log(data);
     obj = JSON.parse(data);
-});
-console.log(obj);
-async.eachSeries(obj, function(keys,callback){
-    var newStock = new stock({
-        symbol: keys.symbol,
-        isEnabled: keys.isEnabled
+    async.eachSeries(obj, function(keys,callback){
+      //  console.log("inserting new stock");
+        var newStock = new stock({
+            name: keys.name,
+            symbol: keys.symbol,
+            isEnabled: keys.isEnabled,
+            type: keys.type
+            
+        });
+        stock.createStock(newStock,callback);
     });
-    stock.createStock(newStock,callback);
 });
+//console.log(obj);
+
 
 
 }
