@@ -54,6 +54,11 @@ fs.readFile(p, 'utf8', function(err, data){
 });
 //console.log(obj);
 
+module.exports.searchStockByName = function (name, callback){
+    stock.find({name:name}, function(err, result){
+        console.log(result);
+    });
+}
 
 
 }
