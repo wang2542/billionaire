@@ -10,6 +10,7 @@
 
     <h1><span class="fa fa-sign-in"></span> Login </h1>
 
+
     <!-- show any messages that come back with authentication -->
     <% if (message.length > 0) { %>
         <div class="alert alert-danger"><%= message %></div>
@@ -19,6 +20,7 @@
     <form action="/user/login" method="post">
         <div class="form-group">
             <label>Username</label>
+
             <input type="text" class="form-control" name="username">
         </div>
         <div class="form-group">
@@ -33,6 +35,7 @@
 
     <p>Need an account? <a href="/signup">Signup</a></p>
     <p>Or go <a href="/">home</a>.</p>
+
     <p>Forgot Password? <a href="/user/resetpw">Password Reset</a>.</p>
 
 </div>

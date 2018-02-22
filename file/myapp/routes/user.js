@@ -4,8 +4,10 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcryptjs');
 var async = require('async');
+
 var nodemailer = require('nodemailer');
 var crypto = require('crypto');
+
 var User = require('../model/user');
 
 passport.serializeUser(function(user, done) {
@@ -65,6 +67,7 @@ router.get('/logout', function(req, res) {
 	req.flash('success_msg', 'Logged Out');
 	res.redirect('/');
 })
+
 
 router.get('/resetpw', function(req, res) {
 	res.render('resetpw');

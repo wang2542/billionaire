@@ -13,6 +13,7 @@ var stockSchema = schema({
     symbol: {
         type:String
     },
+
     type: {
         type:String
     },
@@ -31,6 +32,7 @@ module.exports.getStockSymbleByName = function (name, callback){
     var query = {name:name};
     stock.findOne(query, callback);
 }
+
 
 module.exports.init = function (callback){
     var obj;
@@ -59,6 +61,7 @@ module.exports.searchStockByName = function (name, callback){
         console.log(result);
     });
 }
+
 
 
 }

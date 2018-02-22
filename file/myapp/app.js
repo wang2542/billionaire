@@ -6,10 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+
 var passport = require('passport');
 var flash = require('connect-flash');
 var session = require('express-session');
 var expressValidator = require('express-validator');
+
 mongoose.connect('mongodb://localhost/cs407');
 
 var db = mongoose.connection;
@@ -17,6 +19,7 @@ var db = mongoose.connection;
 var index = require('./routes/index');
 var user = require('./routes/user');
 var stock = require('./model/stock');
+
 
 var app = express();
 
@@ -80,6 +83,7 @@ app.use(function (req, res, next) {
 
 app.use('/', index);
 app.use('/user', user);
+
 
 
 
