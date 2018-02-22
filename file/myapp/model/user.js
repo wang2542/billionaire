@@ -18,8 +18,9 @@ var userSchema = mongoose.Schema({
   },
   coin: {
     type: Number
-  }
-
+  },
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
 });
 
 // create the model for users and expose it to our app
