@@ -1,22 +1,24 @@
 var express = require('express');
 var router = express.Router();
-var news = require('../model/news.js');
 var bodyParser = require('body-parser');
+//var localStorage = require('localStorage');
+
+var stockInfo = require('../model/stockInfo');
+var User = require('../model/user');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+	if (!req.user) {
+		res.render('index-6');
+	} else {
+		res.render('index-6', {
+			username: req.user.username,
+		});
+	}
   
-  news.getNews(function(result){
-  	//var json = JSON.parse(result['posts'][0]);
-  	console.log('lllllll');
-
-  	console.log(result['posts'][0]['title']);
-  	res.render('index', {
-    title : result['posts'][0]['title'],
- 		});
- 	 });
 });
- 
+
 router.post('/', function(req, res, next){
 	console.log('search course');
 	//console.log(req.body.coursename);
@@ -29,9 +31,7 @@ router.post('/', function(req, res, next){
 			res.redirect('/stock');
 		}
 	});
-	
 });
-
 
 
 module.exports = router;

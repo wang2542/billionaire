@@ -1,0 +1,56 @@
+#profile-container {
+    display: block;
+    height: 450px;
+    width: 100%;
+    background-color: azure;
+
+}
+#profile-header {
+    display: block;
+    padding-top: 20px;
+    padding-left: 50px;
+}
+
+#divider {
+    position: relative;
+    margin: 10px;
+}
+
+.profile_lbl {
+    position: relative;
+    left: 10%;
+    width: 40px;
+}
+
+.profile_input {
+    position: relative;
+    left: 40%;
+    width: 200px;
+}
+
+#btn_save {
+    position: relative;
+    top: 0px;
+    left: 25%;
+    width: 100px;
+    background-color: aquamarine;
+    border-radius: 12px;
+    display: none;
+}
+
+#btn_edit {
+    position: relative;
+    left: 0%;
+    width: 60px;
+    background-color: aquamarine;
+    border-radius: 12px;
+    display: block;
+}
+#btn_cancel {
+    position: relative;
+    left: 0%;
+    width: 60px;
+    background-color: aquamarine;
+    border-radius: 12px;
+    display: none;
+}

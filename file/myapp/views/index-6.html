@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Conpress Business & Agency HTML Template | Home Six</title>
+<!-- Stylesheets -->
+<link href="stylesheets/bootstrap.css" rel="stylesheet">
+<link href="revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
+<link href="revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
+<link href="revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
+<link href="stylesheets/style.css" rel="stylesheet">
+<link href="stylesheets/responsive.css" rel="stylesheet">
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+<link href="stylesheets/login_signup.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="page-wrapper">
+ 	
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <!-- Main Header-->
+    <header class="main-header header-style-six">
+
+    	<!-- Main Box -->
+    	<div class="main-box">
+        	<div class="auto-container">
+                <div class="outer-container clearfix">
+                    <!--Logo Box-->
+                    <div class="logo-box">
+                        <div class="logo"><a href="#"><img src="images/img/logo_2.png" alt=""></a></div>
+                    </div>
+
+                    <!--Nav Outer-->
+                    <div class="nav-outer clearfix">
+                        <!-- Main Menu -->
+                        <nav class="main-menu">
+                            <div class="navbar-header">
+                      
+                                <!-- Toggle Button -->
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+
+                            <div class="navbar-collapse collapse clearfix">
+                                <ul class="navigation clearfix">
+                                    {{#if user}}
+                                    <li class="current"><a>{{username}}</a></li>
+                                    <li class="current" id = "navi_btn_signup"><a href="/user/profile">Profile</a></li>
+                                    <li class="current" id = "navi_bnt_login"><a href="/user/logout">Log Out</a></li>
+                                    {{else}}
+                                    <li class="current" ><a href="/user/signup">Sign up</a></li>
+                                    <li class="current" ><a href="/user/login">Log in</a></li>
+                                    {{/if}}
+                                 </ul>
+                            </div>
+                        </nav>
+                        <!-- Main Menu End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--End Main Header -->
+
+    <!--login_signup-->
+<!--     <div id = "div_login_signin_back" onclick = "div_login_signin_back_onclick()"></div>
+
+    <form id = "form_login">
+        <header id = "login_header">Login</header>
+        <label class = "login_signup_lbl">Email <span>*</span></label>
+        <input class = "login_signup_input" id = "login_email"/>
+        <label class = "login_signup_lbl">Password <span>*</span></label>
+        <input class = "login_signup_input" id = "login_password"/>
+        <button id = "login_btn" onclick = "login_btn_onclick()">Login</button>
+    </form>
+
+    <form id = "form_signup" method = "post" >
+        <header id = "signup_header">Sign Up</header>
+
+        <label class = "login_signup_lbl">Username<span>*</span></label>
+        <input class = "login_signup_input" id = "signup_username"/>
+
+        <label class = "login_signup_lbl">Email<span>*</span></label>
+        <input class = "login_signup_input" id = "signup_email"/>
+        
+        <label class = "login_signup_lbl">Password <span>*</span></label>
+        <input class = "login_signup_input" id = "signup_password"/>
+        <label class = "login_signup_lbl">Re-Enter Password <span>*</span></label>
+        <input class = "login_signup_input" id = "signup_password_2"/>
+        <button id = "signup_btn" onclick = "signup_btn_onclick()">Sign up</button>
+    </form> -->
+    <!--End Login_Signup -->
+
+
+
+
+
+    <!--Main Slider-->
+    <section class="main-slider style-three alternate">
+    	
+        <div class="rev_slider_wrapper fullwidthbanner-container"  id="rev_slider_one_wrapper" data-source="gallery">
+            <div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
+                <ul>
+                	<!--NEWS I-->
+                    <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1688" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/main-slider/thr1.jpg" data-title="Slide Title" data-transition="parallaxvertical">
+                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" v-bind:src="vue_img_src_1"> 
+                    
+                    <div class="tp-caption" 
+                    data-paddingbottom="[0,0,0,0]"
+                    data-paddingleft="[0,0,0,0]"
+                    data-paddingright="[0,0,0,0]"
+                    data-paddingtop="[0,0,0,0]"
+                    data-responsive_offset="on"
+                    data-type="text"
+                    data-height="none"
+                    data-width="['700','700','700','450']"
+                    data-whitespace="normal"
+                    data-hoffset="['15','15','15','15']"
+                    data-voffset="['-100','-80','-70','-40']"
+                    data-x="['left','left','left','left']"
+                    data-y="['middle','middle','middle','middle']"
+                    data-textalign="['top','top','top','top']"
+                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                    style="z-index: 7; white-space: nowrap;text-transform:left;">
+                    	<h4 class="bold">{{str_1}}</h4>
+                    </div>
+                    
+                    <div class="tp-caption tp-resizeme" 
+                    data-paddingbottom="[0,0,0,0]"
+                    data-paddingleft="[0,0,0,0]"
+                    data-paddingright="[0,0,0,0]"
+                    data-paddingtop="[0,0,0,0]"
+                    data-responsive_offset="on"
+                    data-type="text"
+                    data-height="none"
+                    data-width="['700','700','700','450']"
+                    data-whitespace="normal"
+                    data-hoffset="['15','15','15','15']"
+                    data-voffset="['100','125','115','120']"
+                    data-x="['left','left','left','left']"
+                    data-y="['middle','middle','middle','middle']"
+                    data-textalign="['top','top','top','top']"
+                    data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                    style="z-index: 7; white-space: nowrap;text-transform:left;">
+                    	<div class="btns-box">
+                    		<a v-bind:href="vue_url_1" class="theme-btn btn-style-eleven">More Detail</a>
+                        </div>
+                    </div>
+                
+                    </li>
+                    
+                    <!--NEWS II-->    
+                    <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1689" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/main-slider/thr3.jpg" data-title="Slide Title" data-transition="parallaxvertical">
+                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" v-bind:src="vue_img_src_2"> 
+                    
+                    <div class="tp-caption" 
+                    data-paddingbottom="[0,0,0,0]"
+                    data-paddingleft="[0,0,0,0]"
+                    data-paddingright="[0,0,0,0]"
+                    data-paddingtop="[0,0,0,0]"
+                    data-responsive_offset="on"
+                    data-type="text"
+                    data-height="none"
+                    data-width="['700','700','700','450']"
+                    data-whitespace="normal"
+                    data-hoffset="['15','15','15','15']"
+                    data-voffset="['-100','-80','-70','-40']"
+                    data-x="['left','left','left','left']"
+                    data-y="['middle','middle','middle','middle']"
+                    data-textalign="['top','top','top','top']"
+                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                    style="z-index: 7; white-space: nowrap;text-transform:left;">
+                    	<h4 class="bold">{{str_2}}</h4>
+                    </div>
+                    
+                    
+                    <div class="tp-caption tp-resizeme" 
+                    data-paddingbottom="[0,0,0,0]"
+                    data-paddingleft="[0,0,0,0]"
+                    data-paddingright="[0,0,0,0]"
+                    data-paddingtop="[0,0,0,0]"
+                    data-responsive_offset="on"
+                    data-type="text"
+                    data-height="none"
+                    data-width="['700','700','700','450']"
+                    data-whitespace="normal"
+                    data-hoffset="['15','15','15','15']"
+                    data-voffset="['100','125','115','120']"
+                    data-x="['left','left','left','left']"
+                    data-y="['middle','middle','middle','middle']"
+                    data-textalign="['top','top','top','top']"
+                    data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                    style="z-index: 7; white-space: nowrap;text-transform:left;">
+                    	<div class="btns-box">
+                    		<a v-bind:href="vue_url_2" target="_blank" class="theme-btn btn-style-eleven">More Detail</a>
+                        </div>
+                    </div>
+                    
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </section>
+    <!--End Main Slider-->
+
+    <!--Search Bar-->
+    <center><div class="logo">
+
+        <img src="images/img/logo.png" alt="billionaire">
+
+    </div></center>>
+
+    <form class="searchBar" action="/" method="post">
+
+                <input id="searchBarInput" type="text" name="stockName" placeholder="Type in the stock code/name in the search bar" >
+
+                <div>
+                    <input class="search-button" type="submit" value="Search Stock"/>
+                    <input class="search-button" type="submit" value="My Profile"/>
+                </div>
+
+            </form>
+    <!--End Search Bar-->
+
+
+    <!--Contact Section-->
+    <section class="contact-section style-two">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+            	<!--Form Column-->
+                <div class="form-column col-md-6 col-sm-6 col-xs-12">
+                	<div class="column-inner">
+                    	
+                        <!--Contact Form-->
+                        <div class="contact-form">
+                            <form method="post" action="blog.html">
+                            
+                                <div class="form-group">
+                                    <input type="email" name="email" placeholder="Email Address*" required>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <input type="text" name="subject" placeholder="Subject*">
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <textarea name="message" placeholder="Your Message*"></textarea>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <button class="theme-btn btn-style-twelve" type="submit" name="submit-form">SEND MESSAGE</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--Content Column-->
+                <div class="content-column col-md-6 col-sm-6 col-xs-12">
+                	<div class="inner">
+                    	<div class="sec-title-five">
+                        	<div class="title">Contact us</div>
+                            <h2>Don’t Hesitate to <br> contact with us for any <br> kind of information</h2>
+                        </div>
+                        <div class="text">Call us for imiditate support this number</div>
+                        <h3>880 876 65 455</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Contact Section-->
+
+
+    <!--Footer Style Two-->
+    <footer class="footer-style-two alternate no-padd-top">
+    	<div class="auto-container">
+        	<!--Widgets Section-->
+			<div class="widgets-section no-padd-top">
+            	<div class="row clearfix">
+                	
+                    <!--Big Column-->
+                	<div class="big-column col-md-6 col-sm-12 col-xs-12">
+                    	<div class="row clearfix">
+							
+                            <!--Footer Column / Logo Widget-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget logo-widget">
+                                    <div class="widget-content">
+                                        <div class="logo-box">
+                                            <a href="index.html"><img src="" alt="" /></a>
+                                        </div>
+                                        <div class="email">conpress@gmail.com</div>
+                                        <div class="number green_color">+202-277-3894</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--Footer Column / Link Widget-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget link-widget">
+                                	<h2>QUick Links</h2>
+									<div class="widget-content">
+                                    	<ul>
+                                        	<li><a href="#">Home Page</a></li>
+                                            <li><a href="#">Stock Page</a></li>
+                                            <li><a href="#">Trade Page</a></li>
+                                            <li><a href="#">Profile Page</a></li>
+                                            <li><a href="#">Game Page</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <!--Big Column-->
+                	<div class="big-column col-md-6 col-sm-12 col-xs-12">
+                    	<div class="row clearfix">
+                        	
+                            <!--Footer Column / Link Widget-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget link-widget">
+                                	<h2>About us</h2>
+									<div class="widget-content">
+                                    	<ul>
+                                        	<li><a href="#">billionaire</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--Footer Column / Subscribe Widget-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget subscribe-widget">
+                                	<h2>Subscribe Us</h2>
+									<div class="widget-content">
+                                    	<div class="email-form">
+                                        	<form method="post" action="contact.html">
+                                                <div class="form-group">
+                                                    <input type="email" name="email" value="" placeholder="Enter your mail" required>
+                                                    <!--<button type="submit"><span class="icon fa fa-angle-right"></span></button>-->
+                                                </div>
+                                            </form>
+                                        </div>
+                                    	<!--Social Icon Two-->
+                                        <ul class="social-icon-two">
+                                            <li><a href="#"><span class="fa fa-qq"></span></a></li>
+                                            <li><a href="#"><span class="fa fa-wechat"></span></a></li>
+                                            <li><a href="#"><span class="fa fa-weibo"></span></a></li>
+                                            <li><a href="https://github.com/wang2542"><span class="fa fa-github"></span></a></li>
+                                        </ul>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!--Footer Bottom-->
+            <div class="footer-bottom">
+            	<div class="row clearfix">
+
+                    <!--Counter Column-->
+
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+    <!--End Footer Style Two-->
+
+    
+</div>
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
+<!--Revolution Slider-->
+<script type="text/javascript">
+function makeTagList(callback) {
+    console.log("jin")
+    $.ajax({
+        url : '/News',
+        type : 'GET',
+        data : {
+            format: 'json'
+        },
+        dataType : 'json',
+        success : function(data) {
+            console.log("success!");
+            console.log(data);
+        },
+        error : function (error) {
+            console.log(error);
+        }
+    }).done(function(result) {
+        console.log("inside done");
+        console.log(result);
+    })
+}
+</script>
+<script src="js/jquery.js"></script> 
+<!--Revolution Slider-->
+<script src="https://vuejs.org/js/vue.js"></script>
+
+<script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="js/main-slider-script.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/jquery.fancybox-media.js"></script>
+<script src="js/owl.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/appear.js"></script>
+<script src="js/script.js"></script>
+
+<script src="js/login_signup.js"></script>
+
+</body>
+</html>
