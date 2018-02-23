@@ -1,5 +1,4 @@
 var express = require('express');
-var out;
 
 const webhoseio = require('webhoseio');
 const client = webhoseio.config({token: 'cf0134db-bd58-480c-b9ab-2aa7e552dab5'});
