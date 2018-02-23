@@ -13,19 +13,28 @@ var User = require('../model/user');
 router.get('/', function(req, res, next) {
   	news.getNews(function(result){
 	  	//var json = JSON.parse(result['posts'][0]);
-	  	console.log('lllllll');
+	  	console.log(result);
 
 	  	console.log(result['posts'][0]['title']);
 	  	console.log(result['posts'][0]['text']);
+	  	console.log(result['posts'][0]['url']);
 	  	if (!req.user) {
 		  	res.render('index-6', {
-		    	title : result['posts'][0]['title'],
-		    	text : result['posts'][0]['text'],
+		    	title_1 : result['posts'][0]['title'],
+		    	url_1 : result['posts'][0]['url'],
+		    	author_1 : result['posts'][0]['author'],
+		    	title_2 : result['posts'][1]['title'],
+		    	url_2 : result['posts'][1]['url'],
+		    	author_2 : result['posts'][1]['author']
 		 	});	
 	  	} else {
 	  		res.render('index-6', {
-	  			title : result['posts'][0]['title'],
-		    	text : result['posts'][0]['text'],
+	  			title_1 : result['posts'][0]['title'],
+		    	url_1 : result['posts'][0]['url'],
+		    	author_1 : result['posts'][0]['author'],
+		    	title_2 : result['posts'][1]['title'],
+		    	url_2 : result['posts'][1]['url'],
+		    	author_2 : result['posts'][1]['author'],
 				username: req.user.username
 			});
 	  	}
