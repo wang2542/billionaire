@@ -52,6 +52,11 @@ router.get('/login', function(req, res, next) {
 	res.render('login');
 });
 
+router.get('/game', function(req, res, next) {
+  //res.send('respond with a resource');
+	res.render('game');
+});
+
 router.get('/profile', function(req, res, next) {
   //res.send('respond with a resource');
 	res.render('profile', {
@@ -83,6 +88,7 @@ router.get('/reset/:token', function(req, res) {
 		res.render('reset', {token: encodeURIComponent(JSON.stringify(req.params.token))});
 	});
 })
+
 
 router.post('/signup', function(req, res, next) {
 	var signupUsername = req.body.username;
@@ -133,6 +139,8 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/user/l
   function(req, res) {
     res.redirect('/');
  });
+
+
 
 router.post('/profile', function(req, res, next){
 
