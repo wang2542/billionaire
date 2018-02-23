@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-
+<title>Billionaire</title>
 <!-- Stylesheets -->
 <link href="/stylesheets/bootstrap.css" rel="stylesheet">
 <link href="/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
@@ -23,7 +23,6 @@
 <link href="/stylesheets/reset_forget_password.css" rel="stylesheet">
 
 </head>
-
 
 <body>
 <div class="page-wrapper">
@@ -47,10 +46,16 @@
     </header>
     <!--End Main Header -->
 
+    {{#if errors}}
+        {{#each errors}}
+            <div class="alert alert-danger">{{msg}}</div>
+        {{/each}}
+    {{/if}}
+
     <!-- Signup -->
     <div>
         <form id = "form_signup" action="/user/signup" method="post">
-            <h1 style: "font-size: 20px;"> Signup</h1> 
+            <h1 style = "font-size: 20px"> Signup</h1> 
 
             <label id = "signup_lbl_email">Email</label>
             <input id = "signup_input_email" type="text" class="form-control" name="email">
