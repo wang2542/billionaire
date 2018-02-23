@@ -64,7 +64,7 @@
             var decodedJson = decodeURIComponent("{{{token}}}");
             var jsonObj = JSON.parse(decodedJson);
             console.log(jsonObj);
-            document.getElementById('reset-form').action = '/user/reset/' + jsonObj;
+            document.getElementById('form_reset_password').action = '/user/reset/' + jsonObj;
         </script>
  
         <hr>
