@@ -20,7 +20,7 @@ exports.searchStockBySymbl = function(symbl, callback) {
         if(error) return callback(error);
         else {
             var json = JSON.parse(body);
-            console.log(json);
+           // console.log(json);
             if( json) {
                 //console.log(json.result.formatted_address);
                 callback(null,json);

@@ -13,11 +13,11 @@ var User = require('../model/user');
 router.get('/', function(req, res, next) {
   	news.getNews(function(result){
 	  	//var json = JSON.parse(result['posts'][0]);
-	  	console.log(result);
+	  	//console.log(result);
 
-	  	console.log(result['posts'][0]['title']);
-	  	console.log(result['posts'][0]['text']);
-	  	console.log(result['posts'][0]['url']);
+	  	//console.log(result['posts'][0]['title']);
+	  	//console.log(result['posts'][0]['text']);
+	  	//console.log(result['posts'][0]['url']);
 	  	if (!req.user) {
 		  	res.render('index-6', {
 		    	title_1 : result['posts'][0]['title'],
@@ -43,16 +43,16 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/', function(req, res, next){
-	console.log('search stock');
-	console.log(req.body.stockName);
-	stockInfo.searchStockByName(req.body.stockName, function(err, infom) {
+	//console.log('search stock');
+	//console.log(req.body.stockName);
+	stockInfo.searchStockBySymbl(req.body.stockName, function(err, infom) {
 
 		if (err) {
 			//res.redirect('/error');
 		}
 		else {
 			console.log(infom);
-      res.redirect('/stock');
+      res.redirect('/');
       
 		}
 	});
