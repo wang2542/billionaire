@@ -44,7 +44,9 @@ router.get('/game', function(req, res, next) {
 	res.render('game');
 });
 
-
+router.get('/stock',function(req,res,next){
+	res.render('stock');
+})
 router.post('/', function(req, res, next){
 	console.log('search stock');
 	console.log(req.body.stockName);
