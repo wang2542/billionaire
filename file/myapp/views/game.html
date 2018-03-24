@@ -1,748 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- BEGIN HEAD -->
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>Gmae Page</title>
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
-	<!-- icons -->
-    <link href="../assets/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<!--bootstrap -->
-	<link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Material Design Lite CSS -->
-	<link rel="stylesheet" href="../assets/plugins/material/material.min.css">
-	<link rel="stylesheet" href="../assets/css/material_style.css">
-	<!-- animation -->
-	<link href="../assets/css/pages/animate_page.css" rel="stylesheet">
-	<!-- Theme Styles -->
-    
-    <link href="../assets/css/plugins.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/responsive.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/theme-color.css" rel="stylesheet" type="text/css" />
-    <!-- Owl Carousel Assets -->
-    <link href="../assets/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="../assets/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
-	<!-- favicon -->
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" /> 
- </head>
- <!-- END HEAD -->
-<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-sidebar-color logo-dark">
-    <div class="page-wrapper">
-        <!-- start header -->
-		<div class="page-header navbar navbar-fixed-top">
-            <div class="page-header-inner ">
-                <!-- logo start -->
-                <div class="page-logo">
-                    <a href="index.html">
-                    <span class="logo-icon material-icons fa-rotate-45">mood</span>
-                    <span class="logo-default" >Smile</span> </a>
-                </div>
-                <!-- logo end -->
-				<ul class="nav navbar-nav navbar-left in">
-					<li><a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu"></i></a></li>
-				</ul>
-                 <form class="search-form-opened" action="#" method="GET">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search..." name="query">
-                        <span class="input-group-btn">
-                          <a href="javascript:;" class="btn submit">
-                             <i class="icon-magnifier"></i>
-                           </a>
-                        </span>
-                    </div>
-                </form>
-                <!-- start mobile menu -->
-                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span></span>
-                </a>
-               <!-- end mobile menu -->
-                <!-- start header menu -->
-                <div class="top-menu">
-                    <ul class="nav navbar-nav pull-right">
-                        <!-- start notification dropdown -->
-                        <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
-                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="badge headerBadgeColor1"> 6 </span>
-                            </a>
-                            <ul class="dropdown-menu animated swing">
-                                <li class="external">
-                                    <h3><span class="bold">Notifications</span></h3>
-                                    <span class="notification-label purple-bgcolor">New 6</span>
-                                </li>
-                                <li>
-                                    <ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
-                                        <li>
-                                            <a href="javascript:;">
-                                                <span class="time">just now</span>
-                                                <span class="details">
-                                                <span class="notification-icon circle deepPink-bgcolor"><i class="fa fa-check"></i></span> Congratulations!. </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <span class="time">3 mins</span>
-                                                <span class="details">
-                                                <span class="notification-icon circle purple-bgcolor"><i class="fa fa-user o"></i></span>
-                                                <b>John Micle </b>is now following you. </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <span class="time">7 mins</span>
-                                                <span class="details">
-                                                <span class="notification-icon circle blue-bgcolor"><i class="fa fa-comments-o"></i></span>
-                                                <b>Sneha Jogi </b>sent you a message. </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <span class="time">12 mins</span>
-                                                <span class="details">
-                                                <span class="notification-icon circle pink"><i class="fa fa-heart"></i></span>
-                                                <b>Ravi Patel </b>like your photo. </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <span class="time">15 mins</span>
-                                                <span class="details">
-                                                <span class="notification-icon circle yellow"><i class="fa fa-warning"></i></span> Warning! </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <span class="time">10 hrs</span>
-                                                <span class="details">
-                                                <span class="notification-icon circle red"><i class="fa fa-times"></i></span> Application error. </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="dropdown-menu-footer">
-                                        <a href="javascript:void(0)"> All notifications </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- end notification dropdown -->
-                        
- 						<!-- start manage user dropdown -->
- 						<li class="dropdown dropdown-user">
-                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <img alt="" class="img-circle " src="../assets/img/dp.jpg" />
-                                <span class="username username-hide-on-mobile"> Kiran </span>
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-default animated jello">
-                                <li>
-                                    <a href="user_profile.html">
-                                        <i class="icon-user"></i> Profile </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-settings"></i> Settings
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-directions"></i> Help
-                                    </a>
-                                </li>
-                                <li class="divider"> </li>
-                                <li>
-                                    <a href="lock_screen.html">
-                                        <i class="icon-lock"></i> Lock
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="login.html">
-                                        <i class="icon-logout"></i> Log Out </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- end manage user dropdown -->
-                        <li class="dropdown dropdown-quick-sidebar-toggler">
-                             <a id="headerSettingButton" class="mdl-button mdl-js-button mdl-button--icon pull-right" data-upgraded=",MaterialButton">
-	                           <i class="material-icons">more_vert</i>
-	                        </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- end header -->
-        
-        <!-- start page container -->
-        <div class="page-container">
- 			<!-- start sidebar menu -->
- 			<div class="sidebar-container">
- 				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
-	                <div id="remove-scroll">
-	                    <ul class="sidemenu  page-header-fixed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
-	                        <li class="sidebar-toggler-wrapper hide">
-	                            <div class="sidebar-toggler">
-	                                <span></span>
-	                            </div>
-	                        </li>
-	                        <li class="sidebar-user-panel">
-	                            <div class="user-panel">
-	                                <div class="pull-left image">
-	                                    <img src="../assets/img/dp.jpg" class="img-circle user-img-circle" alt="User Image" />
-	                                </div>
-	                                <div class="pull-left info">
-	                                    <p> Kiran Patel</p>
-	                                    <a href="#"><i class="fa fa-circle user-online"></i><span class="txtOnline"> Online</span></a>
-                                        <p>Cash: 10000</p>
-	                                </div>
-	                            </div>
-	                        </li>
-	                        <li class="nav-item start active">
-	                            <a href="#" class="nav-link nav-toggle">
-	                                <i class="material-icons">dashboard</i>
-	                                <span class="title">Dashboard</span>
-                                	<span class="selected"></span>
-	                            </a>
-	                        </li>
-	                       
-	                        <li class="nav-item">
-	                            <a href="#" class="nav-link nav-toggle"> <i class="material-icons">desktop_mac</i>
-	                                <span class="title">Profile</span></span>
-	                            </a>
 
-	                        </li>
-	                       
-	                        <li class="nav-item">
-	                            <a href="javascript:;" class="nav-link nav-toggle">
-	                                <i class="material-icons">timeline</i>
-	                                <span class="title">Stock Page</span>
-	                            </a>
-	                           
-	                        </li>
-	                      
-	                      
-	                    </ul>
-	                </div>
-                </div>
-            </div>
-			 <!-- end sidebar menu -->
-			<!-- start page content -->
-            <div class="page-content-wrapper">
-                <div class="page-content">
-                    <div class="page-bar">
-                        <div class="page-title-breadcrumb">
-                            <div class=" pull-left">
-                                <div class="page-title">Dashboard</div>
-                            </div>
-                            <ol class="breadcrumb page-breadcrumb pull-right">
-                                <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="/">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>cs 407</title>
+    <link href="stylesheets/gamestyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="icoAdmin" class="icoAdmin random-data">
+       <div class="icoAdmin-overlay-box"></div>
+        <div class="icoAdmin-container">
+            <header class="icoAdmin-header">
+                <div class="icoAdmin-wrapper">
+                    <div class="icoAdmin-left-header">
+                        <div class="icoAdmin-logo">
+								<span class="logo-text">cs 407 title<span class="hide-in-smallsize"></span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="icoAdmin-right-header">
+                        <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="icon-menu"></i></a></div>
+                        
+                        <div class="icoAdmin-rr-header">
+                            <ul>
+                                <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+										</a>
+                                   
                                 </li>
-                                <li class="active">Dashboard</li>
-                            </ol>
+                           
+                                <li class="icons">
+                                    <a href="javascript:void(0)"> <i class="fa fa-user" aria-hidden="true"></i> </a>
+                                    <div class="drop-down dropdown-profile">
+                                        <div class="dropdown-content-body">
+                                            <ul>
+                                                <li><a href="#"><i class="ti-settings"></i> <span>Profile</span></a></li>
+                                                <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <!-- start widget -->
-					<div class="row">
-	                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-	                        <div class="analysis-box m-b-0 bg-b-purple">
-	                            <h3 class="text-white box-title">Orders <span class="pull-right"><i class="fa fa-caret-up"></i> 345</span></h3>
-	                            <div id="sparkline7"><canvas style="display: inline-block; width: 267px; height: 70px; vertical-align: top;"></canvas></div>
-	                        </div>
-	                    </div>
-	                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-	                        <div class="analysis-box m-b-0 bg-b-danger">
-	                            <h3 class="text-white box-title">Sales <span class="pull-right"><i class="fa fa-caret-up"></i> 643</span></h3>
-	                            <div id="sparkline12"><canvas style="display: inline-block; width: 367px; height: 70px; vertical-align: top;"></canvas></div>
-	                        </div>
-	                    </div>
-	                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-	                        <div class="analysis-box m-b-0 bg-b-cyan">
-	                            <h3 class="text-white box-title">New User <span class="pull-right"><i class="fa fa-caret-up"></i>765</span></h3>
-	                            <div id="sparkline9"><canvas style="display: inline-block; width: 267px; height: 70px; vertical-align: top;"></canvas></div>
-	                        </div>
-	                    </div>
-	                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-	                        <div class="analysis-box m-b-0 bg-b-blue">
-	                            <h3 class="text-white box-title">Visitors <span class="pull-right"><i class="fa fa-caret-up"></i> 323</span></h3>
-	                            <div id="sparkline16" class="text-center"><canvas style="display: inline-block; width: 215px; height: 70px; vertical-align: top;"></canvas></div>
-	                        </div>
-	                    </div>
-                	</div>
-					<!-- end widget -->
-					<!-- chart start -->
-                    	<div class="row">
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-							<div class="card card-box">
-	                              <div class="card-head">
-	                                  <header>Income/Expense Report </header>
-	                                  <div class="tools">
-	                                    <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
-										<a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
-										<a class="t-close btn-color fa fa-times" href="javascript:;"></a>
-	                                 </div>
-	                              </div>
-	                              <div class="card-body no-padding height-9">
-									<div class="row">
-									    <canvas id="bar-chart"></canvas>
-									</div>
-								</div>
-	                          </div>
-				            </div>
-				            <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-								<div class="card card-box">
-		                              <div class="card-head">
-		                                  <header>Income/Expense Report</header>
-		                                  <div class="tools">
-		                                    <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
-											<a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
-											<a class="t-close btn-color fa fa-times" href="javascript:;"></a>
-		                                 </div>
-		                              </div>
-		                              <div class="card-body no-padding height-9">
-										<div class="row">
-										    <canvas id="myChart"></canvas>
-										</div>
-									</div>
-		                          </div>
-				            </div>
-                    </div>
-                     <!-- Chart end -->
-                     <!-- start course list -->
-                     <div class="row">
-						<div class="col-lg-3 col-md-6 col-12 col-sm-6"> 
-							<div class="blogThumb">
-								<div class="thumb-center"><img class="img-responsive" alt="user" src="../assets/img/blog/blog1.jpg"></div>
-	                        	<div class="white-box">
-		                            <div class="text-muted"><span class="m-r-10">June 16</span> 
-		                            	<a class="text-muted m-l-10" href="#"><i class="fa fa-heart-o"></i> 56</a>
-		                            </div>
-		                            <h3 class="m-t-20 m-b-20">White Woman Practices Yoga In</h3>
-		                            <p>There is a new neighbor on Sesame Street. Her name is Julia </p>
-		                            <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read more</button>
-	                        	</div>
-	                    	</div>
-                    	</div>
-	                    <div class="col-lg-3 col-md-6 col-12 col-sm-6"> 
-		                    <div class="blogThumb">
-								<div class="thumb-center"><img class="img-responsive" alt="user" src="../assets/img/blog/blog2.jpg"></div>
-	                        	<div class="white-box">
-		                            <div class="text-muted"><span class="m-r-10">Feb 12</span> 
-		                            	<a class="text-muted m-l-10" href="#"><i class="fa fa-heart-o"></i> 45</a>
-		                            </div>
-		                            <h3 class="m-t-20 m-b-20">How Much Radon is In Your Home?</h3>
-		                            <p>There is a new neighbor on Sesame Street. Her name is Julia</p>
-		                            <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read more</button>
-	                        	</div>
-	                        </div>
-                    	</div>
-	                    <div class="col-lg-3 col-md-6 col-12 col-sm-6"> 
-		                    <div class="blogThumb">
-								<div class="thumb-center"><img class="img-responsive" alt="user" src="../assets/img/blog/blog3.jpg"></div>
-	                        	<div class="white-box">
-		                            <div class="text-muted"><span class="m-r-10">Dec 17</span> 
-		                            	<a class="text-muted m-l-10" href="#"><i class="fa fa-heart-o"></i> 79</a>
-		                            </div>
-		                            <h3 class="m-t-20 m-b-20">White Woman Practices Yoga In</h3>
-		                            <p>There is a new neighbor on Sesame Street. Her name is Julia </p>
-		                            <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read more</button>
-	                        	</div>
-	                        </div>
-                    	</div>
-	                    <div class="col-lg-3 col-md-6 col-12 col-sm-6"> 
-		                    <div class="blogThumb">
-								<div class="thumb-center"><img class="img-responsive" alt="user" src="../assets/img/blog/blog4.jpg"></div>
-	                        	<div class="white-box">
-		                            <div class="text-muted"><span class="m-r-10">April 23</span> 
-		                            	<a class="text-muted m-l-10" href="#"><i class="fa fa-heart-o"></i> 654</a>
-		                            </div>
-		                            <h3 class="m-t-20 m-b-20">How Much Radon is In Your Home?</h3>
-		                            <p>There is a new neighbor on Sesame Street. Her name is Julia</p>
-		                            <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Read more</button>
-	                        	</div>
-	                        </div>	
-                    	</div>
-			        </div>
-			        <!-- End course list -->
-			        <div class="row">
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-                        	<div class="card  card-box">
-                                <div class="card-head">
-                                    <header>CHAT</header>
-                                    <button id = "chatlist" 
-			                           class = "mdl-button mdl-js-button mdl-button--icon pull-right" 
-			                           data-upgraded = ",MaterialButton">
-			                           <i class = "material-icons">more_vert</i>
-			                        </button>
-			                        <ul class = "mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-			                           data-mdl-for = "chatlist">
-			                           <li class = "mdl-menu__item"><i class="material-icons">assistant_photo</i>Action</li>
-			                           <li class = "mdl-menu__item"><i class="material-icons">print</i>Another action</li>
-			                           <li class = "mdl-menu__item"><i class="material-icons">favorite</i>Something else here</li>
-			                        </ul>
+                </div>
+            </header>
+            <div class="icoAdmin-main-container">
+                <div class="icoAdmin-wrapper">
+                    <nav class="icoAdmin-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="icoAdmin-inner-navbar">
+                            <div class="icoAdmin-search"> <span class="searchbar-toggle">  </span>
+                                <div class="icoAdmin-search-box ">
+                                    <input type="text" placeholder="Search"> <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </div>
+                            </div>
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="#"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
+                                </li>
+                            </ul>
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="#"> <span class="icoAdmin-micon"><i class="icon-speedometer"></i></span> <span class="icoAdmin-mtext">Game Page</span></a>
+                                    
+                                </li>
+                            </ul>
+
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                            <a href="/game/watchlist"> <span class="icoAdmin-micon"><i class="icon-calender"></i></span> <span class="icoAdmin-mtext">Watchlist</span></a>
+                                </li>
+                            </ul>
+
+                            
+
+                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                      <a href="#"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="icoAdmin-content">
+                        <div class="icoAdmin-inner-content container-fluid">
+                            <div class="row page-titles">
+                                <div class="col-md-2 align-self-center">
+                                    <h3 class="text-primary">Dashboard</h3>
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                        <li class="breadcrumb-item active">Dashboard</li>
+                                    </ol>
                                 </div>
-                                <div class="card-body no-padding height-9">
-                                    <div class="row">
-                                        <ul class="chat nice-chat small-slimscroll-style">
-                                            <li class="in"><img src="../assets/img/user/user1.jpg" class="avatar" alt="">
-                                                <div class="message">
-                                                    <span class="arrow"></span> <a class="name" href="#">Jone
-														Doe</a> <span class="datetime">at Mar 12, 2014 6:12</span> <span class="body"> Lorem ipsum dolor sit amet,
-														consectetuer adipiscing elit </span>
-                                                </div>
-                                            </li>
-                                            <li class="out"><img src="../assets/img/dp.jpg" class="avatar" alt="">
-                                                <div class="message">
-                                                    <span class="arrow"></span> <a class="name" href="#">Kiran
-														Patel</a> <span class="datetime">at Mar 12, 2014 6:13</span> <span class="body"> sed diam nonummy nibh euismod
-														tincidunt ut </span>
-                                                </div>
-                                            </li>
-                                            <li class="in"><img src="../assets/img/user/user1.jpg" class="avatar" alt="">
-                                                <div class="message">
-                                                    <span class="arrow"></span> <a class="name" href="#">Jone
-														Doe</a> <span class="datetime">at Mar 12, 2014 6:12</span> <span class="body"> aoreet dolore magna aliquam erat
-														volutpat. </span>
-                                                </div>
-                                            </li>
-                                            <li class="out"><img src="../assets/img/dp.jpg" class="avatar" alt="">
-                                                <div class="message">
-                                                    <span class="arrow"></span> <a class="name" href="#">Kiran
-														Patel</a> <span class="datetime">at Mar 12, 2014 6:13</span> <span class="body"> sed diam nonummy nibh euismod
-														tincidunt ut </span>
-                                                </div>
-                                            </li>
-                                            <li class="in"><img src="../assets/img/user/user1.jpg" class="avatar" alt="">
-                                                <div class="message">
-                                                    <span class="arrow"></span> <a class="name" href="#">Jone
-														Doe</a> <span class="datetime">at Mar 12, 2014 6:12</span> <span class="body"> aoreet dolore magna aliquam erat
-														volutpat. </span>
-                                                </div>
-                                            </li>
-                                            <li class="out"><img src="../assets/img/dp.jpg" class="avatar" alt="">
-                                                <div class="message">
-                                                    <span class="arrow"></span> <a class="name" href="#">Kiran
-														Patel</a> <span class="datetime">at Mar 12, 2014 6:13</span> <span class="body"> sed diam nonummy nibh euismod
-														tincidunt ut </span>
-                                                </div>
-                                            </li>
-                                            <li class="in"><img src="../assets/img/user/user1.jpg" class="avatar" alt="">
-                                                <div class="message">
-                                                    <span class="arrow"></span> <a class="name" href="#">Jone
-														Doe</a> <span class="datetime">at Mar 12, 2014 6:12</span> <span class="body"> aoreet dolore magna aliquam erat
-														volutpat. </span>
-                                                </div>
-                                            </li>
-                                            <li class="out"><img src="../assets/img/dp.jpg" class="avatar" alt="">
-                                                <div class="message">
-                                                    <span class="arrow"></span> <a class="name" href="#">Kiran
-														Patel</a> <span class="datetime">at Mar 12, 2014 6:13</span> <span class="body"> sed diam nonummy nibh euismod
-														tincidunt ut </span>
-                                                </div>
-                                            </li>
-                                            <li class="in"><img src="../assets/img/user/user1.jpg" class="avatar" alt="">
-                                                <div class="message">
-                                                    <span class="arrow"></span> <a class="name" href="#">Jone
-														Doe</a> <span class="datetime">at Mar 12, 2014 6:12</span> <span class="body"> aoreet dolore magna aliquam erat
-														volutpat. </span>
-                                                </div>
-                                            </li>
-                                            <li class="out"><img src="../assets/img/dp.jpg" class="avatar" alt="">
-                                                <div class="message">
-                                                    <span class="arrow"></span> <a class="name" href="#">Kiran
-														Patel</a> <span class="datetime">at Mar 12, 2014 6:13</span> <span class="body"> sed diam nonummy nibh </span>
-                                                </div>
-                                            </li>
+                                <div class="col-md-10 align-self-center">
+                                    <div class="crypto-ticker">
+                                        <ul id="webticker-dark-icons">
+                                            <li data-update="item1"><i class="cc BTC"></i> APPL <span class="coin-value"> $11.039232</span></li>
+                                            <li data-update="item2"><i class="cc ETH"></i> AMAZ <span class="coin-value"> $1.2792</span></li>
                                         </ul>
-                                        <div class="box-footer chat-box-submit">
-						                <form action="#" method="post">
-						                  <div class="input-group">
-						                    <input type="text" name="message" placeholder="Enter your ToDo List" class="form-control">
-						                    <span class="input-group-btn">
-						                    <button type="submit" class="btn btn-warning btn-flat"><i class="fa fa-arrow-right"></i></button>
-						                    </span> </div>
-						                </form>
-					               </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-			                <div class="card card-box">
-                                 <div class="card-head">
-                                     <header>Todo List</header>
-                                     <button id = "panel-button" 
-				                           class = "mdl-button mdl-js-button mdl-button--icon pull-right" 
-				                           data-upgraded = ",MaterialButton">
-				                           <i class = "material-icons">more_vert</i>
-				                        </button>
-				                        <ul class = "mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-				                           data-mdl-for = "panel-button">
-				                           <li class = "mdl-menu__item"><i class="material-icons">assistant_photo</i>Action</li>
-				                           <li class = "mdl-menu__item"><i class="material-icons">print</i>Another action</li>
-				                           <li class = "mdl-menu__item"><i class="material-icons">favorite</i>Something else here</li>
-				                        </ul>
-                                 </div>
-                                 <div class="card-body ">
-                                 	<ul class="to-do-list ui-sortable" id="sortable-todo">
-                                            <li class="clearfix">
-                                                <div class="todo-check pull-left">
-                                                    <input type="checkbox" value="None" id="todo-check1">
-                                                    <label for="todo-check1"></label>
+                            <div class="row">
+                           
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="stat-widget-seven">
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <i class="cc DASH"></i>
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <h3>APPL</h3>
+                                                        <h6 class="text-muted"><span class="color-gray"></span> <span class="text-info">$0.04</span></h6>
+                                                    </div>
+                                                    <div class="col-5 text-right">
+                                                        <h3>$171</h3>
+                                                        <h6 class="text-primary">31% <i class="ti-arrow-up f-s-16 text-primary m-l-5"></i></h6>
+                                                    </div>
                                                 </div>
-                                                <p class="todo-title">Add payment details in system
-                                                </p>
-                                                <div class="todo-actionlist pull-right clearfix">
-                                                    <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
+                                                <div class="m-t-15">
+                                                    <span class="peity-dash" data-peity='{ "fill": "rgba(28,117,188,0.3)", "stroke": "#1c75bc"}'>6,2,8,4,3,8,1,3,6,5,9,2,8,1,4,8,9,8,2,1</span>
                                                 </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="todo-check pull-left">
-                                                    <input type="checkbox" value="None" id="todo-check2">
-                                                    <label for="todo-check2"></label>
-                                                </div>
-                                                <p class="todo-title">Announcement for holiday
-                                                </p>
-                                                <div class="todo-actionlist pull-right clearfix">
-                                                    <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="todo-check pull-left">
-                                                    <input type="checkbox" value="None" id="todo-check3">
-                                                    <label for="todo-check3"></label>
-                                                </div>
-                                                <p class="todo-title">call bus driver</p>
-                                                <div class="todo-actionlist pull-right clearfix">
-                                                    <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="todo-check pull-left">
-                                                    <input type="checkbox" value="None" id="todo-check4">
-                                                    <label for="todo-check4"></label>
-                                                </div>
-                                                <p class="todo-title">School picnic</p>
-                                                <div class="todo-actionlist pull-right clearfix">
-                                                    <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="todo-check pull-left">
-                                                    <input type="checkbox" value="None" id="todo-check5">
-                                                    <label for="todo-check5"></label>
-                                                </div>
-                                                <p class="todo-title">Exam time table generate
-                                                </p>
-                                                <div class="todo-actionlist pull-right clearfix">
-                                                    <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="todo-check pull-left">
-                                                    <input type="checkbox" value="None" id="todo-check7">
-                                                    <label for="todo-check1"></label>
-                                                </div>
-                                                <p class="todo-title">Add payment details in system
-                                                </p>
-                                                <div class="todo-actionlist pull-right clearfix">
-                                                    <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="todo-check pull-left">
-                                                    <input type="checkbox" value="None" id="todo-check8">
-                                                    <label for="todo-check3"></label>
-                                                </div>
-                                                <p class="todo-title">call bus driver</p>
-                                                <div class="todo-actionlist pull-right clearfix">
-                                                    <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="todo-check pull-left">
-                                                    <input type="checkbox" value="None" id="todo-check6">
-                                                    <label for="todo-check6"></label>
-                                                </div>
-                                                <p class="todo-title">Add fees details in system
-                                                </p>
-                                                <div class="todo-actionlist pull-right clearfix">
-                                                    <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                 </div>
-                             </div>
-			            </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 col-sm-12 col-12">
-	                        <div class="white-box border-gray">
-	                            <h3 class="box-title"><small class="pull-right m-t-10 text-success"><i class="fa fa-sort-asc"></i> 18% High then last month</small>Site Traffic</h3>
-	                            <div class="stats-row">
-	                                <div class="stat-item">
-	                                    <h6>Overall Growth</h6> <b>40.40%</b></div>
-	                                <div class="stat-item">
-	                                    <h6>Montly</h6> <b>55.40%</b></div>
-	                                <div class="stat-item">
-	                                    <h6>Day</h6> <b>4.50%</b></div>
-	                            </div>
-	                            <div id="sparkline14"><canvas width="378" height="50" style="display: inline-block; width: 378px; height: 50px; vertical-align: top;"></canvas></div>
-	                        </div>
-	                    </div>
-                        <div class="col-md-4 col-sm-12 col-12">
-                            <div class="card  card-box">
-                                <div class="card-head">
-                                    <header>Notifications</header>
-                                    <div class="tools">
-                                        <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
-	                                    <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
-	                                    <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card-body no-padding height-9">
-                                    <div class="row">
-                                        <div class="noti-information notification-menu">
-                                            <div class="notification-list mail-list not-list small-slimscroll-style">
-                                                <a href="javascript:;" class="single-mail"> <span class="icon bg-primary"> <i class="fa fa-user-o"></i>
-												</span> <span class="text-purple">Abhay Jani</span> Added you as friend
-                                                    <span class="notificationtime">
-                                                        <small>Just Now</small>
-                                                    </span>
-                                                </a>
-                                                <a href="javascript:;" class="single-mail"> <span class="icon blue-bgcolor"> <i class="fa fa-envelope-o"></i>
-												</span> <span class="text-purple">John Doe</span> send you a mail
-                                                    <span class="notificationtime">
-                                                        <small>Just Now</small>
-                                                    </span>
-                                                </a>
-                                                <a href="javascript:;" class="single-mail"> <span class="icon bg-success"> <i class="fa fa-check-square-o"></i>
-												</span> Success Message
-                                                    <span class="notificationtime">
-                                                        <small> 2 Days Ago</small>
-                                                    </span>
-                                                </a>
-                                                <a href="javascript:;" class="single-mail"> <span class="icon bg-warning"> <i class="fa fa-warning"></i>
-												</span> <strong>Database Overloaded Warning!</strong>
-                                                    <span class="notificationtime">
-                                                        <small>1 Week Ago</small>
-                                                    </span>
-                                                </a>
-                                                <a href="javascript:;" class="single-mail"> <span class="icon bg-primary"> <i class="fa fa-user-o"></i>
-												</span> <span class="text-purple">Abhay Jani</span> Added you as friend
-                                                    <span class="notificationtime">
-                                                        <small>Just Now</small>
-                                                    </span>
-                                                </a>
-                                                <a href="javascript:;" class="single-mail"> <span class="icon blue-bgcolor"> <i class="fa fa-envelope-o"></i>
-												</span> <span class="text-purple">John Doe</span> send you a mail
-                                                    <span class="notificationtime">
-                                                        <small>Just Now</small>
-                                                    </span>
-                                                </a>
-                                                <a href="javascript:;" class="single-mail"> <span class="icon bg-success"> <i class="fa fa-check-square-o"></i>
-												</span> Success Message
-                                                    <span class="notificationtime">
-                                                        <small> 2 Days Ago</small>
-                                                    </span>
-                                                </a>
-                                                <a href="javascript:;" class="single-mail"> <span class="icon bg-warning"> <i class="fa fa-warning"></i>
-												</span> <strong>Database Overloaded Warning!</strong>
-                                                    <span class="notificationtime">
-                                                        <small>1 Week Ago</small>
-                                                    </span>
-                                                </a>
-                                                <a href="javascript:;" class="single-mail"> <span class="icon bg-danger"> <i class="fa fa-times"></i>
-												</span> <strong>Server Error!</strong>
-                                                    <span class="notificationtime">
-                                                        <small>10 Days Ago</small>
-                                                    </span>
-                                                </a>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="stat-widget-seven">
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <i class="cc ETH" title="ETH"></i>
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <h3>AMAZ</h3>
+                                                        <h6 class="text-muted"><span class="color-gray"></span> <span class="text-info">$0.04</span></h6>
+                                                    </div>
+                                                    <div class="col-5 text-right">
+                                                        <h3>$1569</h3>
+                                                        <h6 class="text-info">31% <i class="ti-arrow-up f-s-16 text-info m-l-5"></i></h6>
+                                                    </div>
+                                                </div>
+                                                <div class="m-t-15">
+                                                    <span class="peity-eth" data-peity='{ "fill": "rgba(70,70,70,0.3)", "stroke": "#282828"}'>6,2,8,4,3,8,1,3,6,5,9,2,8,1,4,8,9,8,2,1</span>
+                                                </div>
                                             </div>
-											<div class="full-width text-center p-t-10" >
-												<button type="button" class="btn purple btn-outline btn-circle margin-0">View All</button>
-											</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                         
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Trade History</h4>
+                                            <div class="trade-history-table">
+                                                <div class="table-responsive">
+                                                    <table class="table table-xs">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Company</th>
+                                                                <th>Price($)</th>
+                                                                <th>Amount</th>
+                                                                <th>Date</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>APPL</th>
+                                                                <th>11900.12</th>
+                                                                <th>0.215</th>
+                                                                <th>11:23:25</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>AMAZ</th>
+                                                                <th>11903.18</th>
+                                                                <th>1.545</th>
+                                                                <th>11:23:05</th>
+                                                            </tr>
+                                                           
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+
+                      
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel-footer"> 2018 © cs407</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4 col-sm-12 col-12">
-	                        <div class="white-box border-gray">
-	                            <div class="user-bg"> 
-	                                <div class="overlay-box">
-	                                    <div class="user-content">
-	                                        <a href="javascript:void(0)"><img alt="img" class="thumb-lg img-circle" src="../assets/img/dp.jpg"></a>
-	                                        <h4 class="text-white">Kiran Patel</h4>
-	                                        <h5 class="text-white">info@kiranpatel.com</h5> </div>
-	                                </div>
-	                            </div>
-	                            <div class="user-btm-box">
-	                            	<div class="row">
-		                                <div class="col-md-4 col-sm-4 text-center">
-		                                    <p class="text-purple"><i class="fa fa-facebook"></i></p>
-		                                    <h1>467</h1> </div>
-		                                <div class="col-md-4 col-sm-4 text-center">
-		                                    <p class="text-success"><i class="fa fa-twitter"></i></p>
-		                                    <h1>234</h1> </div>
-		                                <div class="col-md-4 col-sm-4 text-center">
-		                                    <p class="text-danger"><i class="fa fa-instagram"></i></p>
-		                                    <h1>686</h1> </div>
-	                                </div>
-	                                <div class="col-md-12  m-b-0 text-center">
-	                                    <div class="stat-item">
-	                                        <h6>Contact info</h6> <b><i class="ti-mobile"></i> 123-456-7890</b></div>
-	                                </div>
-	                            </div>
-	                        </div>
-                    	</div>
                     </div>
                 </div>
             </div>
-            <!-- end page content -->
-           
         </div>
-        <!-- end page container -->
-        <!-- start footer -->
-        <div class="page-footer">
-            <div class="page-footer-inner"> 2018 &copy; 
-            
-            </div>
-            <div class="scroll-to-top">
-                <i class="icon-arrow-up"></i>
-            </div>
-        </div>
-        <!-- end footer -->
     </div>
-    <!-- start js include path -->
-    <script src="../assets/plugins/jquery/jquery.min.js" ></script>
-    <script src="../assets/plugins/popper/popper.min.js" ></script>
-    <script src="../assets/plugins/jquery-blockui/jquery.blockui.min.js" ></script>
-	<script src="../assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <!-- bootstrap -->
-    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js" ></script>
-    <!-- Common js-->
-	<script src="../assets/js/app.js" ></script>
-    <script src="../assets/js/layout.js" ></script>
-    <script src="../assets/js/theme-color.js" ></script>
-    <!-- owl carousel -->
-    <script src="../assets/plugins/owl-carousel/owl.carousel.js"></script>
-    <script src="../assets/js/pages/owl-carousel/owl_data.js"></script>
-    <!-- material -->
-    <script src="../assets/plugins/material/material.min.js"></script>
-	<!-- animation -->
-	<script src="../assets/js/pages/ui/animations.js" ></script>
-    <!-- chart js -->
-    <script src="../assets/plugins/chart-js/Chart.bundle.js" ></script>
-    <script src="../assets/plugins/chart-js/utils.js" ></script>
-    <script src="../assets/js/pages/chart/chartjs//home-data3.js" ></script>
-    <!-- sparkline -->
-    <script src="../assets/plugins/sparkline/jquery.sparkline.min.js" ></script>
-	<script src="../assets/js/pages/sparkline/sparkline-data.js" ></script>
-    <!-- end js include path -->
-  </body>
+
+    <!-- Common JS -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+    <!-- Sidebar -->
+    <script src="../assets/plugins/iconav/js/iconav.min.js"></script>
+    <script src="../assets/plugins/iconav/js/iconav-init.js"></script>
+    <!-- Peity chart -->
+    <script src="../assets/plugins/peity/jquery.peity.min.js"></script>
+
+
+    <!-- Amchart -->
+    <script src="../assets/plugins/amchart/serial.js"></script>
+    <script src="../assets/plugins/amchart/light.js"></script>
+    <script src="../assets/plugins/amchart/amstock.js"></script>
+    <script src="../assets/plugins/amchart/dashboard1-amchart-init.js"></script>
+    <!-- Custom dashboard script -->
+    <script src="js/dashboard-1.js"></script>
+    <!-- Custom script -->
+    <script src="js/custom.min.js"></script>
+</body>
+
 </html>

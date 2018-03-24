@@ -1,3 +1,123 @@
+/*****************
+CSS for new login
+******************/
+#form_login {
+  position: relative;
+  left: 35%;
+  padding-top: 1%;
+  padding-bottom: 2%; 
+}
+
+#login_lbl_username {
+  position: relative;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+#login_input_username {
+  position: relative;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 300px;   
+}
+#login_lbl_password {
+  position: relative;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+#login_input_password {
+  position: relative;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 300px;   
+}
+
+#login_btn_login {
+  position: relative;
+  top: 20px;
+  bottom: 20px;
+}
+/*****************
+CSS for new signup
+******************/
+#form_signup{
+  position: relative;
+  left: 35%;
+  padding-top: 1%;
+  padding-bottom: 2%; 
+}
+
+#signup_lbl_email {
+  position: relative;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+#signup_input_email {
+  position: relative;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 300px;   
+}
+
+#signup_lbl_username{
+  position: relative;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+#signup_input_username {
+  position: relative;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 300px;   
+}
+
+#signup_lbl_password {
+  position: relative;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+#signup_input_password {
+  position: relative;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 300px;   
+}
+
+#signup_lbl_password_2 {
+  position: relative;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+#signup_input_password_2 {
+  position: relative;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 300px;   
+}
+
+#signup_btn_signup {
+  position: relative;
+  top: 20px;
+  bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*************************
+css for popup login signup
+**************************
+
+
 #div_login_signin_back {
 	background-color: white;
   width: 100%;
@@ -141,6 +261,6 @@
 
 .swiper-container{margin:0 auto;position:relative;overflow:hidden;direction:ltr;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-o-backface-visibility:hidden;backface-visibility:hidden;z-index:1}.swiper-wrapper{position:relative;width:100%;-webkit-transition-property:-webkit-transform,left,top;-webkit-transition-duration:0s;-webkit-transform:translate3d(0px,0,0);-webkit-transition-timing-function:ease;-moz-transition-property:-moz-transform,left,top;-moz-transition-duration:0s;-moz-transform:translate3d(0px,0,0);-moz-transition-timing-function:ease;-o-transition-property:-o-transform,left,top;-o-transition-duration:0s;-o-transform:translate3d(0px,0,0);-o-transition-timing-function:ease;-o-transform:translate(0px,0);-ms-transition-property:-ms-transform,left,top;-ms-transition-duration:0s;-ms-transform:translate3d(0px,0,0);-ms-transition-timing-function:ease;transition-property:transform,left,top;transition-duration:0s;transform:translate3d(0px,0,0);transition-timing-function:ease;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}.swiper-free-mode>.swiper-wrapper{-webkit-transition-timing-function:ease-out;-moz-transition-timing-function:ease-out;-ms-transition-timing-function:ease-out;-o-transition-timing-function:ease-out;transition-timing-function:ease-out;margin:0 auto}.swiper-slide{float:left;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}.swiper-wp8-horizontal{-ms-touch-action:pan-y}.swiper-wp8-vertical{-ms-touch-action:pan-x}.swiper-container{}.swiper-slide{}.swiper-slide-active{}.swiper-slide-visible{}.swiper-pagination-switch{}.swiper-active-switch{}.swiper-visible-switch{}
 
-
+*/
 
 

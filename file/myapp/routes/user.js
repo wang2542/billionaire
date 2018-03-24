@@ -26,7 +26,7 @@ passport.use(new LocalStrategy( function(username, password, done) {
 		User.getUserByUsername(username, function(err, user){
 			if(err) done(err);
 			if(!user){
-				return done(null, false, {message: 'Unknown User'});
+				return done(null, false, {message: 'User you typed does not exist.'});
 			}
 
 			User.comparePassword(password, user.password, function(err, isMatch){
@@ -34,7 +34,7 @@ passport.use(new LocalStrategy( function(username, password, done) {
 				if(isMatch){
 					return done(null, user);
 				} else {
-					return done(null, false, {message: 'Invalid password'});
+					return done(null, false, {message: 'Password does not match username.'});
 				}
 			});
 		});
@@ -52,11 +52,6 @@ router.get('/login', function(req, res, next) {
 	res.render('login');
 });
 
-router.get('/game', function(req, res, next) {
-  //res.send('respond with a resource');
-	res.render('game');
-});
-
 router.get('/profile', function(req, res, next) {
   //res.send('respond with a resource');
 	res.render('profile', {
@@ -69,7 +64,7 @@ router.get('/profile', function(req, res, next) {
 
 router.get('/logout', function(req, res) {
 	req.logout();
-	req.flash('success_msg', 'Logged Out');
+	req.flash('success_msg', 'Successfully logged Out');
 	res.redirect('/');
 })
 
@@ -89,7 +84,6 @@ router.get('/reset/:token', function(req, res) {
 	});
 })
 
-
 router.post('/signup', function(req, res, next) {
 	var signupUsername = req.body.username;
 	var signupEmail = req.body.email;
@@ -100,7 +94,7 @@ router.post('/signup', function(req, res, next) {
 	req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
 	req.checkBody('password', 'Password is required').notEmpty();
-	req.checkBody('password', 'Password cannot be less than 6').len(6, 30);
+	req.checkBody('password', 'Password can not be less than 6 characters').len(6, 30);
 	req.checkBody('passwordConfirm', 'Passwords do not match').equals(req.body.password);
 	var errors = req.validationErrors();
 
@@ -130,17 +124,14 @@ router.post('/signup', function(req, res, next) {
 				req.flash('success_msg', 'You are registered and can now login.');
 			}
 		});
-			
-		}
+	}
 
 });
 
-router.post('/login', passport.authenticate('local', { failureRedirect: '/user/login' }),
+router.post('/login', passport.authenticate('local', { failureRedirect: '/user/login', failureFlash: true }),
   function(req, res) {
     res.redirect('/');
  });
-
-
 
 router.post('/profile', function(req, res, next){
 
@@ -257,7 +248,7 @@ router.post('/resetpw', function(req, res, next) {
 				'If you did not request this, please ignore this email and your password will remain unchanged.\n'
 			};
 			smtpTransport.sendMail(mailOptions, function(err) {
-				req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+				req.flash('success_msg', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
 				done(err, 'done');
 			});
 		}

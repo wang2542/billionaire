@@ -41,6 +41,10 @@ router.get('/', function(req, res, next) {
  	});
 });
 
+router.get('/game', function(req, res, next) {
+	res.render('game');
+});
+
 
 router.post('/', function(req, res, next){
 	//console.log('search stock');
