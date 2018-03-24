@@ -1,0 +1,12 @@
+#div-stock-data {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.stock-data-lbl {
+    font-size: 25px;
+}
+.stock-data-right {
+    position: absolute;
+    left: 800px;
+}
