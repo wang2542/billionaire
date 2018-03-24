@@ -18,6 +18,7 @@ var db = mongoose.connection;
 
 var index = require('./routes/index');
 var user = require('./routes/user');
+var game = require('./routes/game');
 var stock = require('./model/stock');
 
 
@@ -83,6 +84,7 @@ app.use(function (req, res, next) {
 
 app.use('/', index);
 app.use('/user', user);
+app.use('/game', game);
 
 
 

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>cs 407</title>
+    <link href="../stylesheets/gamestyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="icoAdmin" class="icoAdmin random-data">
+       <div class="icoAdmin-overlay-box"></div>
+        <div class="icoAdmin-container">
+            <header class="icoAdmin-header">
+                <div class="icoAdmin-wrapper">
+                    <div class="icoAdmin-left-header">
+                        <div class="icoAdmin-logo">
+								<span class="logo-text">cs 407 title<span class="hide-in-smallsize"></span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="icoAdmin-right-header">
+                        <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="icon-menu"></i></a></div>
+                        
+                        <div class="icoAdmin-rr-header">
+                            <ul>
+                                <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+										</a>
+                                   
+                                </li>
+                           
+                                <li class="icons">
+                                    <a href="javascript:void(0)"> <i class="fa fa-user" aria-hidden="true"></i> </a>
+                                    <div class="drop-down dropdown-profile">
+                                        <div class="dropdown-content-body">
+                                            <ul>
+                                                <li><a href="#"><i class="ti-settings"></i> <span>Profile</span></a></li>
+                                                <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="icoAdmin-main-container">
+                <div class="icoAdmin-wrapper">
+                    <nav class="icoAdmin-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="icoAdmin-inner-navbar">
+                            <div class="icoAdmin-search"> <span class="searchbar-toggle">  </span>
+                                <div class="icoAdmin-search-box ">
+                                    <input type="text" placeholder="Search"> <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </div>
+                            </div>
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="#"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
+                                </li>
+                            </ul>
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="#"> <span class="icoAdmin-micon"><i class="icon-speedometer"></i></span> <span class="icoAdmin-mtext">Game Page</span></a>
+                                    
+                                </li>
+                            </ul>
+
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                            <a href="#"> <span class="icoAdmin-micon"><i class="icon-calender"></i></span> <span class="icoAdmin-mtext">Watchlist</span></a>
+                                </li>
+                            </ul>
+
+                            
+
+                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                      <a href="#"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="icoAdmin-content">
+                        <div class="icoAdmin-inner-content container-fluid">
+                            <div class="row page-titles">
+                                <div class="col-md-2 align-self-center">
+                                    <h3 class="text-primary">Dashboard</h3>
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                        <li class="breadcrumb-item active">Dashboard</li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-10 align-self-center">
+                                    <div class="crypto-ticker">
+                                        <ul id="webticker-dark-icons">
+                                            <li data-update="item1"><i class="cc BTC"></i> APPL <span class="coin-value"> $11.039232</span></li>
+                                            <li data-update="item2"><i class="cc ETH"></i> AMAZ <span class="coin-value"> $1.2792</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Watch list</h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-de mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Date</th>
+                                                            <th>Symbol</th>
+                                                            <th>Price</th>
+                                                            <th>Change</th>
+                                                            <th>Change (%)</th>
+                                                            <th>Volume</th>
+                                                            <th>Avg Volume</th>
+                                                            <th>Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>2018-03-24 06:51:51</th>
+                                                            <th>APPL</th>
+                                                            <th>171.75</th>
+                                                            <th>0.64</th>
+                                                            <th>0.37</th>
+                                                            <th>$ 2.18M</th>
+                                                            <th>26.68M</th>
+                                                            <th>
+                                                                <button class="btn btn-sm round btn-outline-success"> Buy</button>
+                                                            </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>2018-03-24 06:55:50</th>
+                                                            <th>AMZN</th>
+                                                            <th>1378.78</th>
+                                                            <th>0.83</th>
+                                                            <th>0.06</th>
+                                                            <th>$ 161420</th>
+                                                            <th>3.60M</th>
+                                                            <th>
+                                                                <button class="btn btn-sm round btn-outline-success"> Buy</button>
+                                                            </th>
+                                                        </tr>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                      
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel-footer"> 2018 © cs407</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Common JS -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+    <!-- Sidebar -->
+    <script src="../assets/plugins/iconav/js/iconav.min.js"></script>
+    <script src="../assets/plugins/iconav/js/iconav-init.js"></script>
+    <!-- Peity chart -->
+    <script src="../assets/plugins/peity/jquery.peity.min.js"></script>
+
+
+    <!-- Amchart -->
+    <script src="../assets/plugins/amchart/serial.js"></script>
+    <script src="../assets/plugins/amchart/light.js"></script>
+    <script src="../assets/plugins/amchart/amstock.js"></script>
+    <script src="../assets/plugins/amchart/dashboard1-amchart-init.js"></script>
+    <!-- Custom dashboard script -->
+    <script src="../js/dashboard-1.js"></script>
+    <!-- Custom script -->
+    <script src="../js/custom.min.js"></script>
+</body>
+
+</html>
