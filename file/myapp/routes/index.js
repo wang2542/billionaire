@@ -3,8 +3,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 
 var news = require('../model/news.js');
-//var localStorage = require('localStorage');
-
+var localStorage = require('localStorage');
 var stockInfo = require('../model/stockInfo');
 var User = require('../model/user');
 
@@ -47,19 +46,33 @@ router.get('/game', function(req, res, next) {
 
 
 router.post('/', function(req, res, next){
-	//console.log('search stock');
-	//console.log(req.body.stockName);
+	console.log('search stock');
+	console.log(req.body.stockName);
 	stockInfo.searchStockBySymbl(req.body.stockName, function(err, infom) {
 
 		if (err) {
 			//res.redirect('/error');
 		}
 		else {
-			console.log(infom);
-      res.redirect('/');
+			var Stock = JSON.parse(JSON.stringify(infom));
+			console.log(Stock[req.body.stockName]);
+			localStorage.setItem('Stock',JSON.stringify(Stock[req.body.stockName]))
+      		res.redirect('/stock');
       
 		}
 	});
 });
+
+router.get('/stock', function(req,res,next){
+	console.log('displaying the stock');
+	var stock = JSON.parse(localStorage.getItem('Stock'));
+		console.log(company);
+		res.render('stock',{
+			company = stock.company,
+			quote = stock.quote,
+			chart = stock.chart,
+			news = stock.news
+		});
+})
 
 module.exports = router;

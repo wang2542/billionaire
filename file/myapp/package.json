@@ -19,6 +19,8 @@
     "handlebar": "^1.0.0",
     "hbs": "^4.0.1",
     "jade": "^1.11.0",
+    "localStorage": "^1.0.3",
+    "localstorage": "^0.1.0",
     "method-override": "^2.3.10",
     "mongodb": "^3.0.2",
     "mongoose": "^5.0.6",
