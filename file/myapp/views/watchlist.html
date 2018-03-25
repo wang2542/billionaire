@@ -58,19 +58,19 @@
                             </div>
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
-                                    <a href="#"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
+                                    <a href="/"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
                                 </li>
                             </ul>
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
-                                    <a href="#"> <span class="icoAdmin-micon"><i class="icon-speedometer"></i></span> <span class="icoAdmin-mtext">Game Page</span></a>
+                                    <a href="/game"> <span class="icoAdmin-micon"><i class="icon-speedometer"></i></span> <span class="icoAdmin-mtext">Game Page</span></a>
                                     
                                 </li>
                             </ul>
 
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
-                            <a href="#"> <span class="icoAdmin-micon"><i class="icon-calender"></i></span> <span class="icoAdmin-mtext">Watchlist</span></a>
+                            <a href="/game/watchlist"> <span class="icoAdmin-micon"><i class="icon-calender"></i></span> <span class="icoAdmin-mtext">Watchlist</span></a>
                                 </li>
                             </ul>
 
@@ -78,7 +78,7 @@
 
                              <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
-                                      <a href="#"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
+                                      <a href="/user/profile"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -158,6 +158,17 @@
                                 <div class="col-md-12">
                                     <div class="panel-footer"> 2018 © cs407</div>
                                 </div>
+
+                                  <form class="searchBar" action="/game/watchlist" method="post">
+
+                                    <input id="searchBarInput" type="text" name="stockSym" placeholder="Type in the stock code/name in the search bar" >
+
+                                    <div>
+                                        <input class="search-button" type="submit" value="Search Stock"/>
+                                        
+                                    </div>
+
+                                </form>
                             </div>
                         </div>
                     </div>
