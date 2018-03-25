@@ -110,8 +110,8 @@
                                                 <table class="table table-de mb-0">
                                                     <thead>
                                                         <tr>
-                                                            <th>Date</th>
                                                             <th>Symbol</th>
+                                                            <th>Company Name</th>
                                                             <th>Price</th>
                                                             <th>Change</th>
                                                             <th>Change (%)</th>
@@ -121,31 +121,18 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                    {{#if bigList}}
+                                                        {{#each bigList}}
                                                         <tr>
-                                                            <th>2018-03-24 06:51:51</th>
-                                                            <th>APPL</th>
-                                                            <th>171.75</th>
-                                                            <th>0.64</th>
-                                                            <th>0.37</th>
-                                                            <th>$ 2.18M</th>
-                                                            <th>26.68M</th>
+                                                            {{#each this}}
+                                                            <th>{{this}}</th>
+                                                            {{/each}}
                                                             <th>
                                                                 <button class="btn btn-sm round btn-outline-success"> Buy</button>
                                                             </th>
                                                         </tr>
-                                                        <tr>
-                                                            <th>2018-03-24 06:55:50</th>
-                                                            <th>AMZN</th>
-                                                            <th>1378.78</th>
-                                                            <th>0.83</th>
-                                                            <th>0.06</th>
-                                                            <th>$ 161420</th>
-                                                            <th>3.60M</th>
-                                                            <th>
-                                                                <button class="btn btn-sm round btn-outline-success"> Buy</button>
-                                                            </th>
-                                                        </tr>
-                                                        
+                                                        {{/each}}
+                                                    {{/if}}
                                                     </tbody>
                                                 </table>
                                             </div>

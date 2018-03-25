@@ -13,40 +13,41 @@ var ObjectId = require('mongodb').ObjectID;
 
 
 router.get('/watchlist', function(req, res, next) {
-	var bigList = {};
-	req.user.watchlist.forEach(function(objectid, index) {
-		//console.log(objectid, index);
-		stock.findOne({_id: new ObjectId(objectid)}, function(err, res) {
-			var sym = res.symbol;
-		 	stockInfo.searchStockBySymbl(sym, function(err, data) {
-		 		//console.log(data);
-		 		var s = JSON.parse(JSON.stringify(data));
 
+	if (req.user.watchlist.length == 0) {
+		res.render('watchlist');
+	} else {
+		var bigList = {};
+		req.user.watchlist.forEach(function(objectid, index) {
+			//console.log(objectid, index);
+			stock.findOne({_id: new ObjectId(objectid)}, function(err, stocksym) {
+				var sym = stocksym.symbol;
+			 	stockInfo.searchStockBySymbl(sym, function(err, data) {
+			 		//console.log(data);
+			 		var s = JSON.parse(JSON.stringify(data));
+			 		
+					var key = '' + index;
+					bigList[key] = [];
 
-				var key = '' + index;
-				bigList[key] = [];
-		 		bigList[key].push(s[sym]['quote']['symbol']);
-		 		bigList[key].push(s[sym]['quote']['companyName']);
+			 		bigList[key].push(s[sym]['quote']['symbol']);
+			 		bigList[key].push(s[sym]['quote']['companyName']);
+			 		bigList[key].push(s[sym]['quote']['latestPrice']);
+			 		bigList[key].push(s[sym]['quote']['change']);	
+			 		bigList[key].push(s[sym]['quote']['changePercent']);
+			 		bigList[key].push(s[sym]['quote']['latestVolume']);
+			 		bigList[key].push(s[sym]['quote']['avgTotalVolume']);
+			 		bigList[key].push(s[sym]['quote']['latestSource']);		 		
 
-
-		 		//console.log(memberList);
-		 		//console.log(s[sym]['quote']['symbol']);
-		 	});
+			 		if (index == req.user.watchlist.length - 1) {
+			 			console.log(bigList);
+			 			res.render('watchlist', {
+			 				bigList:bigList
+			 			});
+			 		}
+			 	});
+			});
 		});
-	});
-
-	// var obj = bigList.map(function(res) {
-	// 	return {
-	// 		"symbol" : res[0],
-	// 		"companyName" : res[1]
-	// 	}
-	// });
-
-	// var jsonobj = JSON.stringify(obj);
-
-	console.log(bigList);
-
-	res.render('watchlist');
+	}
 });
 
 
