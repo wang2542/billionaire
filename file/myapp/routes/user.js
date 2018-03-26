@@ -44,12 +44,22 @@ passport.use(new LocalStrategy( function(username, password, done) {
 /* GET users listing. */
 router.get('/signup', function(req, res, next) {
 	//res.send('respond with a resource');
-	res.render('signup');
+	if (req.user) {
+  		req.flash('error_msg', 'invalid Attempt');
+  		res.redirect('/');
+  	} else {
+		res.render('login');
+	}
 });
 
 router.get('/login', function(req, res, next) {
   //res.send('respond with a resource');
-	res.render('login');
+  	if (req.user) {
+  		req.flash('error_msg', 'invalid Attempt');
+  		res.redirect('/');
+  	} else {
+		res.render('login');
+	}
 });
 
 router.get('/profile', function(req, res, next) {

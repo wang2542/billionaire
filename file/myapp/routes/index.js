@@ -42,7 +42,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/game', function(req, res, next) {
-	res.render('game');
+	if (!req.user) {
+  		req.flash('error_msg', 'Login Required!');
+  		res.redirect('/');
+	} else {
+		res.render('game');
+	}
 });
 
 
