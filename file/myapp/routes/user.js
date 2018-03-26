@@ -48,7 +48,7 @@ router.get('/signup', function(req, res, next) {
   		req.flash('error_msg', 'invalid Attempt');
   		res.redirect('/');
   	} else {
-		res.render('login');
+		res.render('signup');
 	}
 });
 
