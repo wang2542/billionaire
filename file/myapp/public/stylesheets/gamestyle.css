@@ -2159,4 +2159,164 @@ label {
   font-weight: 400;
   margin-bottom: 10px; }
 
+  .login-content {
+  margin: 100px 0; }
+
+.login-form {
+  background: #0B0C21;
+  padding: 30px 30px 20px;
+  border-radius: 2px; }
+  .login-form h4 {
+    color: #ddd;
+    text-align: center;
+    margin-bottom: 50px; }
+  .login-form .checkbox {
+    color: #ddd; }
+    .login-form .checkbox label {
+      text-transform: none; }
+  .login-form .btn {
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 15px;
+    border: 0; }
+  .login-form label {
+    color: #ddd;
+    text-transform: uppercase; }
+    .login-form label a {
+      color: #4680ff; }
+
+.social-login-content {
+  margin: 0 -30px;
+  border-top: 1px solid rgba(120, 130, 140, 0.13);
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  padding: 30px 0;
+  background: #fcfcfc; }
+
+.social-button {
+  padding: 0 30px; }
+  .social-button i {
+    padding: 19px; }
+
+.register-link a {
+  color: #4680ff; }
+
+#invoice {
+  position: relative;
+  /*  top: -290px;*/
+  margin-bottom: 120px;
+  /*  width: 700px;*/
+  background: #070713;
+  padding: 30px; }
+
+#invoice-table {
+  /* Targets all id with 'col-' */
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  padding: 30px 0; }
+
+#invoice-top {
+  min-height: 120px; }
+
+#invoice-mid {
+  min-height: 120px; }
+
+#invoice-bot {
+  min-height: 250px; }
+
+.invoice-logo {
+  float: left;
+  height: 60px;
+  width: 60px;
+  background: url("http://michaeltruong.ca/images/logo1.png") no-repeat;
+  background-size: 60px 60px; }
+
+.clientlogo {
+  float: left;
+  height: 60px;
+  width: 60px;
+  background: url("http://michaeltruong.ca/images/client.jpg") no-repeat;
+  background-size: 60px 60px;
+  border-radius: 50px; }
+
+.invoice-info {
+  display: block;
+  float: left;
+  margin-left: 20px; }
+  .invoice-info h2 {
+    color: #ddd;
+    font-size: 14px; }
+  .invoice-info p {
+    font-size: 12px; }
+
+.title {
+  float: right; }
+  .title h4 {
+    color: #ddd;
+    text-align: right; }
+
+.title p {
+  text-align: right;
+  font-size: 12px; }
+
+#project {
+  margin-left: 52%; }
+  #project p {
+    font-size: 12px; }
+
+#invoice-table h2 {
+  font-size: 18px; }
+
+.tabletitle {
+  padding: 5px;
+  background: rgba(120, 130, 140, 0.13); }
+
+.service {
+  border: 1px solid rgba(120, 130, 140, 0.13); }
+
+.table-item {
+  width: 50%; }
+
+.itemtext {
+  font-size: 0.9em; }
+
+#legalcopy {
+  margin-top: 30px; }
+  #legalcopy p {
+    font-size: 12px; }
+
+.effect2 {
+  position: relative; }
+
+.effect2:after,
+.effect2:before {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg); }
+
+.effect2:after {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto; }
+
+.legal {
+  width: 70%; }
+
 
