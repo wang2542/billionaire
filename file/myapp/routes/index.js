@@ -64,10 +64,17 @@ router.post('/', function(req, res, next){
 			//res.redirect('/error');
 		}
 		else {
-			var Stock = JSON.parse(JSON.stringify(infom));
-		//	console.log(Stock[req.body.stockName]);
-			localStorage.setItem('Stock',JSON.stringify(Stock[req.body.stockName]))
-      		res.redirect('/stock');
+			
+			if (JSON.stringify(infom) === '{}') {
+				req.flash('error_msg', 'Can not find this Stock!');
+				res.redirect('/');
+			}
+			else{
+				var Stock = JSON.parse(JSON.stringify(infom));
+			
+				localStorage.setItem('Stock',JSON.stringify(Stock[req.body.stockName]))
+			  	res.redirect('/stock');
+			}
       
 		}
 	});
@@ -76,13 +83,14 @@ router.post('/', function(req, res, next){
 router.get('/stock', function(req,res,next){
 	console.log('get stock requrest accpeted');
 	var stock = JSON.parse(localStorage.getItem('Stock'));
-	console.log(stock.company.companyName);
 	var decrease = false;
 	var user = null;
 	if (req.user) user = req.user;
-	if(stock.quote.change < 0)
-		decrease = true;
-	if(stock){
+	console.log(stock == null)
+	if(stock ){
+		
+		if(stock.quote.change < 0)
+			decrease = true;
 		res.render('stock',{
 			company : stock.company,
 			quote : stock.quote,
@@ -92,8 +100,11 @@ router.get('/stock', function(req,res,next){
 			user: user
 		});
 	}
-	else 
-		res.render('stock');
+	else {
+		req.flash('error_msg', 'Can not find this Stock!');
+		res.redirect('/');
+	}
+		
 });
 
 router.post('/stock/add', function(req, res, next) {
