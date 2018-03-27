@@ -58,19 +58,19 @@
                             </div>
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
-                                    <a href="#"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
+                                    <a href="/"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
                                 </li>
                             </ul>
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
-                                    <a href="#"> <span class="icoAdmin-micon"><i class="icon-speedometer"></i></span> <span class="icoAdmin-mtext">Game Page</span></a>
+                                    <a href="/game"> <span class="icoAdmin-micon"><i class="icon-speedometer"></i></span> <span class="icoAdmin-mtext">Game Page</span></a>
                                     
                                 </li>
                             </ul>
 
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
-                            <a href="#"> <span class="icoAdmin-micon"><i class="icon-calender"></i></span> <span class="icoAdmin-mtext">Watchlist</span></a>
+                            <a href="/game/watchlist"> <span class="icoAdmin-micon"><i class="icon-calender"></i></span> <span class="icoAdmin-mtext">Watchlist</span></a>
                                 </li>
                             </ul>
 
@@ -78,7 +78,7 @@
 
                              <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
-                                      <a href="#"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
+                                      <a href="/user/profile"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -110,8 +110,8 @@
                                                 <table class="table table-de mb-0">
                                                     <thead>
                                                         <tr>
-                                                            <th>Date</th>
                                                             <th>Symbol</th>
+                                                            <th>Company Name</th>
                                                             <th>Price</th>
                                                             <th>Change</th>
                                                             <th>Change (%)</th>
@@ -121,31 +121,30 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                    {{#if bigList}}
+                                                        {{#each bigList}}
                                                         <tr>
-                                                            <th>2018-03-24 06:51:51</th>
-                                                            <th>APPL</th>
-                                                            <th>171.75</th>
-                                                            <th>0.64</th>
-                                                            <th>0.37</th>
-                                                            <th>$ 2.18M</th>
-                                                            <th>26.68M</th>
-                                                            <th>
-                                                                <button class="btn btn-sm round btn-outline-success"> Buy</button>
-                                                            </th>
+                                                            <th>{{this.symbol}}</th>
+                                                            <th>{{this.companyName}}</th>
+                                                            <th>{{this.latestPrice}}</th>
+                                                            <th>{{this.change}}</th>
+                                                            <th>{{this.changePercent}}</th>
+                                                            <th>{{this.latestVolume}}</th>
+                                                            <th>{{this.avgTotalVolume}}</th>
+                                                            <th>{{this.latestSource}}</th>
+															<th>{{this.object_id}}</th>
+                                                            
+	                                                            <th>
+	                                                                <button class="btn btn-sm round btn-outline-success"> Buy</button>
+	                                                            </th>
+	                                                        
+	                                                            <th>
+	                                                                <button class="btn btn-sm round btn-outline-success" onclick="deleteWatchList('{{this.object_id}}')"> Remove</button>
+	                                                            </th>
+                                                           
                                                         </tr>
-                                                        <tr>
-                                                            <th>2018-03-24 06:55:50</th>
-                                                            <th>AMZN</th>
-                                                            <th>1378.78</th>
-                                                            <th>0.83</th>
-                                                            <th>0.06</th>
-                                                            <th>$ 161420</th>
-                                                            <th>3.60M</th>
-                                                            <th>
-                                                                <button class="btn btn-sm round btn-outline-success"> Buy</button>
-                                                            </th>
-                                                        </tr>
-                                                        
+                                                        {{/each}}
+                                                    {{/if}}
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -153,18 +152,44 @@
                                     </div>
                                 </div>
 
+                            <form method="post" action="" id="submitFormT">
+                            	<input type="text" name="object_id" value="1" style="display:none"/>
+                            </form>
                       
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="panel-footer"> 2018 © cs407</div>
                                 </div>
+                                <!-- Test Search for Adding -->
+                                <form class="searchBar" action="/game/watchlist" method="post">
+
+                                    <input id="searchBarInput" type="text" name="stockSym" placeholder="Type in the stock code/name in the search bar" >
+
+                                    <div>
+                                        <input class="search-button" type="submit" value="Search Stock"/>
+                                        
+                                    </div>
+
+                                </form>
+
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <script>
+    	function deleteWatchList(object_id) {
+    		var x = document.getElementById('submitFormT');
+    		x.action += "/remove"
+    		document.getElementById("submitFormT").elements.namedItem("object_id").value = object_id;
+            x.submit();
+    	}
+    </script>
 
     <!-- Common JS -->
     <script src="../assets/plugins/common/common.min.js"></script>

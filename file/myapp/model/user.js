@@ -19,6 +19,7 @@ var userSchema = mongoose.Schema({
   coin: {
     type: Number
   },
+  watchlist: [ {type : mongoose.Schema.ObjectId, ref : 'stock' } ],
   resetPasswordToken: String,
   resetPasswordExpires: Date
 });
