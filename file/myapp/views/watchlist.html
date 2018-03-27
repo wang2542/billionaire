@@ -132,14 +132,13 @@
                                                             <th>{{this.latestVolume}}</th>
                                                             <th>{{this.avgTotalVolume}}</th>
                                                             <th>{{this.latestSource}}</th>
-															<th>{{this.object_id}}</th>
-                                                            
+											
 	                                                            <th>
-	                                                                <button class="btn btn-sm round btn-outline-success"> Buy</button>
+	                                                                <button class="btn btn-sm round btn-outline-success" onclick="navigate('{{this.symbol}}')">View</button>
 	                                                            </th>
 	                                                        
 	                                                            <th>
-	                                                                <button class="btn btn-sm round btn-outline-success" onclick="deleteWatchList('{{this.object_id}}')"> Remove</button>
+	                                                                <button class="btn btn-sm round btn-outline-success" onclick="deleteWatchList('{{this.object_id}}')">Remove</button>
 	                                                            </th>
                                                            
                                                         </tr>
@@ -154,6 +153,7 @@
 
                             <form method="post" action="" id="submitFormT">
                             	<input type="text" name="object_id" value="1" style="display:none"/>
+                                <input type="text" name="symbol" value="1" style="display:none"/>
                             </form>
                       
                             <div class="row">
@@ -177,6 +177,12 @@
     		document.getElementById("submitFormT").elements.namedItem("object_id").value = object_id;
             x.submit();
     	}
+        function navigate(symbol) {
+            var x = document.getElementById('submitFormT');
+            x.action += "/navigate"
+            document.getElementById("submitFormT").elements.namedItem("symbol").value = symbol;
+            x.submit();
+        }
     </script>
 
     <!-- Common JS -->
