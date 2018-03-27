@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 
 var news = require('../model/news.js');
 var localStorage = require('localStorage');
+var stock = require('../model/stock');
 var stockInfo = require('../model/stockInfo');
 var User = require('../model/user');
 
@@ -88,6 +89,34 @@ router.get('/stock', function(req,res,next){
 	}
 	else 
 		res.render('stock');
-})
+});
+
+router.post('/stock/add', function(req, res, next) {
+	var stock_sym = req.body.symbol;
+
+	stock.findOne({ symbol : stock_sym}, function(err, stock) {
+		var isInArray = req.user.watchlist.some(function(stockid) {
+			return stockid.equals(stock._id);
+		});
+
+		// console.log(isInArray);
+
+		if (isInArray) { 
+			req.flash('error', 'stock already exists in watchlist');
+			console.log('stock already exists in watchlist');
+			return res.redirect('/stock');
+		} else {
+			req.user.watchlist.push(stock._id);
+			req.user.save();
+			req.flash('success', 'watchlist added');
+			console.log('watchlist added');
+			return res.redirect('/stock');
+		}
+
+		
+		
+	});
+
+});
 
 module.exports = router;
