@@ -180,21 +180,12 @@
                                     <div class="col-md-12">
                                         <div class="panel-footer">
 
+                                          {{#each news}}
                                             <div>
-                                                <label style="font-size: 25px;" >NEWS</label>
+                                                <a href={{this.url}}>{{this.headline}}</a>
                                             </div>
-
-                                            <div>
-                                                <a href="https:/www.goat.com">Buy Shoes</a>
-                                            </div>
-
-                                            <div>
-                                                <a href="https://www.baidu.com">Baidu</a>
-                                            </div>
-
-                                            <div>
-                                                <a href="https://soccer.hupu.com">HUPU</a>
-                                            </div>
+                                          {{/each}}
+                                       
                                         </div>
                                     </div>
                                 </div>
