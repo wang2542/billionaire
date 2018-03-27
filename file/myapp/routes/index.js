@@ -39,7 +39,9 @@ router.get('/', function(req, res, next) {
 	  	}
  	});
 });
-
+router.get('/about' , function(req,res,next){
+	res.render('about');
+});
 router.get('/game', function(req, res, next) {
 	if (!req.user) {
   		req.flash('error_msg', 'Login Required!');
