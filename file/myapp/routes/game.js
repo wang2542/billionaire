@@ -11,7 +11,17 @@ var User = require('../model/user');
 var ObjectId = require('mongodb').ObjectID;
 
 
-
+router.get('/', function(req,res,next) {
+	
+	if (!req.user) {
+		req.flash('error_msg', 'Login Required!');
+		res.redirect('/');
+	} else {
+		res.render('game',{
+			user: req.user
+		});
+	}
+});
 router.get('/watchlist', function(req, res, next) {
 
 	if (req.user.watchlist.length == 0) {
