@@ -15,7 +15,7 @@ router.get('/', function(req,res,next) {
 	
 	if (!req.user) {
 		req.flash('error_msg', 'Login Required!');
-		res.redirect('/');
+		res.redirect('/login');
 	} else {
 		res.render('game',{
 			user: req.user
@@ -23,8 +23,13 @@ router.get('/', function(req,res,next) {
 	}
 });
 router.get('/watchlist', function(req, res, next) {
-	console.log(req.user.watchlist.length);
-	if (req.user.watchlist.length == 0) {
+	console.log(req);
+	if (!req.user) {
+		req.flash('error_msg', 'Login Required!');
+		res.redirect('/login');
+	}
+
+	else if (req.user.watchlist.length == 0) {
 		res.render('watchlist');
 	} else {
 		var bigList = {},
