@@ -66,42 +66,7 @@ router.get('/watchlist', function(req, res, next) {
 
 
 router.post('/watchlist', function(req, res, next) {
-	//Add stock to watchlist
-	//How to test to see if this is working
-	//0. Log in before you test this
-	//1. Type stock symbol on the search box at the bottom (Needs to be All upper case)
-	//2. Open Robomongo (or other GUI) to check if watchlist was appended
-
-	stock.findOne({ symbol : req.body.stockSym}, function(err, stock) {
-		if (!stock) {
-			req.flash('error', 'stock not found');
-			console.log('stock not found');
-			return res.redirect('/game/watchlist');
-		}
-
-		var isInArray = req.user.watchlist.some(function(stockid) {
-			return stockid.equals(stock._id);
-		});
-
-		// console.log(isInArray);
-
-		if (isInArray) { 
-			req.flash('error', 'stock already exists in watchlist');
-			console.log('stock already exists in watchlist');
-			return res.redirect('/game/watchlist');
-		} else {
-			req.user.watchlist.push(stock._id);
-			req.user.save();
-		}
-
-		console.log('watchlist added');
-		req.flash('success', 'watchlist added');
-		return res.redirect('/game/watchlist');
-	});
-
-	//stock.findOneAndUpdate({symbol : })
-
-
+	//Navigate to stock page
 });
 
 router.post('/watchlist/remove', function(req, res, next) {
