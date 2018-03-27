@@ -1,18 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-<<<<<<< HEAD
-
-var news = require('../model/news.js');
-//var localStorage = require('localStorage');
-
-var stockInfo = require('../model/stockInfo');
-var User = require('../model/user');
-
-
-router.get('/watchlist', function(req, res, next) {
-	res.render('watchlist');
-=======
 var localStorage = require('localStorage');
 
 var news = require('../model/news.js');
@@ -125,7 +113,6 @@ router.post('/watchlist/remove', function(req, res, next) {
 
 	res.redirect('/game/watchlist');
 
->>>>>>> 0341258af9ef2929f6bceb89a06033e4d820c060
 });
 
 module.exports = router;

@@ -41,16 +41,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/game', function(req, res, next) {
-<<<<<<< HEAD
-	res.render('game');
-=======
 	if (!req.user) {
   		req.flash('error_msg', 'Login Required!');
   		res.redirect('/');
 	} else {
 		res.render('game');
 	}
->>>>>>> 0341258af9ef2929f6bceb89a06033e4d820c060
 });
 
 
