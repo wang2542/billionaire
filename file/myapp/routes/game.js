@@ -23,7 +23,7 @@ router.get('/', function(req,res,next) {
 	}
 });
 router.get('/watchlist', function(req, res, next) {
-
+	console.log(req.user.watchlist.length);
 	if (req.user.watchlist.length == 0) {
 		res.render('watchlist');
 	} else {
