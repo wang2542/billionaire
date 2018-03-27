@@ -212,8 +212,10 @@
 
     <script>
         function addWatchList(symbol) {
+            console.log("clicking to the watchlist");
             var x = document.getElementById('submitFormT');
-            x.action += "/add"
+            x.action = "/stock/add";
+            x.method = "post";
             document.getElementById("submitFormT").elements.namedItem("symbol").value = symbol;
             x.submit();
         }
