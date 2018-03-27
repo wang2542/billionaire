@@ -89,5 +89,24 @@ router.post('/watchlist/remove', function(req, res, next) {
 	res.redirect('/game/watchlist');
 
 });
+router.post('/watchlist/navigate', function(req, res, next) {
+	var symbol = req.body.symbol;
+	//console.log(req.body.symbol);
 
+	//console.log(req.body.stockName);
+	stockInfo.searchStockBySymbl(symbol, function(err, infom) {
+
+		if (err) {
+			//res.redirect('/error');
+		}
+		else {
+			var Stock = JSON.parse(JSON.stringify(infom));
+		//	console.log(Stock[req.body.stockName]);
+			localStorage.setItem('Stock',JSON.stringify(Stock[symbol]))
+      		res.redirect('/stock');
+      
+		}
+	});
+	//res.redirect('/game/watchlist');
+});
 module.exports = router;
