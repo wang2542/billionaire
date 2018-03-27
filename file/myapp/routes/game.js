@@ -15,7 +15,7 @@ router.get('/', function(req,res,next) {
 	
 	if (!req.user) {
 		req.flash('error_msg', 'Login Required!');
-		res.redirect('/login');
+		res.redirect('/user/login');
 	} else {
 		res.render('game',{
 			user: req.user
@@ -26,7 +26,7 @@ router.get('/watchlist', function(req, res, next) {
 	console.log(req);
 	if (!req.user) {
 		req.flash('error_msg', 'Login Required!');
-		res.redirect('/login');
+		res.redirect('/user/login');
 	}
 
 	else if (req.user.watchlist.length == 0) {

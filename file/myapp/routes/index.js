@@ -53,14 +53,6 @@ router.get('/new_signin' , function(req,res,next){
 router.get('/new_login' , function(req,res,next){
 	res.render('new_login');
 });
-router.get('/game', function(req, res, next) {
-	if (!req.user) {
-  		req.flash('error_msg', 'Login Required!');
-  		res.redirect('/');
-	} else {
-		res.render('game');
-	}
-});
 
 
 router.post('/', function(req, res, next){
@@ -103,8 +95,12 @@ router.get('/stock', function(req,res,next){
 
 router.post('/stock/add', function(req, res, next) {
 	var stock_sym = req.body.symbol;
+    if (!req.user) {
+		req.flash('error_msg', 'Login Required!');
+		res.redirect('/user/login');
+	}
 
-	stock.findOne({ symbol : stock_sym}, function(err, stock) {
+	else {stock.findOne({ symbol : stock_sym}, function(err, stock) {
 		var isInArray = req.user.watchlist.some(function(stockid) {
 			return stockid.equals(stock._id);
 		});
@@ -126,7 +122,7 @@ router.post('/stock/add', function(req, res, next) {
 		
 		
 	});
-
+   }
 });
 
 module.exports = router;
