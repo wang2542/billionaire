@@ -142,9 +142,7 @@
                                 </div>
                             </div>
 
-                                    </div>
-                                </div>
-                            </div>
+
                             <!--stock data -->
                             <div class="row" id = "div-stock-data">
                                 <div class="col-md-12">
@@ -175,22 +173,18 @@
 
                             <!--NEWS Section-->
                             <div class="row" id = "div-stock-data">
-                                    <div class="col-md-12">
-                                        <div class="panel-footer">
-
-                                          {{#each news}}
-                                            <div>
-                                                <a href={{this.url}}>{{this.headline}}</a>
-                                            </div>
-                                          {{/each}}
-                                       
+                                <div class="col-md-12">
+                                    <div class="panel-footer">
+                                        {{#each news}}
+                                        <div>
+                                            <a href={{this.url}}>{{this.headline}}</a>
                                         </div>
+                                        {{/each}}
+                                    
                                     </div>
                                 </div>
-            
-                            <form method="post" action="" id="submitFormT">
-                                <input type="text" name="symbol" value="1" style="display:none"/>
-                            </form>        
+                            </div>
+
         
         
                             <div class="row">
