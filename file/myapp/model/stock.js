@@ -38,7 +38,7 @@ module.exports.init = function (callback){
     var obj;
     var p = path.normalize(path.join(__dirname, '/..','stockSymbol.json'));
     console.log(p);
-fs.readFile(p, 'utf8', function(err, data){
+    fs.readFile(p, 'utf8', function(err, data){
     if (err) console.log(err);
    // console.log(data);
     obj = JSON.parse(data);

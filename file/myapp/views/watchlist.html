@@ -70,6 +70,7 @@
 
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
+<<<<<<< HEAD
                                     <a href="/game/watchlist"> <span class="icoAdmin-micon"><i class="icon-calender"></i></span> <span class="icoAdmin-mtext">Watchlist</span></a>
                                 </li>
                             </ul>
@@ -83,6 +84,17 @@
                              <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
                                       <a href="#"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
+=======
+                            <a href="/game/watchlist"> <span class="icoAdmin-micon"><i class="icon-calender"></i></span> <span class="icoAdmin-mtext">Watchlist</span></a>
+                                </li>
+                            </ul>
+
+                            
+
+                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                      <a href="/user/profile"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
+>>>>>>> 0341258af9ef2929f6bceb89a06033e4d820c060
                                 </li>
                             </ul>
                         </div>
@@ -114,14 +126,20 @@
                                                 <table class="table table-de mb-0">
                                                     <thead>
                                                         <tr>
+<<<<<<< HEAD
                                                             <th>Date</th>
                                                             <th>Symbol</th>
+=======
+                                                            <th>Symbol</th>
+                                                            <th>Company Name</th>
+>>>>>>> 0341258af9ef2929f6bceb89a06033e4d820c060
                                                             <th>Price</th>
                                                             <th>Change</th>
                                                             <th>Change (%)</th>
                                                             <th>Volume</th>
                                                             <th>Avg Volume</th>
                                                             <th>Status</th>
+<<<<<<< HEAD
                                                             <th>Operation</th>
                                                         </tr>
                                                     </thead>
@@ -157,6 +175,35 @@
                                                             </th>
                                                         </tr>
                                                         
+=======
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {{#if bigList}}
+                                                        {{#each bigList}}
+                                                        <tr>
+                                                            <th>{{this.symbol}}</th>
+                                                            <th>{{this.companyName}}</th>
+                                                            <th>{{this.latestPrice}}</th>
+                                                            <th>{{this.change}}</th>
+                                                            <th>{{this.changePercent}}</th>
+                                                            <th>{{this.latestVolume}}</th>
+                                                            <th>{{this.avgTotalVolume}}</th>
+                                                            <th>{{this.latestSource}}</th>
+															<th>{{this.object_id}}</th>
+                                                            
+	                                                            <th>
+	                                                                <button class="btn btn-sm round btn-outline-success"> Buy</button>
+	                                                            </th>
+	                                                        
+	                                                            <th>
+	                                                                <button class="btn btn-sm round btn-outline-success" onclick="deleteWatchList('{{this.object_id}}')"> Remove</button>
+	                                                            </th>
+                                                           
+                                                        </tr>
+                                                        {{/each}}
+                                                    {{/if}}
+>>>>>>> 0341258af9ef2929f6bceb89a06033e4d820c060
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -164,12 +211,35 @@
                                     </div>
                                 </div>
 
+<<<<<<< HEAD
+=======
+                            <form method="post" action="" id="submitFormT">
+                            	<input type="text" name="object_id" value="1" style="display:none"/>
+                            </form>
+>>>>>>> 0341258af9ef2929f6bceb89a06033e4d820c060
                       
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="panel-footer"> 2018 © cs407</div>
                                 </div>
+<<<<<<< HEAD
                             </div>
+=======
+                                <!-- Test Search for Adding -->
+                                <form class="searchBar" action="/game/watchlist" method="post">
+
+                                    <input id="searchBarInput" type="text" name="stockSym" placeholder="Type in the stock code/name in the search bar" >
+
+                                    <div>
+                                        <input class="search-button" type="submit" value="Search Stock"/>
+                                        
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+>>>>>>> 0341258af9ef2929f6bceb89a06033e4d820c060
                         </div>
                     </div>
                 </div>
@@ -177,6 +247,19 @@
         </div>
     </div>
 
+<<<<<<< HEAD
+=======
+
+    <script>
+    	function deleteWatchList(object_id) {
+    		var x = document.getElementById('submitFormT');
+    		x.action += "/remove"
+    		document.getElementById("submitFormT").elements.namedItem("object_id").value = object_id;
+            x.submit();
+    	}
+    </script>
+
+>>>>>>> 0341258af9ef2929f6bceb89a06033e4d820c060
     <!-- Common JS -->
     <script src="../assets/plugins/common/common.min.js"></script>
     <!-- Sidebar -->

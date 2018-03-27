@@ -7,7 +7,7 @@ var newsInfom ={
     method: 'GET',
     qs: {
         symbols: '',
-        types: 'quote,news,char',
+        types: 'company,quote,news,chart',
         range: '1m',
         last: '5'
     }
@@ -20,9 +20,9 @@ exports.searchStockBySymbl = function(symbl, callback) {
         if(error) return callback(error);
         else {
             var json = JSON.parse(body);
-           // console.log(json);
+            console.log(json);
             if( json) {
-                //console.log(json.result.formatted_address);
+               
                 callback(null,json);
             }
             else  

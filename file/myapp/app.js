@@ -13,7 +13,6 @@ var session = require('express-session');
 var expressValidator = require('express-validator');
 
 mongoose.connect('mongodb://localhost/cs407');
-
 var db = mongoose.connection;
 
 var index = require('./routes/index');
