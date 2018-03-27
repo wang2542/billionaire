@@ -78,6 +78,8 @@ router.get('/stock', function(req,res,next){
 	var stock = JSON.parse(localStorage.getItem('Stock'));
 	console.log(stock.company.companyName);
 	var decrease = false;
+	var user = null;
+	if (req.user) user = req.user;
 	if(stock.quote.change < 0)
 		decrease = true;
 	if(stock){
@@ -86,7 +88,8 @@ router.get('/stock', function(req,res,next){
 			quote : stock.quote,
 			chart : stock.chart,
 			news : stock.news,
-			decrease : decrease
+			decrease : decrease,
+			user: user
 		});
 	}
 	else 
