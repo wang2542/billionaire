@@ -44,9 +44,7 @@ router.get('/game', function(req, res, next) {
 	res.render('game');
 });
 
-router.get('/stock',function(req,res,next){
-	res.render('stock');
-})
+
 router.post('/', function(req, res, next){
 	console.log('search stock');
 	console.log(req.body.stockName);
@@ -57,7 +55,7 @@ router.post('/', function(req, res, next){
 		}
 		else {
 			var Stock = JSON.parse(JSON.stringify(infom));
-			console.log(Stock[req.body.stockName]);
+		//	console.log(Stock[req.body.stockName]);
 			localStorage.setItem('Stock',JSON.stringify(Stock[req.body.stockName]))
       		res.redirect('/stock');
       
@@ -66,15 +64,23 @@ router.post('/', function(req, res, next){
 });
 
 router.get('/stock', function(req,res,next){
-	console.log('displaying the stock');
+	console.log('get stock requrest accpeted');
 	var stock = JSON.parse(localStorage.getItem('Stock'));
-		console.log(company);
+	console.log(stock.company.companyName);
+	var decrease = false;
+	if(stock.quote.change < 0)
+		decrease = true;
+	if(stock){
 		res.render('stock',{
-			company = stock.company,
-			quote = stock.quote,
-			chart = stock.chart,
-			news = stock.news
+			company : stock.company,
+			quote : stock.quote,
+			chart : stock.chart,
+			news : stock.news,
+			decrease : decrease
 		});
+	}
+	else 
+		res.render('stock');
 })
 
 module.exports = router;

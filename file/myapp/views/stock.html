@@ -118,21 +118,21 @@
                                         <div>
                                             <label style="font-size: 25px;" >Apple</label>
                                         </div>
-
+                                        {{#if decrease}}
                                         <div>
                                             <label>Price</label>
                                             <label style = "color : red;">diff</label>
                                             <label style = "color : red;"><i class="ti-arrow-down f-s-16 text-primary m-l-5"></i></label>
                                             <label style = "color : red;">percetage</label>
                                         </div>
-
+                                        {{else}}
                                         <div>
                                                 <label>Price</label>
                                                 <label style = "color : green;">diff</label>
                                                 <label style = "color : green;"><i class="ti-arrow-up f-s-16 text-primary m-l-5"></i></label>
                                                 <label style = "color : green;">percetage</label>
                                         </div>
-
+                                        {{/if}}
                                     </div>
                                 </div>
                             </div>
@@ -149,12 +149,12 @@
 
                                         <div>
                                             <Label class = "stock-data-left">Company Name:</Label>
-                                            <label class="stock-data-right">Apple</label>
+                                            <label class="stock-data-right">{{company.companyName}}</label>
                                         </div>
                                         
                                         <div>
-                                            <Label class = "stock-data-left">AttributeII:</Label>
-                                            <label class="stock-data-right">somedata</label>
+                                            <Label class = "stock-data-left">Exchange:</Label>
+                                            <label class="stock-data-right">{{company.exchange}}</label>
                                         </div>
 
                                         <div>
