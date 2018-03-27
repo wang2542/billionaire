@@ -39,7 +39,19 @@ router.get('/', function(req, res, next) {
 	  	}
  	});
 });
+router.get('/about' , function(req,res,next){
+	res.render('about');
+});
 
+router.get('/blank_page' , function(req,res,next){
+	res.render('blank_page');
+});
+router.get('/new_signin' , function(req,res,next){
+	res.render('new_signin');
+});
+router.get('/new_login' , function(req,res,next){
+	res.render('new_login');
+});
 router.get('/game', function(req, res, next) {
 	if (!req.user) {
   		req.flash('error_msg', 'Login Required!');

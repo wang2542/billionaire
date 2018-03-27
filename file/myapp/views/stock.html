@@ -133,6 +133,17 @@
                                                 <label style = "color : green;">percetage</label>
                                         </div>
                                         {{/if}}
+
+                                        <div>
+                                            <form>
+                                                <button>ADD TO Watchlist</button>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +156,6 @@
                                         <div>
                                             <label style="font-size: 25px;">Stock Data:</label>
                                         </div>
-
 
                                         <div>
                                             <Label class = "stock-data-left">Company Name:</Label>
@@ -164,6 +174,22 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!--NEWS Section-->
+                            <div class="row" id = "div-stock-data">
+                                    <div class="col-md-12">
+                                        <div class="panel-footer">
+
+                                          {{#each news}}
+                                            <div>
+                                                <a href={{this.url}}>{{this.headline}}</a>
+                                            </div>
+                                          {{/each}}
+                                       
+                                        </div>
+                                    </div>
+                                </div>
+            
         
         
         
