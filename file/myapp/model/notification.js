@@ -10,9 +10,13 @@ var notificationSchema = schema({
         type:String
     },
 
-    timestamps: {
-        type:timestamps
+    date: {
+        type:Date
     },
+
+    status: {
+        type: int
+    }
 });
 
 var notification = module.exports= mongoose.model('notification',notificationSchema);
@@ -26,7 +30,11 @@ module.exports.getNotificationByUserId = function(userId, callback) {
     stock.findAll(query, callback);
 }
 
-module.exports.dailyNotificationByUserId = function(userId,timestamps, callback) {
-    var query = {userId:userId, timestamps:timestamps};
-    stock.findOne(query,function(){});
+module.exports.dailyNotificationByUserId = function(userId,date, callback) {
+    var query = {userId:userId, date:date};
+    stock.findOne(query,function(err,message){
+        if(!message) {
+            
+        }
+    });
 }
