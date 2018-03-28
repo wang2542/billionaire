@@ -88,10 +88,11 @@ router.post('/add', function(req, res, next) {
 		
 	});
    }
+});
 
-   router.post('/chart', function(req,res,next){
-        req.JSON("hahahahahah")
-   });
+router.get('/chart', function(req,res,next){
+	var stock = JSON.parse(localStorage.getItem('Stock'));
+	res.send(stock.chart);
 });
 
 module.exports = router;
