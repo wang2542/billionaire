@@ -6,8 +6,9 @@ $.ajax({
     type: "GET",
 
     success : function(res) {
-        console.log(res);
-        build_chart(1);
+        console.log(res.length);
+        console.log(res[0]);
+        build_chart(res);
 
     },
     error: function(err) {
@@ -27,6 +28,7 @@ function build_chart(data) {
     var chartData = [];
 
     function generateChartData() {
+        /*
         var firstDate = new Date(2012, 0, 1);
         firstDate.setDate(firstDate.getDate() - 500);
         firstDate.setHours(0, 0, 0, 0);
@@ -43,7 +45,26 @@ function build_chart(data) {
                 value: a,
                 volume: b
             });
-        }
+        }*/
+
+       
+       for (var i = 0; i < data.length; i++) {
+            var date = new Date(data[i].date);
+            date.setDate(date.getDate() + 1);
+            console.log(date)
+
+
+            a = data[i].price;
+            b = data[i].volumne;
+            
+            chartData.push({
+                date: date,
+                value: a,
+                volume: b
+            });
+       }
+       
+
     }
 
     var chart;
@@ -93,6 +114,7 @@ function build_chart(data) {
         // second stock panel
         var stockPanel2 = new AmCharts.StockPanel();
         stockPanel2.title = "Volume";
+        //stockPanel2.addTitle("Volume", 5, "red", 1, true);
         stockPanel2.percentHeight = 30;
         var graph2 = new AmCharts.StockGraph();
         graph2.valueField = "volume";
@@ -106,8 +128,11 @@ function build_chart(data) {
         stockLegend2.markerType = "none";
         stockPanel2.stockLegend = stockLegend2;
 
-        stockPanel1.color = "#FF0000";
-        stockPanel2.color = "#FF0000";
+
+        //SET COLOR
+        
+        stockPanel1.color = "#42f45f";
+        stockPanel2.color = "#42f45f";
         graph1.valueField.color = "#FF0000"
         graph2.valueField.color = "#FF0000"
         // set panels to the chart
