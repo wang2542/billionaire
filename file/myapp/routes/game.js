@@ -11,10 +11,25 @@ var User = require('../model/user');
 var ObjectId = require('mongodb').ObjectID;
 
 
-
+router.get('/', function(req,res,next) {
+	
+	if (!req.user) {
+		req.flash('error_msg', 'Login Required!');
+		res.redirect('/user/login');
+	} else {
+		res.render('game',{
+			user: req.user
+		});
+	}
+});
 router.get('/watchlist', function(req, res, next) {
+	console.log(req);
+	if (!req.user) {
+		req.flash('error_msg', 'Login Required!');
+		res.redirect('/user/login');
+	}
 
-	if (req.user.watchlist.length == 0) {
+	else if (req.user.watchlist.length == 0) {
 		res.render('watchlist');
 	} else {
 		var bigList = {},
@@ -56,42 +71,7 @@ router.get('/watchlist', function(req, res, next) {
 
 
 router.post('/watchlist', function(req, res, next) {
-	//Add stock to watchlist
-	//How to test to see if this is working
-	//0. Log in before you test this
-	//1. Type stock symbol on the search box at the bottom (Needs to be All upper case)
-	//2. Open Robomongo (or other GUI) to check if watchlist was appended
-
-	stock.findOne({ symbol : req.body.stockSym}, function(err, stock) {
-		if (!stock) {
-			req.flash('error', 'stock not found');
-			console.log('stock not found');
-			return res.redirect('/game/watchlist');
-		}
-
-		var isInArray = req.user.watchlist.some(function(stockid) {
-			return stockid.equals(stock._id);
-		});
-
-		// console.log(isInArray);
-
-		if (isInArray) { 
-			req.flash('error', 'stock already exists in watchlist');
-			console.log('stock already exists in watchlist');
-			return res.redirect('/game/watchlist');
-		} else {
-			req.user.watchlist.push(stock._id);
-			req.user.save();
-		}
-
-		console.log('watchlist added');
-		req.flash('success', 'watchlist added');
-		return res.redirect('/game/watchlist');
-	});
-
-	//stock.findOneAndUpdate({symbol : })
-
-
+	//Navigate to stock page
 });
 
 router.post('/watchlist/remove', function(req, res, next) {
@@ -114,5 +94,24 @@ router.post('/watchlist/remove', function(req, res, next) {
 	res.redirect('/game/watchlist');
 
 });
+router.post('/watchlist/navigate', function(req, res, next) {
+	var symbol = req.body.symbol;
+	//console.log(req.body.symbol);
 
+	//console.log(req.body.stockName);
+	stockInfo.searchStockBySymbl(symbol, function(err, infom) {
+
+		if (err) {
+			//res.redirect('/error');
+		}
+		else {
+			var Stock = JSON.parse(JSON.stringify(infom));
+		//	console.log(Stock[req.body.stockName]);
+			localStorage.setItem('Stock',JSON.stringify(Stock[symbol]))
+      		res.redirect('/stock');
+      
+		}
+	});
+	//res.redirect('/game/watchlist');
+});
 module.exports = router;

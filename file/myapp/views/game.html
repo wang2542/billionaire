@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>cs 407</title>
+    <title>Billionaire</title>
     <link href="stylesheets/gamestyle.css" rel="stylesheet">
     <link href="stylesheets/stock.css" rel="stylesheet">
 </head>
@@ -18,7 +18,7 @@
                 <div class="icoAdmin-wrapper">
                     <div class="icoAdmin-left-header">
                         <div class="icoAdmin-logo">
-								<span class="logo-text">cs 407 title<span class="hide-in-smallsize"></span></span>
+								<span class="logo-text">Billionaire<span class="hide-in-smallsize"></span></span>
                             </a>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
                                     <div class="drop-down dropdown-profile">
                                         <div class="dropdown-content-body">
                                             <ul>
-                                                <li><a href="#"><i class="ti-settings"></i> <span>Profile</span></a></li>
-                                                <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                <li><a href="/user/profile"><i class="ti-settings"></i> <span>Profile</span></a></li>
+                                                <li><a href="/user/logout"><i class="ti-power-off"></i> <span>Logout</span></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -79,9 +79,10 @@
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                         <div class="icoAdmin-inner-navbar">
                             <div class="icoAdmin-search"> <span class="searchbar-toggle">  </span>
-                                <div class="icoAdmin-search-box ">
-                                    <input type="text" placeholder="Search"> <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </div>
-                            </div>
+                                
+                                <form class="icoAdmin-search-box " action = "/" method="post">
+                                    <input type="text" placeholder="Search" name="stockName"> <button class="search-icon" type = "submit" ><i class="fa fa-search" aria-hidden="true"></i></span> </div>
+                                </form>
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
                                     <a href="/"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
@@ -102,11 +103,7 @@
 
                             
 
-                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
-                                <li>
-                                      <a href="/user/profile"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
-                                </li>
-                            </ul>
+                             
                         </div>
                     </nav>
                     <div class="icoAdmin-content">
@@ -139,7 +136,7 @@
                                             <div class="stat-content">
                                                 <div class="text-left dib">
                                                     <div class="stat-heading">Users</div>
-                                                    <div class="stat-text">Jordan</div>
+                                                    <div class="stat-text">{{user.username}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -154,7 +151,7 @@
                                             <div class="stat-content">
                                                 <div class="text-left dib">
                                                     <div class="stat-heading">Total Profit</div>
-                                                    <div class="stat-text">Total: $ 1765</div>
+                                                    <div class="stat-text">Total: $ {{user.coin}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -170,7 +167,7 @@
                                             <div class="stat-content">
                                                 <div class="text-left dib">
                                                     <div class="stat-heading">Daily Profit</div>
-                                                    <div class="stat-text"> + $765</div>
+                                                    <div class="stat-text"> 0</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -185,7 +182,7 @@
                                             <div class="stat-content">
                                                 <div class="text-left dib">
                                                     <div class="stat-heading">Percent change</div>
-                                                    <div class="stat-text"> + 10 % </div>
+                                                    <div class="stat-text"> 0 %</div>
                                                 </div>
                                             </div>
                                         </div>

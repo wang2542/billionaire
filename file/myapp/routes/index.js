@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 
 var news = require('../model/news.js');
 var localStorage = require('localStorage');
+var stock = require('../model/stock');
 var stockInfo = require('../model/stockInfo');
 var User = require('../model/user');
 
@@ -68,42 +69,7 @@ router.get('/game', function(req, res, next) {
 });
 
 
-router.post('/', function(req, res, next){
-	console.log('search stock');
-	console.log(req.body.stockName);
-	stockInfo.searchStockBySymbl(req.body.stockName, function(err, infom) {
 
-		if (err) {
-			//res.redirect('/error');
-		}
-		else {
-			var Stock = JSON.parse(JSON.stringify(infom));
-		//	console.log(Stock[req.body.stockName]);
-			localStorage.setItem('Stock',JSON.stringify(Stock[req.body.stockName]))
-      		res.redirect('/stock');
-      
-		}
-	});
-});
 
-router.get('/stock', function(req,res,next){
-	console.log('get stock requrest accpeted');
-	var stock = JSON.parse(localStorage.getItem('Stock'));
-	console.log(stock.company.companyName);
-	var decrease = false;
-	if(stock.quote.change < 0)
-		decrease = true;
-	if(stock){
-		res.render('stock',{
-			company : stock.company,
-			quote : stock.quote,
-			chart : stock.chart,
-			news : stock.news,
-			decrease : decrease
-		});
-	}
-	else 
-		res.render('stock');
-})
 
 module.exports = router;

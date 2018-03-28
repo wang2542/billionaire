@@ -1,13 +1,20 @@
-<!DOCTYPE html>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>cs 407</title>
+    <title>Billionaire</title>
     <link href="stylesheets/gamestyle.css" rel="stylesheet">
     <link href="stylesheets/stock.css" rel="stylesheet">
+
+    <!--styles for charts-->
+    <link rel="stylesheet" href="../js/amcharts/style.css"	type="text/css">
+
+    <!-- end styles for charts-->
+
 </head>
 
 <body>
@@ -19,7 +26,7 @@
                 <div class="icoAdmin-wrapper">
                     <div class="icoAdmin-left-header">
                         <div class="icoAdmin-logo">
-								<span class="logo-text">cs 407 title<span class="hide-in-smallsize"></span></span>
+								<span class="logo-text">Billionaire<span class="hide-in-smallsize"></span></span>
                             </a>
                         </div>
                     </div>
@@ -38,8 +45,14 @@
                                     <div class="drop-down dropdown-profile">
                                         <div class="dropdown-content-body">
                                             <ul>
-                                                <li><a href="#"><i class="ti-settings"></i> <span>Profile</span></a></li>
-                                                <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                {{#if user}}
+                                                <li><a href="/user/profile"><i class="ti-settings"></i> <span>Profile</span></a></li>
+                                                <li><a href="/user/logout"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                {{else}}
+                                                <li><a href="/user/login"><i class="ti-settings"></i> <span>Login</span></a></li>
+                                                <li><a href="/user/signup"><i class="ti-power-off"></i> <span>SignUp</span></a></li>
+                                                {{/if}}
+
                                             </ul>
                                         </div>
                                     </div>
@@ -58,18 +71,19 @@
                         <div class="icoAdmin-inner-navbar">
                             
                             <div class="icoAdmin-search"> <span class="searchbar-toggle">  </span>
-                                <div class="icoAdmin-search-box ">
-                                    <input type="text" placeholder="Search"> <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </div>
-                            </div>
+                                <form class="icoAdmin-search-box " action = "/" method="post">
+                                    <input type="text" placeholder="Search" name="stockName"> <button class="search-icon" type = "submit" ><i class="fa fa-search" aria-hidden="true"></i></span> </div>
+                                </form>
+                       
 
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
-                                    <a href="#"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
+                                    <a href="/"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
                                 </li>
                             </ul>
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
-                                    <a href="#"> <span class="icoAdmin-micon"><i class="icon-speedometer"></i></span> <span class="icoAdmin-mtext">Game Page</span></a>
+                                    <a href="/game"> <span class="icoAdmin-micon"><i class="icon-speedometer"></i></span> <span class="icoAdmin-mtext">Game Page</span></a>
                                     
                                 </li>
                             </ul>
@@ -80,11 +94,6 @@
                                 </li>
                             </ul>
 
-                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
-                                <li>
-                                    <a href="#"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
-                                </li>
-                            </ul>
 
                         </div>
                     </nav>
@@ -133,20 +142,15 @@
                                                 <label style = "color : green;">percetage</label>
                                         </div>
                                         {{/if}}
-
                                         <div>
-                                            <form>
-                                                <button>ADD TO Watchlist</button>
-                                            </form>
+                                            <button class="btn btn-sm round btn-outline-success" onclick="addWatchList('{{company.symbol}}')">Add To Watchlist</button>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
 
-                                    </div>
-                                </div>
-                            </div>
+
                             <!--stock data -->
                             <div class="row" id = "div-stock-data">
                                 <div class="col-md-12">
@@ -175,22 +179,35 @@
                                 </div>
                             </div>
 
-                            <!--NEWS Section-->
-                            <div class="row" id = "div-stock-data">
-                                    <div class="col-md-12">
-                                        <div class="panel-footer">
 
-                                          {{#each news}}
-                                            <div>
-                                                <a href={{this.url}}>{{this.headline}}</a>
-                                            </div>
-                                          {{/each}}
-                                       
+                            <!--Charts Section-->
+                            <div class="row" id = "div-stock-data">
+                                <div class="col-md-12">
+                                    <div class="panel-footer">
+                                        <div >
+                                            <div id="chartdiv" style="width:100%; height:600px;"></div>
                                         </div>
+                                    
                                     </div>
                                 </div>
-            
-        
+                            </div>
+
+
+
+                            <!--NEWS Section-->
+                            <div class="row" id = "div-stock-data">
+                                <div class="col-md-12">
+                                    <div class="panel-footer">
+                                        {{#each news}}
+                                        <div>
+                                            <a href={{this.url}}>{{this.headline}}</a>
+                                        </div>
+                                        {{/each}}
+                                    
+                                    </div>
+                                </div>
+                            </div>
+
         
         
                             <div class="row">
@@ -199,24 +216,30 @@
                                 </div>
                             </div>
 
-
-
-
                         </div>
                     </div>
-
-
-
-
-
 
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        function addWatchList(symbol) {
+            console.log("clicking to the watchlist");
+            var x = document.getElementById('submitFormT');
+            x.action = "/stock/add";
+            x.method = "post";
+            document.getElementById("submitFormT").elements.namedItem("symbol").value = symbol;
+            x.submit();
+        }
+    </script>
+
+
     <!-- Common JS -->
     <script src="../assets/plugins/common/common.min.js"></script>
+
+    
     <!-- Sidebar -->
     <script src="../assets/plugins/iconav/js/iconav.min.js"></script>
     <script src="../assets/plugins/iconav/js/iconav-init.js"></script>
@@ -225,10 +248,18 @@
 
 
     <!-- Amchart -->
+    
+    <!--
     <script src="../assets/plugins/amchart/serial.js"></script>
     <script src="../assets/plugins/amchart/light.js"></script>
     <script src="../assets/plugins/amchart/amstock.js"></script>
     <script src="../assets/plugins/amchart/dashboard1-amchart-init.js"></script>
+    -->
+    <script src="../js/amcharts/amcharts.js" type="text/javascript"></script>
+    <script src="../js/amcharts/serial.js" type="text/javascript"></script>
+    <script src="../js/amcharts/amstock.js" type="text/javascript"></script>
+
+    <script src="../js/stock.js" type="text/javascript"></script>
     <!-- Custom dashboard script -->
     <script src="js/dashboard-1.js"></script>
     <!-- Custom script -->

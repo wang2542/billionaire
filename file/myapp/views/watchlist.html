@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>cs 407</title>
+    <title>Billionarie</title>
     <link href="../stylesheets/gamestyle.css" rel="stylesheet">
 </head>
 
@@ -17,7 +17,7 @@
                 <div class="icoAdmin-wrapper">
                     <div class="icoAdmin-left-header">
                         <div class="icoAdmin-logo">
-								<span class="logo-text">cs 407 title<span class="hide-in-smallsize"></span></span>
+								<span class="logo-text">BILLIONAIRE<span class="hide-in-smallsize"></span></span>
                             </a>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                                     <div class="drop-down dropdown-profile">
                                         <div class="dropdown-content-body">
                                             <ul>
-                                                <li><a href="#"><i class="ti-settings"></i> <span>Profile</span></a></li>
-                                                <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                <li><a href="/user/profile"><i class="ti-settings"></i> <span>Profile</span></a></li>
+                                                <li><a href="/user/logout"><i class="ti-power-off"></i> <span>Logout</span></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -53,9 +53,9 @@
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                         <div class="icoAdmin-inner-navbar">
                             <div class="icoAdmin-search"> <span class="searchbar-toggle">  </span>
-                                <div class="icoAdmin-search-box ">
-                                    <input type="text" placeholder="Search"> <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </div>
-                            </div>
+                                <form class="icoAdmin-search-box " action = "/" method="post">
+                                    <input type="text" placeholder="Search" name="stockName"> <button class="search-icon" type = "submit" ><i class="fa fa-search" aria-hidden="true"></i></span> </div>
+                                </form>
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
                                     <a href="/"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
@@ -76,11 +76,6 @@
 
                             
 
-                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
-                                <li>
-                                      <a href="/user/profile"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
-                                </li>
-                            </ul>
                         </div>
                     </nav>
                     <div class="icoAdmin-content">
@@ -132,14 +127,13 @@
                                                             <th>{{this.latestVolume}}</th>
                                                             <th>{{this.avgTotalVolume}}</th>
                                                             <th>{{this.latestSource}}</th>
-															<th>{{this.object_id}}</th>
-                                                            
+											
 	                                                            <th>
-	                                                                <button class="btn btn-sm round btn-outline-success"> Buy</button>
+	                                                                <button class="btn btn-sm round btn-outline-success" onclick="navigate('{{this.symbol}}')">View</button>
 	                                                            </th>
 	                                                        
 	                                                            <th>
-	                                                                <button class="btn btn-sm round btn-outline-success" onclick="deleteWatchList('{{this.object_id}}')"> Remove</button>
+	                                                                <button class="btn btn-sm round btn-outline-success" onclick="deleteWatchList('{{this.object_id}}')">Remove</button>
 	                                                            </th>
                                                            
                                                         </tr>
@@ -154,24 +148,13 @@
 
                             <form method="post" action="" id="submitFormT">
                             	<input type="text" name="object_id" value="1" style="display:none"/>
+                                <input type="text" name="symbol" value="1" style="display:none"/>
                             </form>
                       
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="panel-footer"> 2018 © cs407</div>
                                 </div>
-                                <!-- Test Search for Adding -->
-                                <form class="searchBar" action="/game/watchlist" method="post">
-
-                                    <input id="searchBarInput" type="text" name="stockSym" placeholder="Type in the stock code/name in the search bar" >
-
-                                    <div>
-                                        <input class="search-button" type="submit" value="Search Stock"/>
-                                        
-                                    </div>
-
-                                </form>
-
                             </div>
 
                         </div>
@@ -189,6 +172,12 @@
     		document.getElementById("submitFormT").elements.namedItem("object_id").value = object_id;
             x.submit();
     	}
+        function navigate(symbol) {
+            var x = document.getElementById('submitFormT');
+            x.action += "/navigate"
+            document.getElementById("submitFormT").elements.namedItem("symbol").value = symbol;
+            x.submit();
+        }
     </script>
 
     <!-- Common JS -->
