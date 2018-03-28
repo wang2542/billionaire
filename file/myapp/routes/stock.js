@@ -5,7 +5,7 @@ var localStorage = require('localStorage');
 var stock = require('../model/stock');
 var stockInfo = require('../model/stockInfo');
 var User = require('../model/user');
-
+var async = require('async');
 router.post('/', function(req, res, next){
 	console.log('search stock');
 	console.log(req.body.stockName);
@@ -88,11 +88,26 @@ router.post('/add', function(req, res, next) {
 		
 	});
    }
-});
 
+  
+});
 router.get('/chart', function(req,res,next){
-	var stock = JSON.parse(localStorage.getItem('Stock'));
-	res.send(stock.chart);
+	console.log('geting stock chart');
+	var chart = JSON.parse(localStorage.getItem('Stock')).chart;
+	var data = [];
+	async.eachSeries(chart, function(obj, next){
+	
+		var temp = {
+			date : obj.date,
+			price: obj.open,
+			volumne:  obj.volume
+		};
+		data.push(temp);
+		next();
+		 }, function(err){
+			 if(err) return callback(err);
+			 res.json(data);
+		 });
+	
 });
-
 module.exports = router;
