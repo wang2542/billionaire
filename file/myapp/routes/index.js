@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 	  	//console.log(result['posts'][0]['text']);
 	  	//console.log(result['posts'][0]['url']);
 	  	if (!req.user) {
-		  	res.render('index-6', {
+		  	res.render('index', {
 		    	title_1 : result['posts'][0]['title'],
 		    	url_1 : result['posts'][0]['url'],
 		    	author_1 : result['posts'][0]['author'],
@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
 		    	author_2 : result['posts'][1]['author']
 		 	});	
 	  	} else {
-	  		res.render('index-6', {
+	  		res.render('index', {
 	  			title_1 : result['posts'][0]['title'],
 		    	url_1 : result['posts'][0]['url'],
 		    	author_1 : result['posts'][0]['author'],
@@ -53,8 +53,8 @@ router.get('/new_signin' , function(req,res,next){
 router.get('/new_login' , function(req,res,next){
 	res.render('new_login');
 });
-router.get('/home' , function(req,res,next){
-    res.render('home');
+router.get('/index' , function(req,res,next){
+    res.render('index');
 });
 router.get('/new_profile' , function(req,res,next){
     res.render('new_profile');
