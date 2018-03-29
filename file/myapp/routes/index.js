@@ -59,6 +59,9 @@ router.get('/index-6' , function(req,res,next){
 router.get('/new_profile' , function(req,res,next){
     res.render('new_profile');
 });
+router.get('/contact' , function(req,res,next){
+    res.render('contact');
+});
 router.get('/game', function(req, res, next) {
 	if (!req.user) {
   		req.flash('error_msg', 'Login Required!');

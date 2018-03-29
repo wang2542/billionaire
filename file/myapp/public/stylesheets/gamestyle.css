@@ -2159,10 +2159,10 @@ label {
   font-weight: 400;
   margin-bottom: 10px; }
 
-  .login-content {
+  .login-content .contact-content {
   margin: 100px 0; }
 
-.login-form {
+.login-form .contact-form {
   background: #0B0C21;
   padding: 30px 30px 20px;
   border-radius: 2px; }
