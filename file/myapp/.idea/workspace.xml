@@ -35,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new_login.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="new_login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/new_login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
-              <caret line="150" column="101" lean-forward="false" selection-start-line="150" selection-start-column="101" selection-end-line="150" selection-end-column="101" />
+            <state relative-caret-position="1515">
+              <caret line="101" column="125" lean-forward="false" selection-start-line="101" selection-start-column="125" selection-end-line="101" selection-end-column="125" />
               <folding />
             </state>
           </provider>
@@ -65,13 +65,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="316" column="42" lean-forward="false" selection-start-line="316" selection-start-column="42" selection-end-line="316" selection-end-column="42" />
+            <state relative-caret-position="135">
+              <caret line="9" column="79" lean-forward="false" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
               <folding>
-                <marker date="1522354822000" expanded="false" signature="15650:15656" ph="©" />
+                <marker date="1522355573000" expanded="false" signature="15650:15656" ph="©" />
               </folding>
             </state>
           </provider>
@@ -91,6 +91,7 @@
       <find>signup</find>
       <find>login</find>
       <find>profile</find>
+      <find>16</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -337,12 +338,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522178023521</updated>
-      <workItem from="1522178027155" duration="14193000" />
+      <workItem from="1522178027155" duration="14376000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14193000" />
+    <option name="totallyTimeSpent" value="14376000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="263" y="137" width="1353" height="874" extended-state="0" />
@@ -557,21 +558,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.html">
+    <entry file="file://$PROJECT_DIR$/views/new_login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="316" column="42" lean-forward="false" selection-start-line="316" selection-start-column="42" selection-end-line="316" selection-end-column="42" />
-          <folding>
-            <marker date="1522354822000" expanded="false" signature="15650:15656" ph="©" />
-          </folding>
+        <state relative-caret-position="1515">
+          <caret line="101" column="125" lean-forward="false" selection-start-line="101" selection-start-column="125" selection-end-line="101" selection-end-column="125" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/new_login.html">
+    <entry file="file://$PROJECT_DIR$/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="150" column="101" lean-forward="false" selection-start-line="150" selection-start-column="101" selection-end-line="150" selection-end-column="101" />
-          <folding />
+        <state relative-caret-position="135">
+          <caret line="9" column="79" lean-forward="false" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
+          <folding>
+            <marker date="1522355573000" expanded="false" signature="15650:15656" ph="©" />
+          </folding>
         </state>
       </provider>
     </entry>
