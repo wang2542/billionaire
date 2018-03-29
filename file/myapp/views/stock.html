@@ -172,8 +172,33 @@
                                         </div>
 
                                         <div>
-                                            <Label class = "stock-data-left">AttributeIII:</Label>
-                                            <label class="stock-data-right">somedata</label>
+                                            <Label class = "stock-data-left">Industry:</Label>
+                                            <label class="stock-data-right">{{company.industry}}</label>
+                                        </div>
+
+                                        <div>
+                                            <Label class = "stock-data-left">CEO:</Label>
+                                            <label class="stock-data-right">{{company.CEO}}</label>
+                                        </div>
+
+                                        <div>
+                                            <Label class = "stock-data-left">OPEN/CLOSE</Label>
+                                            <label class="stock-data-right">${{quote.open}} / ${{quote.close}}</label>
+                                        </div>
+
+                                        <div>
+                                            <Label class = "stock-data-left">HIGH/LOW</Label>
+                                            <label class="stock-data-right">${{quote.high}} / ${{quote.low}}</label>
+                                        </div>
+
+                                        <div>
+                                            <Label class = "stock-data-left">Latest Price</Label>
+                                            <label class="stock-data-right">${{quote.latestPrice}}</label>
+                                        </div>
+
+                                        <div>
+                                            <Label class = "stock-data-left">Latest Volume</Label>
+                                            <label class="stock-data-right">{{quote.latestVolume}}</label>
                                         </div>
                                     </div>
                                 </div>
