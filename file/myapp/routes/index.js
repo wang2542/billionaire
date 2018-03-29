@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
+var nodemailer = require('nodemailer');
 
 var news = require('../model/news.js');
 var localStorage = require('localStorage');
@@ -71,7 +72,32 @@ router.get('/game', function(req, res, next) {
 	}
 });
 
+router.post('/contact/send', function(req, res, next) {
+	var smtpTransport = nodemailer.createTransport({
+		service: 'gmail',
+		auth: {
+			user: 'billionaire.cs407@gmail.com',
+			pass: 'hihellohi'
+		}
+	});
 
+	var mailOptions = {
+		from: '"billionaire " <billionaire.cs407@gmail.com>', //sender address
+		to: 'li1800@purdue.edu, pangr@purdue.edu, kcha@purdue.edu, wang2542@purdue.edu, fu157@purdue.edu', //list of receivers
+		subject: 'Feedback from Billionaire: Subj' + req.body.subject, //Subject line
+		text: 'You have a submission from Name: ' + req.body.username + 'Email: ' + req.body.email+ 'Message: ' + req.body.message, //plain text body
+		html: '<p>You have a submission from </p> <ul><li>Name: ' + req.body.username + '</li><li>Email: ' + req.body.email+ '</li><li>subject: ' + req.body.subject + '</li><li>Message: ' + req.body.message + '</li></ul>'//html body
+	};
+
+	smtpTransport.sendMail(mailOptions, function(error, info) {
+		if(error) {
+			return console.log(error);
+		}
+		console.log('Message Sent: ' + info.response);
+		res.redirect('/contact');
+	});
+
+});
 
 
 
