@@ -140,6 +140,7 @@ router.post('/signup', function(req, res, next) {
 
 router.post('/login', passport.authenticate('local', { failureRedirect: '/user/login', failureFlash: true }),
   function(req, res) {
+	req.flash('success_msg', 'You are logged in');
     res.redirect('/');
  });
 

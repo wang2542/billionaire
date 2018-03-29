@@ -100,7 +100,7 @@
                                 <li class="nav-item"><a href="#">{{username}}</a></li>
                                 <li class="nav-item"><a href="/game">Game Page</a></li>
                                 <li class="nav-item"><a href="/game/watchlist" >Watchlist</a></li>
-                                <li class="nav-item"><a href="/user/signup">Profile</a></li>
+                                <li class="nav-item"><a href="/user/profile">Profile</a></li>
                                 <li class="nav-item"><a href="/user/logout">Log Out</a></li>
                                 {{else}}
                                 <li class="nav-item"><a href="/user/signup">Sign up</a></li>
@@ -168,7 +168,11 @@
                         
                         <h1>Financial markets can not allowed you to make any mistakes</h1>
                         <p>But, we can</p>
+                        {{#if user}}
+                       
+                        {{else}}
                         <a class="btn btn-primary" href="/user/signup">SIGN UP</a>
+                        {{/if}}
                     </div>
                 </div>
                 <!-- /# End column -->
