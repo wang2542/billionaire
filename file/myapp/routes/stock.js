@@ -8,11 +8,17 @@ var User = require('../model/user');
 var async = require('async');
 router.post('/', function(req, res, next){
 	console.log('search stock');
-	console.log(req.body.stockName);
+	console.log(req.body.stockName=="");
+	if(req.body.stockName==""){
+		req.flash('error_msg', 'Stock Name cannot be empty');
+		res.redirect('/');
+	}
+	else{
 	stockInfo.searchStockBySymbl(req.body.stockName, function(err, infom) {
-
+		var Stock = JSON.parse(JSON.stringify(infom));
 		if (err) {
-			//res.redirect('/error');
+			req.flash('error_msg', JSON.stringify(err));
+			res.redirect('/');
 		}
 		else {
 			
@@ -21,14 +27,15 @@ router.post('/', function(req, res, next){
 				res.redirect('/');
 			}
 			else{
-				var Stock = JSON.parse(JSON.stringify(infom));
-			
+				
+				
 				localStorage.setItem('Stock',JSON.stringify(Stock[req.body.stockName]))
 			  	res.redirect('/stock');
 			}
       
 		}
 	});
+	}
 });
 router.get('/', function(req,res,next){
 	console.log('get stock requrest accpeted');
@@ -36,8 +43,9 @@ router.get('/', function(req,res,next){
 	var decrease = false;
 	var user = null;
 	if (req.user) user = req.user;
+	
 	console.log(stock == null)
-	if(stock ){
+	if(stock && stock.company ){
 		
 		if(stock.quote.change < 0)
 			decrease = true;

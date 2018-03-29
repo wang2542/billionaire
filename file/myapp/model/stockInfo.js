@@ -17,13 +17,14 @@ var newsInfom ={
 exports.searchStockBySymbl = function(symbl, callback) {
     newsInfom.qs.symbols = symbl;
     request(newsInfom, function(error,response,body) {
+        
         if(error) return callback(error);
         else {
             var json = JSON.parse(body);
             console.log(json);
             if( json) {
                
-                callback(null,json);
+                callback(error,json);
             }
             else  
             callback(error,null);
