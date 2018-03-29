@@ -98,7 +98,28 @@
                         </div>
                     </nav>
 
+
                     <div class="icoAdmin-content">
+
+
+                        <div class="row">
+                          <div class="col-lg-12">
+                            {{#if success_msg}}
+                            <div class="alert alert-success">{{success_msg}}</div>
+                            {{/if}}
+
+                            {{#if error_msg}}
+                            <div class="alert alert-danger">{{error_msg}}</div>
+                            {{/if}}
+
+                            {{#if error}}
+                            <div class="alert alert-danger">{{error}}</div>
+                            {{/if}}
+                            
+                          </div>  
+                        </div>
+
+
                         <div class="icoAdmin-inner-content container-fluid">
                             <div class="row page-titles">
                                 <div class="col-md-2 align-self-center">
@@ -125,26 +146,31 @@
                                     <div class="panel-footer">
                                         
                                         <div>
-                                            <label style="font-size: 25px;" >Apple</label>
+                                            <label style="font-size: 25px;" >{{company.companyName}}</label>
                                         </div>
                                         {{#if decrease}}
                                         <div>
-                                            <label>Price</label>
-                                            <label style = "color : red;">diff</label>
+                                            <label style="font-size: 18px">{{quote.latestPrice}}</label>
+                                            <label style="font-size: 12px"> USD </label>
                                             <label style = "color : red;"><i class="ti-arrow-down f-s-16 text-primary m-l-5"></i></label>
-                                            <label style = "color : red;">percetage</label>
+                                            <label style = "color : red;">{{quote.change}}</label>
+                                            <label style = "color : red;">( {{quote.changePercent}} %)</label>
                                         </div>
                                         {{else}}
                                         <div>
-                                                <label>Price</label>
-                                                <label style = "color : green;">diff</label>
+                                                <label style="font-size: 18px">{{quote.latestPrice}}</label>
+                                                <label style="font-size: 12px"> USD </label>
                                                 <label style = "color : green;"><i class="ti-arrow-up f-s-16 text-primary m-l-5"></i></label>
-                                                <label style = "color : green;">percetage</label>
+                                                <label style = "color : green;">{{quote.change}}</label>
+                                                <label style = "color : green;">( {{quote.changePercent}} %)</label>
                                         </div>
                                         {{/if}}
+
+                                        {{#if user}}
                                         <div>
                                             <button class="btn btn-sm round btn-outline-success" onclick="addWatchList('{{company.symbol}}')">Add To Watchlist</button>
                                         </div>
+                                        {{/if}}
 
                                     </div>
                                 </div>
@@ -240,6 +266,12 @@
                                     <div class="panel-footer"> 2018 © cs407</div>
                                 </div>
                             </div>
+
+
+                            <!-- Form for Add Watch List -->
+                            <form method="post" action="" id="submitFormT">
+                                <input type="text" name="symbol" value="1" style="display:none"/>
+                            </form> 
 
                         </div>
                     </div>
