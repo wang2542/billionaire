@@ -88,13 +88,19 @@
 
 
                             <!-- __________Header END______________  -->
+                            {{#if errors}}
+                            {{#each errors}}
                             <center>
+
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="card-content">
-                                                
+
+                                                <div class="alert alert-danger">{{msg}}</div>
+
+                                                <!--
                                                 <div class="alert alert-success">
                                                     This is a success alert—check it out!
                                                 </div>
@@ -104,13 +110,15 @@
                                                 <div class="alert alert-warning">
                                                     This is a warning alert—check it out!
                                                 </div>
-                                                
+                                                -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             </center>
+                            {{/each}}
+                            {{/if}}
                             <!-- alter example end -->
 
                             <div class="row justify-content-center">
@@ -118,18 +126,22 @@
                                     <div class="login-content card">
                                         <div class="login-form">
                                             <h4>Sign Up</h4>
-                                            <form>
+                                            <form id = "form_signup" action="/user/signup" method="post">
                                                 <div class="form-group">
-                                                    <label>User Name</label>
-                                                    <input type="email" class="form-control" placeholder="User Name">
+                                                    <label id = "signup_lbl_username">User Name</label>
+                                                    <input id = "signup_input_username" type="text" class="form-control" name="username" placeholder="User Name">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Email address</label>
-                                                    <input type="email" class="form-control" placeholder="Email">
+                                                    <label id = "signup_lbl_email">Email address</label>
+                                                    <input id = "signup_input_email" type="email" class="form-control" name="email" placeholder="Email" >
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input type="password" class="form-control" placeholder="Password">
+                                                    <label id = "signup_lbl_password">Password</label>
+                                                    <input id = "signup_input_password" type="password" class="form-control" name="password" placeholder="Password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label id = "signup_lbl_password_2">Password</label>
+                                                    <input id = "signup_input_password_2" type="password" class="form-control" name="passwordConfirm" placeholder="PasswordConfirm">
                                                 </div>
                                                 
                                                 <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
@@ -141,7 +153,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- _____________CopyRight Start______________-->
                             <div class="row">
                                 <div class="col-md-12">
