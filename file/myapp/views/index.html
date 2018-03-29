@@ -99,9 +99,15 @@
                                 {{#if user}}
                                 <li class="nav-item"><a href="#">{{username}}</a></li>
                                 <li class="nav-item"><a href="/game">Game Page</a></li>
+<<<<<<< HEAD
                                 <li class="nav-item"><a href="#" >Watchlist</a></li>
                                 <li class="nav-item"><a href="/user/new_signup">Profile</a></li>
                                 <li class="nav-item"><a href="/user/new_login">Log Out</a></li>
+=======
+                                <li class="nav-item"><a href="/game/watchlist" >Watchlist</a></li>
+                                <li class="nav-item"><a href="/user/profile">Profile</a></li>
+                                <li class="nav-item"><a href="/user/login">Log Out</a></li>
+>>>>>>> 08b75212db1d46e9a11faa2142dbb099b9cbb695
                                 {{else}}
                                 <li class="nav-item"><a href="/user/new_signup">Sign up</a></li>
                                 <li class="nav-item"><a href="/user/new_login">Log in</a></li>{{/if}}
@@ -239,7 +245,7 @@
                     </center>
 
 
-                <form class="searchBar" action="/" method="post">
+                <form class="searchBar" action="/stock" method="post">
 
                 <input id="searchBarInput" type="text" name="stockName" placeholder="Type in the stock code/name in the search bar" >
 
