@@ -36,8 +36,8 @@
                                     <div class="drop-down dropdown-profile">
                                         <div class="dropdown-content-body">
                                             <ul>
-                                                <li><a href="#"><i class="ti-settings"></i> <span>Profile</span></a></li>
-                                                <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                <li><a href="/profile"><i class="ti-settings"></i> <span>Profile</span></a></li>
+                                                <li><a href="/user/logout"><i class="ti-power-off"></i> <span>Logout</span></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -114,32 +114,32 @@
                                             <h4>Profile</h4>
                                         </div>
                                         <div class="horizontal-form-elements">
-                                            <form class="form-horizontal">
+                                            <form class="form-horizontal" action="/user/profile" method="post">
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label class="col-sm-4 control-label">User name</label>
                                                             <div class="col-sm-10">
-                                                                <input class="form-control" type="text" value="wjz95" readonly="">
+                                                                <input class="form-control" type="text" name="username" value="{{username}}" readOnly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-sm-4 control-label">Email</label>
                                                             <div class="col-sm-10">
-                                                                <input type="email" class="form-control" value="wjz95@vt.edu">
+                                                                <input type="email" class="form-control" name="email" value="{{email}}">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label class="col-sm-4 control-label">Password</label>
                                                             <div class="col-sm-10">
-                                                                <input class="form-control" type="password" value="password">
+                                                                <input class="form-control" type="password" value="" name="password">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-sm-4 control-label">Confirm Password</label>
                                                             <div class="col-sm-10">
-                                                                <input class="form-control" type="password" value="password">
+                                                                <input class="form-control" type="password" value="" name="passwordConfirm">
                                                             </div>
                                                         </div>
                                                         <button type="submit" class="btn btn-default">Submit</button>
