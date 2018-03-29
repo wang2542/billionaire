@@ -53,8 +53,8 @@ router.get('/new_signin' , function(req,res,next){
 router.get('/new_login' , function(req,res,next){
 	res.render('new_login');
 });
-router.get('/index' , function(req,res,next){
-    res.render('index');
+router.get('/index-6' , function(req,res,next){
+    res.render('index-6');
 });
 router.get('/new_profile' , function(req,res,next){
     res.render('new_profile');

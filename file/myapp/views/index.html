@@ -96,26 +96,16 @@
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                                    <a href="#" data-scroll-nav="5">Home
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" data-scroll-nav="2">Profile</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" data-scroll-nav="3">Game Page</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" data-scroll-nav="4">Watchlist</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" data-scroll-nav="1">Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#"></a>
-                                </li>
+                                {{#if user}}
+                                <li class="nav-item"><a href="#">{{username}}</a></li>
+                                <li class="nav-item"><a href="/game">Game Page</a></li>
+                                <li class="nav-item"><a href="#" >Watchlist</a></li>
+                                <li class="nav-item"><a href="/user/signup">Profile</a></li>
+                                <li class="nav-item"><a href="/user/login">Log Out</a></li>
+                                {{else}}
+                                <li class="nav-item"><a href="/user/signup">Sign up</a></li>
+                                <li class="nav-item"><a href="/user/login">Log in</a></li>{{/if}}
+
                                 <li class="nav-item search-icon">
                                     <a href="#search_1">
                                         <i class="icofont icofont-search-alt-2"></i>
@@ -134,6 +124,28 @@
     <!-- //////////////////////////////
         End Header
     /////////////////////////////////-->
+    {{#if errors}}
+    {{#each errors}}
+    <div class="alert alert-danger">{{msg}}</div>
+    {{/each}}
+    {{/if}}
+
+    <div class="row">
+        <div class="col-lg-12">
+            {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+            {{/if}}
+
+            {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+            {{/if}}
+
+            {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+            {{/if}}
+
+        </div>
+    </div>
 
     <section class="hero" data-scroll-index="1">
         <div class="container-fluid">
@@ -143,7 +155,7 @@
                         
                         <h1>Financial markets can not allowed you to make any mistakes</h1>
                         <p>But, we can</p>
-                        <a class="btn btn-primary" href="#">SIGN UP</a>
+                        <a class="btn btn-primary" href="/user/signup">SIGN UP</a>
                     </div>
                 </div>
                 <!-- /# End column -->
@@ -167,8 +179,8 @@
                                 <h3>NEWS_1</h3>
                             </div>
                             <div class="back">
-                                <p>news_1 detail</p>
-                                <a class="read-more" href="#">Read More
+                                <p>{{title_1}}</p>
+                                <a class="read-more" href="{{{url_1}}}">Read More
                                     <i class="icofont icofont-long-arrow-right"></i>
                                 </a>
                             </div>
@@ -183,8 +195,8 @@
                                 <h3>NEWS_2</h3>
                             </div>
                             <div class="back">
-                                <p>news_2 detail</p>
-                                <a class="read-more" href="#">Read More
+                                <p>{{title_2}}</p>
+                                <a class="read-more" href="{{{url_2}}}">Read More
                                     <i class="icofont icofont-long-arrow-right"></i>
                                 </a>
                             </div>
@@ -199,8 +211,8 @@
                                 <h3>NEWS_3</h3>
                             </div>
                             <div class="back">
-                                <p>news_3 detail</p>
-                                <a class="read-more" href="#">Read More
+                                <p>{{title_3}}</p>
+                                <a class="read-more" href="{{{url_3}}}">Read More
                                     <i class="icofont icofont-long-arrow-right"></i>
                                 </a>
                             </div>
