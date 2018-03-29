@@ -99,17 +99,11 @@
                                 {{#if user}}
                                 <li class="nav-item"><a href="#">{{username}}</a></li>
                                 <li class="nav-item"><a href="/game">Game Page</a></li>
-<<<<<<< HEAD
-                                <li class="nav-item"><a href="#" >Watchlist</a></li>
-                                <li class="nav-item"><a href="/user/new_signup">Profile</a></li>
-                                <li class="nav-item"><a href="/user/new_login">Log Out</a></li>
-=======
                                 <li class="nav-item"><a href="/game/watchlist" >Watchlist</a></li>
-                                <li class="nav-item"><a href="/user/profile">Profile</a></li>
-                                <li class="nav-item"><a href="/user/login">Log Out</a></li>
->>>>>>> 08b75212db1d46e9a11faa2142dbb099b9cbb695
+                                <li class="nav-item"><a href="/user/new_signin">Profile</a></li>
+                                <li class="nav-item"><a href="/user/new_login">Log Out</a></li>
                                 {{else}}
-                                <li class="nav-item"><a href="/user/new_signup">Sign up</a></li>
+                                <li class="nav-item"><a href="/user/new_signin">Sign up</a></li>
                                 <li class="nav-item"><a href="/user/new_login">Log in</a></li>{{/if}}
 
                                 <li class="nav-item search-icon">
@@ -161,7 +155,7 @@
                         
                         <h1>Financial markets can not allowed you to make any mistakes</h1>
                         <p>But, we can</p>
-                        <a class="btn btn-primary" href="/user/signup">SIGN UP</a>
+                        <a class="btn btn-primary" href="/user/new_signin">SIGN UP</a>
                     </div>
                 </div>
                 <!-- /# End column -->
@@ -271,7 +265,7 @@
                 </div>
                 <div class="col-lg-3 col-sm-4">
                     <div class="cta-link">
-                        <a href="#">Contact Us</a>
+                        <a href="/contact">Contact Us</a>
                     </div>
                 </div>
                 <!-- /# End column -->

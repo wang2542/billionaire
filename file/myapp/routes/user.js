@@ -42,13 +42,13 @@ passport.use(new LocalStrategy( function(username, password, done) {
 
 
 /* GET users listing. */
-router.get('/signup', function(req, res, next) {
+router.get('/new_signin', function(req, res, next) {
 	//res.send('respond with a resource');
 	if (req.user) {
   		req.flash('error_msg', 'invalid Attempt');
   		res.redirect('/');
   	} else {
-		res.render('signup');
+		res.render('new_signin');
 	}
 });
 
@@ -94,7 +94,7 @@ router.get('/reset/:token', function(req, res) {
 	});
 })
 
-router.post('/signup', function(req, res, next) {
+router.post('/new_signin', function(req, res, next) {
 	var signupUsername = req.body.username;
 	var signupEmail = req.body.email;
 	var signupPassword = req.body.password;
@@ -109,7 +109,7 @@ router.post('/signup', function(req, res, next) {
 	var errors = req.validationErrors();
 
 	if(errors){
-		return res.render('signup',{
+		return res.render('new_signin',{
 			errors:errors
 		});
 	} else {
@@ -123,7 +123,7 @@ router.post('/signup', function(req, res, next) {
 		User.find({$or: [{username: signupUsername}, {email: signupEmail}]}, function(err, docs) {
 			if (docs.length) {
 				req.flash('error_msg', 'The username or email has already existed');
-				return res.redirect('/user/signup');
+				return res.redirect('/user/new_signin');
 			}
 			else {
 				User.createUser(newUser, function(err, user){
