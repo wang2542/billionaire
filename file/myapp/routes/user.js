@@ -52,13 +52,13 @@ router.get('/signup', function(req, res, next) {
 	}
 });
 
-router.get('/login', function(req, res, next) {
+router.get('/new_login', function(req, res, next) {
   //res.send('respond with a resource');
   	if (req.user) {
   		req.flash('error_msg', 'invalid Attempt');
   		res.redirect('/');
   	} else {
-		res.render('login');
+		res.render('new_login');
 	}
 });
 
@@ -129,7 +129,7 @@ router.post('/signup', function(req, res, next) {
 				User.createUser(newUser, function(err, user){
 				if(err) throw err;
 				console.log(user);
-				return res.redirect('/user/login');
+				return res.redirect('/user/new_login');
 				});
 				req.flash('success_msg', 'You are registered and can now login.');
 			}
@@ -138,7 +138,7 @@ router.post('/signup', function(req, res, next) {
 
 });
 
-router.post('/login', passport.authenticate('local', { failureRedirect: '/user/login', failureFlash: true }),
+router.post('/new_login', passport.authenticate('local', { failureRedirect: '/user/new_login', failureFlash: true }),
   function(req, res) {
     res.redirect('/');
  });
@@ -264,7 +264,7 @@ router.post('/resetpw', function(req, res, next) {
 		}
 	], function(err) {
 		if (err) return next(err);
-		res.redirect('/user/login');
+		res.redirect('/user/new_login');
 	});
 });
 
