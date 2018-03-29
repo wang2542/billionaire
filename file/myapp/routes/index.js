@@ -24,9 +24,9 @@ router.get('/', function(req, res, next) {
 		    	title_1 : result['posts'][0]['title'],
 		    	url_1 : result['posts'][0]['url'],
 		    	author_1 : result['posts'][0]['author'],
-		    	title_2 : result['posts'][1]['title'],
-		    	url_2 : result['posts'][1]['url'],
-		    	author_2 : result['posts'][1]['author'],
+		    	title_2 : result['posts'][3]['title'],
+		    	url_2 : result['posts'][3]['url'],
+		    	author_2 : result['posts'][3]['author'],
 		    	title_3 : result['posts'][2]['title'],
 		    	url_3 : result['posts'][2]['url'],
 		    	author_3 : result['posts'][2]['author']
@@ -36,7 +36,9 @@ router.get('/', function(req, res, next) {
 	  			title_1 : result['posts'][0]['title'],
 		    	url_1 : result['posts'][0]['url'],
 		    	author_1 : result['posts'][0]['author'],
-		    	title_2 : result['posts'][1]['title'],
+		    	title_2 : result['posts'][3]['title'],
+		    	url_2 : result['posts'][3]['url'],
+		    	author_2 : result['posts'][3]['author'],
 		    	title_3 : result['posts'][2]['title'],
 		    	url_3 : result['posts'][2]['url'],
 		    	author_3 : result['posts'][2]['author'],
@@ -102,6 +104,8 @@ router.post('/contact/send', function(req, res, next) {
 	});
 
 });
+
+
 
 
 
