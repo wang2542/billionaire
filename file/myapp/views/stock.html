@@ -98,7 +98,28 @@
                         </div>
                     </nav>
 
+
                     <div class="icoAdmin-content">
+
+
+                        <div class="row">
+                          <div class="col-lg-12">
+                            {{#if success_msg}}
+                            <div class="alert alert-success">{{success_msg}}</div>
+                            {{/if}}
+
+                            {{#if error_msg}}
+                            <div class="alert alert-danger">{{error_msg}}</div>
+                            {{/if}}
+
+                            {{#if error}}
+                            <div class="alert alert-danger">{{error}}</div>
+                            {{/if}}
+                            
+                          </div>  
+                        </div>
+
+
                         <div class="icoAdmin-inner-content container-fluid">
                             <div class="row page-titles">
                                 <div class="col-md-2 align-self-center">
@@ -125,26 +146,31 @@
                                     <div class="panel-footer">
                                         
                                         <div>
-                                            <label style="font-size: 25px;" >Apple</label>
+                                            <label style="font-size: 25px;" >{{company.companyName}}</label>
                                         </div>
                                         {{#if decrease}}
                                         <div>
-                                            <label>Price</label>
-                                            <label style = "color : red;">diff</label>
+                                            <label style="font-size: 18px">{{quote.latestPrice}}</label>
+                                            <label style="font-size: 12px"> USD </label>
                                             <label style = "color : red;"><i class="ti-arrow-down f-s-16 text-primary m-l-5"></i></label>
-                                            <label style = "color : red;">percetage</label>
+                                            <label style = "color : red;">{{quote.change}}</label>
+                                            <label style = "color : red;">( {{quote.changePercent}} %)</label>
                                         </div>
                                         {{else}}
                                         <div>
-                                                <label>Price</label>
-                                                <label style = "color : green;">diff</label>
+                                                <label style="font-size: 18px">{{quote.latestPrice}}</label>
+                                                <label style="font-size: 12px"> USD </label>
                                                 <label style = "color : green;"><i class="ti-arrow-up f-s-16 text-primary m-l-5"></i></label>
-                                                <label style = "color : green;">percetage</label>
+                                                <label style = "color : green;">{{quote.change}}</label>
+                                                <label style = "color : green;">( {{quote.changePercent}} %)</label>
                                         </div>
                                         {{/if}}
+
+                                        {{#if user}}
                                         <div>
                                             <button class="btn btn-sm round btn-outline-success" onclick="addWatchList('{{company.symbol}}')">Add To Watchlist</button>
                                         </div>
+                                        {{/if}}
 
                                     </div>
                                 </div>
@@ -172,8 +198,33 @@
                                         </div>
 
                                         <div>
-                                            <Label class = "stock-data-left">AttributeIII:</Label>
-                                            <label class="stock-data-right">somedata</label>
+                                            <Label class = "stock-data-left">Industry:</Label>
+                                            <label class="stock-data-right">{{company.industry}}</label>
+                                        </div>
+
+                                        <div>
+                                            <Label class = "stock-data-left">CEO:</Label>
+                                            <label class="stock-data-right">{{company.CEO}}</label>
+                                        </div>
+
+                                        <div>
+                                            <Label class = "stock-data-left">OPEN/CLOSE</Label>
+                                            <label class="stock-data-right">${{quote.open}} / ${{quote.close}}</label>
+                                        </div>
+
+                                        <div>
+                                            <Label class = "stock-data-left">HIGH/LOW</Label>
+                                            <label class="stock-data-right">${{quote.high}} / ${{quote.low}}</label>
+                                        </div>
+
+                                        <div>
+                                            <Label class = "stock-data-left">Latest Price</Label>
+                                            <label class="stock-data-right">${{quote.latestPrice}}</label>
+                                        </div>
+
+                                        <div>
+                                            <Label class = "stock-data-left">Latest Volume</Label>
+                                            <label class="stock-data-right">{{quote.latestVolume}}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -215,6 +266,12 @@
                                     <div class="panel-footer"> 2018 © cs407</div>
                                 </div>
                             </div>
+
+
+                            <!-- Form for Add Watch List -->
+                            <form method="post" action="" id="submitFormT">
+                                <input type="text" name="symbol" value="1" style="display:none"/>
+                            </form> 
 
                         </div>
                     </div>
