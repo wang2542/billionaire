@@ -127,6 +127,9 @@
     /////////////////////////////////-->
     {{#if errors}}
     {{#each errors}}
+    <br>
+    <br>
+    <br>
     <div class="alert alert-danger">{{msg}}</div>
     {{/each}}
     {{/if}}
@@ -134,14 +137,23 @@
     <div class="row">
         <div class="col-lg-12">
             {{#if success_msg}}
+            <br>
+            <br>
+            <br>
             <div class="alert alert-success">{{success_msg}}</div>
             {{/if}}
 
             {{#if error_msg}}
+            <br>
+            <br>
+            <br>
             <div class="alert alert-danger">{{error_msg}}</div>
             {{/if}}
 
             {{#if error}}
+            <br>
+            <br>
+            <br>
             <div class="alert alert-danger">{{error}}</div>
             {{/if}}
 
