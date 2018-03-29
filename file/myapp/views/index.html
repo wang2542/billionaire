@@ -326,40 +326,40 @@
                         <h3>Hot Stock</h3>
                         <ul class="tag-list">
                             <li>
-                                <a href="#">AAPL</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('AAPL')>AAPL</a>
                             </li>
                             <li>
-                                <a href="#">AMZN</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('AMZN')>AMZN</a>
                             </li>
                             <li>
-                                <a href="#">GOOG</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('GOOG')>GOOG</a>
                             </li>
                             <li>
-                                <a href="#">NFLX</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('NFLX')>NFLX</a>
                             </li>
                             <li>
-                                <a href="#">ADBE</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('ADBE')>ADBE</a>
                             </li>
                             <li>
-                                <a href="#">GS</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('GS')>GS</a>
                             </li>
                             <li>
-                                <a href="#">JPM</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('JPM')>JPM</a>
                             </li>
                             <li>
-                                <a href="#">C</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('C')>C</a>
                             </li>
                             <li>
-                                <a href="#">MS</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('MS')>MS</a>
                             </li>
                             <li>
-                                <a href="#">BX</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('BX')>BX</a>
                             </li>
                             <li>
-                                <a href="#">BAC</a>
+                               <a href = "javascript: gotostock" onclick = gotostock('BAC')>BAC</a>
                             </li>
                             <li>
-                                <a href="#">IBM</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('IBM')>IBM</a>
                             </li>
                         </ul>
                     </div>
@@ -396,7 +396,11 @@
         End Footer
     /////////////////////////////////-->
 
-
+    <!-- submit form-->
+    <form method="post" action="" id="submitFormT">
+                                <input type="text" name="object_id" value="1" style="display:none"/>
+                                <input type="text" name="stockName" value="1" style="display:none"/>
+     </form>
     <!-- Modernizr-3 -->
     <script src="index/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- jQuery -->
@@ -413,6 +417,15 @@
     <script src="index/js/scrollIt.min.js"></script>
     <!-- custom scripts -->
     <script src="index/js/scripts.js"></script>
+<script type="text/javascript">
+    function gotostock(stockName) {
+        var x = document.getElementById('submitFormT');
+        x.action = "/stock"
+        document.getElementById("submitFormT").elements.namedItem("stockName").value = stockName;
+        x.submit();
+    }
+</script>
+    
 
 
 </body>
