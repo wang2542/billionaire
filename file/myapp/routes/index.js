@@ -94,11 +94,14 @@ router.post('/contact/send', function(req, res, next) {
 	};
 
 	smtpTransport.sendMail(mailOptions, function(error, info) {
+		var user = null;
 		if(error) {
 			return console.log(error);
 		}
+		if (req.user) 
+			user = req.user
 		console.log('Message Sent: ' + info.response);
-		res.redirect('/contact');
+		res.redirect('/contact', {user:user});
 	});
 
 });

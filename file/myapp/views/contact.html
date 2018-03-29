@@ -36,8 +36,13 @@
                                     <div class="drop-down dropdown-profile">
                                         <div class="dropdown-content-body">
                                             <ul>
-                                                <li><a href="#"><i class="ti-settings"></i> <span>Profile</span></a></li>
-                                                <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                    {{#if user}}
+                                                    <li><a href="/user/profile"><i class="ti-settings"></i> <span>Profile</span></a></li>
+                                                    <li><a href="/user/logout"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                    {{else}}
+                                                    <li><a href="/user/login"><i class="ti-settings"></i> <span>Login</span></a></li>
+                                                    <li><a href="/user/signup"><i class="ti-power-off"></i> <span>SignUp</span></a></li>
+                                                    {{/if}}
                                             </ul>
                                         </div>
                                     </div>
