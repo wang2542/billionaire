@@ -25,7 +25,10 @@ router.get('/', function(req, res, next) {
 		    	author_1 : result['posts'][0]['author'],
 		    	title_2 : result['posts'][1]['title'],
 		    	url_2 : result['posts'][1]['url'],
-		    	author_2 : result['posts'][1]['author']
+		    	author_2 : result['posts'][1]['author'],
+		    	title_3 : result['posts'][2]['title'],
+		    	url_3 : result['posts'][2]['url'],
+		    	author_3 : result['posts'][2]['author']
 		 	});	
 	  	} else {
 	  		res.render('index', {
@@ -33,8 +36,9 @@ router.get('/', function(req, res, next) {
 		    	url_1 : result['posts'][0]['url'],
 		    	author_1 : result['posts'][0]['author'],
 		    	title_2 : result['posts'][1]['title'],
-		    	url_2 : result['posts'][1]['url'],
-		    	author_2 : result['posts'][1]['author'],
+		    	title_3 : result['posts'][2]['title'],
+		    	url_3 : result['posts'][2]['url'],
+		    	author_3 : result['posts'][2]['author'],
 				username: req.user.username
 			});
 	  	}
