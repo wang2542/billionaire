@@ -42,23 +42,23 @@ passport.use(new LocalStrategy( function(username, password, done) {
 
 
 /* GET users listing. */
-router.get('/new_signin', function(req, res, next) {
+router.get('/signup', function(req, res, next) {
 	//res.send('respond with a resource');
 	if (req.user) {
   		req.flash('error_msg', 'invalid Attempt');
   		res.redirect('/');
   	} else {
-		res.render('new_signin');
+		res.render('signup');
 	}
 });
 
-router.get('/new_login', function(req, res, next) {
+router.get('/login', function(req, res, next) {
   //res.send('respond with a resource');
   	if (req.user) {
   		req.flash('error_msg', 'invalid Attempt');
   		res.redirect('/');
   	} else {
-		res.render('new_login');
+		res.render('login');
 	}
 });
 
@@ -94,7 +94,7 @@ router.get('/reset/:token', function(req, res) {
 	});
 })
 
-router.post('/new_signin', function(req, res, next) {
+router.post('/signup', function(req, res, next) {
 	var signupUsername = req.body.username;
 	var signupEmail = req.body.email;
 	var signupPassword = req.body.password;
@@ -109,7 +109,7 @@ router.post('/new_signin', function(req, res, next) {
 	var errors = req.validationErrors();
 
 	if(errors){
-		return res.render('new_signin',{
+		return res.render('signup',{
 			errors:errors
 		});
 	} else {
@@ -123,13 +123,13 @@ router.post('/new_signin', function(req, res, next) {
 		User.find({$or: [{username: signupUsername}, {email: signupEmail}]}, function(err, docs) {
 			if (docs.length) {
 				req.flash('error_msg', 'The username or email has already existed');
-				return res.redirect('/user/new_signin');
+				return res.redirect('/user/signup');
 			}
 			else {
 				User.createUser(newUser, function(err, user){
 				if(err) throw err;
 				console.log(user);
-				return res.redirect('/user/new_login');
+				return res.redirect('/user/login');
 				});
 				req.flash('success_msg', 'You are registered and can now login.');
 			}
@@ -138,7 +138,7 @@ router.post('/new_signin', function(req, res, next) {
 
 });
 
-router.post('/new_login', passport.authenticate('local', { failureRedirect: '/user/new_login', failureFlash: true }),
+router.post('/login', passport.authenticate('local', { failureRedirect: '/user/login', failureFlash: true }),
   function(req, res) {
     res.redirect('/');
  });
@@ -264,7 +264,7 @@ router.post('/resetpw', function(req, res, next) {
 		}
 	], function(err) {
 		if (err) return next(err);
-		res.redirect('/user/new_login');
+		res.redirect('/user/login');
 	});
 });
 

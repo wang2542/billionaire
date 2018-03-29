@@ -1,0 +1,214 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Billionaire</title>
+<!-- Stylesheets -->
+<link href="/stylesheets/bootstrap.css" rel="stylesheet">
+<link href="/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
+<link href="/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
+<link href="/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
+<link href="/stylesheets/style.css" rel="stylesheet">
+<link href="/stylesheets/responsive.css" rel="stylesheet">
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+<link href="/stylesheets/login_signup.css" rel="stylesheet">
+<link href="/stylesheets/profile.css" rel="stylesheet">
+<link href="/stylesheets/reset_forget_password.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="page-wrapper">
+ 	
+    <!-- Preloader -->
+    <div class="preloader"></div>
+            
+    <!-- Main Header-->
+    <header class="main-header header-style-six">
+         <!-- Main Box -->
+         <div class="main-box">
+            <div class="auto-container">
+                <div class="outer-container clearfix">
+                    <!--Logo Box-->
+                    <div class="logo-box">
+                        <div class="logo"><a href="/"><img src="/images/img/logo_2.png" alt=""></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--End Main Header -->
+
+    {{#if errors}}
+        {{#each errors}}
+            <div class="alert alert-danger">{{msg}}</div>
+        {{/each}}
+    {{/if}}
+
+    <!-- Signup -->
+    <div>
+        <form id = "form_signup" action="/user/signup" method="post">
+            <h1 style = "font-size: 20px"> Signup</h1> 
+
+            <label id = "signup_lbl_email">Email</label>
+            <input id = "signup_input_email" type="text" class="form-control" name="email">
+
+            <label id = "signup_lbl_username">Username</label>
+            <input id = "signup_input_username" type="text" class="form-control" name="username">
+
+            <label id = "signup_lbl_password">Password</label>
+            <input id = "signup_input_password" type="password" class="form-control" name="password">
+        
+            <label id = "signup_lbl_password_2">Confirm Password</label>
+            <input id = "signup_input_password_2" type="password" class="form-control" name="passwordConfirm">
+ 
+            <button id = "signup_btn_signup" type="submit" class="btn btn-warning btn-lg">Signup</button>
+        </form>
+
+        <hr>
+        <lable style="padding-left: 35%; top: 20px;">Already have an account?</lable><a href="/user/login"> Login</a>
+        <hr>   
+    </div>
+    
+    <!--End Signup -->
+    
+
+
+ <!--Footer Style Two-->
+ <footer class="footer-style-two alternate no-padd-top">
+    	<div class="auto-container">
+        	<!--Widgets Section-->
+			<div class="widgets-section no-padd-top">
+            	<div class="row clearfix">
+                	
+                    <!--Big Column-->
+                	<div class="big-column col-md-6 col-sm-12 col-xs-12">
+                    	<div class="row clearfix">
+							
+                            <!--Footer Column / Logo Widget-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget logo-widget">
+                                    <div class="widget-content">
+                                        <div class="logo-box">
+                                            <a href="index.html"><img src="" alt="" /></a>
+                                        </div>
+                                        <div class="email">conpress@gmail.com</div>
+                                        <div class="number green_color">+202-277-3894</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--Footer Column / Link Widget-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget link-widget">
+                                	<h2>QUick Links</h2>
+									<div class="widget-content">
+                                    	<ul>
+                                        	<li><a href="#">Home Page</a></li>
+                                            <li><a href="#">Stock Page</a></li>
+                                            <li><a href="#">Trade Page</a></li>
+                                            <li><a href="#">Profile Page</a></li>
+                                            <li><a href="#">Game Page</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <!--Big Column-->
+                	<div class="big-column col-md-6 col-sm-12 col-xs-12">
+                    	<div class="row clearfix">
+                        	
+                            <!--Footer Column / Link Widget-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget link-widget">
+                                	<h2>About us</h2>
+									<div class="widget-content">
+                                    	<ul>
+                                        	<li><a href="#">billionaire</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--Footer Column / Subscribe Widget-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget subscribe-widget">
+                                	<h2>Subscribe Us</h2>
+									<div class="widget-content">
+                                    	<div class="email-form">
+                                        	<form method="post" action="contact.html">
+                                                <div class="form-group">
+                                                    <input type="email" name="email" value="" placeholder="Enter your mail" required>
+                                                    <!--<button type="submit"><span class="icon fa fa-angle-right"></span></button>-->
+                                                </div>
+                                            </form>
+                                        </div>
+                                    	<!--Social Icon Two-->
+                                        <ul class="social-icon-two">
+                                            <li><a href="#"><span class="fa fa-qq"></span></a></li>
+                                            <li><a href="#"><span class="fa fa-wechat"></span></a></li>
+                                            <li><a href="#"><span class="fa fa-weibo"></span></a></li>
+                                            <li><a href="https://github.com/wang2542"><span class="fa fa-github"></span></a></li>
+                                        </ul>   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Footer Bottom-->
+            <div class="footer-bottom">
+            	<div class="row clearfix">
+                    <!--Counter Column-->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--End Footer Style Two-->
+</div>
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
+
+<script src="/js/jquery.js"></script> 
+<!--Revolution Slider-->
+
+<script src="/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="/revolution/js/extensions/revolution.extension.video.min.js"></script>
+
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/js/jquery.fancybox.pack.js"></script>
+<script src="/js/jquery.fancybox-media.js"></script>
+<script src="/js/owl.js"></script>
+<script src="/js/wow.js"></script>
+<script src="/js/appear.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>
+
+
+
