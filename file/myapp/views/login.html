@@ -1,220 +1,180 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>Billionaire</title>
-<!-- Stylesheets -->
-<link href="/stylesheets/bootstrap.css" rel="stylesheet">
-<link href="/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
-<link href="/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
-<link href="/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
-<link href="/stylesheets/style.css" rel="stylesheet">
-<link href="/stylesheets/responsive.css" rel="stylesheet">
-
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
-
-<link href="/stylesheets/login_signup.css" rel="stylesheet">
-<link href="/stylesheets/profile.css" rel="stylesheet">
-<link href="/stylesheets/reset_forget_password.css" rel="stylesheet">
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Billionaire</title>
+    <link href="../stylesheets/gamestyle.css" rel="stylesheet">
 </head>
 
 <body>
-<div class="page-wrapper">
- 	
-    <!-- Preloader -->
-    <div class="preloader"></div>
-            
-    <!-- Main Header-->
-    <header class="main-header header-style-six">
-         <!-- Main Box -->
-         <div class="main-box">
-            <div class="auto-container">
-                <div class="outer-container clearfix">
-                    <!--Logo Box-->
-                    <div class="logo-box">
-                        <div class="logo"><a href="/"><img src="/images/img/logo_2.png" alt=""></a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!--End Main Header -->
-
-	<div class="row">
-	  <div class="col-lg-12">
-	    {{#if success_msg}}
-	    <div class="alert alert-success">{{success_msg}}</div>
-	    {{/if}}
-
-	    {{#if error_msg}}
-	    <div class="alert alert-danger">{{error_msg}}</div>
-	    {{/if}}
-
-	    {{#if error}}
-	    <div class="alert alert-danger">{{error}}</div>
-	    {{/if}}
-	    
-	  </div>  
-	</div>
-
-    <!-- LOGIN -->
-    <div>
-        <form id = "form_login" action="/user/login" method="post">
-            <h1 style="font-size: 20px;"> Login</h1>
-            
-            <label id = "login_lbl_username">Username</label>
-            <input id = "login_input_username" type="text" class="form-control" name="username">
-
-            <label id = "login_lbl_password">Password</label>
-            <input id = "login_input_password" type="password" class="form-control" name="password">
-            
-            <button id = "login_btn_login" type="submit" class="btn btn-warning btn-lg">Login</button>
-        </form>
-    	
-        <hr>
-        <lable style="padding-left: 35%; top: 20px;">Need an account?</lable><a href="/user/signup"> Signup</a>
-        <hr>
-        <lable style="padding-left: 35%; top: 20px;">Forgot Password?</lable><a href="/user/resetpw"> Password Reset</a>
-        <hr>
-    </div>
-    <!--End LOGIN -->
-    
-
-
- <!--Footer Style Two-->
- <footer class="footer-style-two alternate no-padd-top">
-    	<div class="auto-container">
-        	<!--Widgets Section-->
-			<div class="widgets-section no-padd-top">
-            	<div class="row clearfix">
-                	
-                    <!--Big Column-->
-                	<div class="big-column col-md-6 col-sm-12 col-xs-12">
-                    	<div class="row clearfix">
-							
-                            <!--Footer Column / Logo Widget-->
-                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                                <div class="footer-widget logo-widget">
-                                    <div class="widget-content">
-                                        <div class="logo-box">
-                                            <a href="index.html"><img src="" alt="" /></a>
-                                        </div>
-                                        <div class="email">conpress@gmail.com</div>
-                                        <div class="number green_color">+202-277-3894</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!--Footer Column / Link Widget-->
-                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                                <div class="footer-widget link-widget">
-                                	<h2>QUick Links</h2>
-									<div class="widget-content">
-                                    	<ul>
-                                        	<li><a href="#">Home Page</a></li>
-                                            <li><a href="#">Stock Page</a></li>
-                                            <li><a href="#">Trade Page</a></li>
-                                            <li><a href="#">Profile Page</a></li>
-                                            <li><a href="#">Game Page</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            
+    <div id="icoAdmin" class="icoAdmin random-data">
+       <div class="icoAdmin-overlay-box"></div>
+        <div class="icoAdmin-container">
+            <header class="icoAdmin-header">
+                <div class="icoAdmin-wrapper">
+                    <div class="icoAdmin-left-header">
+                        <div class="icoAdmin-logo">
+								<span class="logo-text">Billionaire<span class="hide-in-smallsize"></span></span>
+                            </a>
                         </div>
                     </div>
-                    
-                    <!--Big Column-->
-                	<div class="big-column col-md-6 col-sm-12 col-xs-12">
-                    	<div class="row clearfix">
-                        	
-                            <!--Footer Column / Link Widget-->
-                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                                <div class="footer-widget link-widget">
-                                	<h2>About us</h2>
-									<div class="widget-content">
-                                    	<ul>
-                                        	<li><a href="#">billionaire</a></li>
+                    <div class="icoAdmin-right-header">
+                        <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="icon-menu"></i></a></div>
+                        
+                        <div class="icoAdmin-rr-header">
+                            <ul>
+                                <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+										</a>
+                                   
+                                </li>
+                           
+                                <li class="icons">
+                                    <a href="javascript:void(0)"> <i class="fa fa-user" aria-hidden="true"></i> </a>
+                                    <div class="drop-down dropdown-profile">
+                                        <div class="dropdown-content-body">
+                                            <ul>
+                                                <li><a href="/user/login"><i class="ti-power-off"></i> <span>Login</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="icoAdmin-main-container">
+                <div class="icoAdmin-wrapper">
+                    <nav class="icoAdmin-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="icoAdmin-inner-navbar">
+                            <div class="icoAdmin-search"> <span class="searchbar-toggle">  </span>
+                                <div class="icoAdmin-search-box ">
+                                    <input type="text" placeholder="Search"> <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </div>
+                            </div>
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="/"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
+                                </li>
+                            </ul>
+
+
+                        </div>
+                    </nav>
+
+                    <!-- ________Side bar End___________________ -->
+
+                    <div class="icoAdmin-content">
+                        <div class="icoAdmin-inner-content container-fluid">
+                            <div class="row page-titles">
+                                <div class="col-md-2 align-self-center">
+                                    <h3 class="text-primary">Login</h3>
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                        <li class="breadcrumb-item active">Login</li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-10 align-self-center">
+                                    <div class="crypto-ticker">
+                                        <ul id="webticker-dark-icons">
+                                            <li data-update="item1"><i class="cc BTC"></i> APPL <span class="coin-value"> $11.039232</span></li>
+                                            <li data-update="item2"><i class="cc ETH"></i> AMAZ <span class="coin-value"> $1.2792</span></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!--Footer Column / Subscribe Widget-->
-                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                                <div class="footer-widget subscribe-widget">
-                                	<h2>Subscribe Us</h2>
-									<div class="widget-content">
-                                    	<div class="email-form">
-                                        	<form method="post" action="contact.html">
+
+                            <!-- __________Header END______________  -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    {{#if success_msg}}
+                                    <div class="alert alert-success">{{success_msg}}</div>
+                                    {{/if}}
+
+                                    {{#if error_msg}}
+                                    <div class="alert alert-danger">{{error_msg}}</div>
+                                    {{/if}}
+
+                                    {{#if error}}
+                                    <div class="alert alert-danger">{{error}}</div>
+                                    {{/if}}
+
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4">
+                                    <div class="login-content card">
+                                        <div class="login-form">
+                                            <h4>Login</h4>
+                                            <form id = "form_login" action="/user/login" method="post">
                                                 <div class="form-group">
-                                                    <input type="email" name="email" value="" placeholder="Enter your mail" required>
-                                                    <!--<button type="submit"><span class="icon fa fa-angle-right"></span></button>-->
+                                                    <label id = "login_lbl_username">Username</label>
+                                                    <input id = "login_input_username" type="text" class="form-control" name="username" placeholder="Username">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label id = "login_lbl_password">Password</label>
+                                                    <input id = "login_input_password" type="password" class="form-control" name="password" placeholder="Password">
+                                                </div>
+                                                <div class="checkbox">
+
+                                                    <label class="pull-right">
+                                                        <a href="/user/resetpw">Forgotten Password?</a>
+                                                    </label>
+
+                                                </div>
+
+                                                <button id = "login_btn_login" type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
+                                                <div class="register-link m-t-15 text-center">
+                                                    <p>Don't have account ? <a href="/user/signup"> Sign Up Here</a></p>
                                                 </div>
                                             </form>
                                         </div>
-                                    	<!--Social Icon Two-->
-                                        <ul class="social-icon-two">
-                                            <li><a href="#"><span class="fa fa-qq"></span></a></li>
-                                            <li><a href="#"><span class="fa fa-wechat"></span></a></li>
-                                            <li><a href="#"><span class="fa fa-weibo"></span></a></li>
-                                            <li><a href="https://github.com/wang2542"><span class="fa fa-github"></span></a></li>
-                                        </ul>   
                                     </div>
                                 </div>
                             </div>
+
+
+                            
+                            <!-- _____________CopyRight Start______________-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel-footer"> 2018 © cs407</div>
+                                </div>
+                                
+                                
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!--Footer Bottom-->
-            <div class="footer-bottom">
-            	<div class="row clearfix">
-                    <!--Counter Column-->
-                </div>
-            </div>
         </div>
-    </footer>
-    <!--End Footer Style Two-->
-</div>
-<!--End pagewrapper-->
+    </div>
 
-<!--Scroll to top-->
-<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
 
-<script src="/js/jquery.js"></script> 
-<!--Revolution Slider-->
+    <!-- Common JS -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+    <!-- Sidebar -->
+    <script src="../assets/plugins/iconav/js/iconav.min.js"></script>
+    <script src="../assets/plugins/iconav/js/iconav-init.js"></script>
+    <!-- Peity chart -->
+    <script src="../assets/plugins/peity/jquery.peity.min.js"></script>
 
-<script src="/revolution/js/jquery.themepunch.revolution.min.js"></script>
-<script src="/revolution/js/jquery.themepunch.tools.min.js"></script>
-<script src="/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-<script src="/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-<script src="/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-<script src="/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-<script src="/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-<script src="/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="/revolution/js/extensions/revolution.extension.video.min.js"></script>
 
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="/js/jquery.fancybox.pack.js"></script>
-<script src="/js/jquery.fancybox-media.js"></script>
-<script src="/js/owl.js"></script>
-<script src="/js/wow.js"></script>
-<script src="/js/appear.js"></script>
-<script src="/js/script.js"></script>
-
+    <!-- Amchart -->
+    <script src="../assets/plugins/amchart/serial.js"></script>
+    <script src="../assets/plugins/amchart/light.js"></script>
+    <script src="../assets/plugins/amchart/amstock.js"></script>
+    <script src="../assets/plugins/amchart/dashboard1-amchart-init.js"></script>
+    <!-- Custom dashboard script -->
+    <script src="../js/dashboard-1.js"></script>
+    <!-- Custom script -->
+    <script src="../js/custom.min.js"></script>
 </body>
+
 </html>
-
-
-

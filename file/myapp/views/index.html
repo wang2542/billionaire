@@ -7,7 +7,7 @@
     <title>Billionaire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel="icon" type="image/png" sizes="16x16" href="index/images/logo_16*16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="index/images/logo_16_16.png">
 
     <!-- owl carousel -->
     <link rel="stylesheet" href="index/css/owl.carousel.min.css">
@@ -87,7 +87,7 @@
                 <div class=" col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-dark">
                         <a class="navbar-brand" href="#">
-                            <img src="index/images/logo_16*16.png"> Billionaire
+                            <img src="index/images/logo_16_16.png"> Billionaire
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -100,11 +100,12 @@
                                 <li class="nav-item"><a href="#">{{username}}</a></li>
                                 <li class="nav-item"><a href="/game">Game Page</a></li>
                                 <li class="nav-item"><a href="/game/watchlist" >Watchlist</a></li>
-                                <li class="nav-item"><a href="/user/profile">Profile</a></li>
-                                <li class="nav-item"><a href="/user/login">Log Out</a></li>
+                                <li class="nav-item"><a href="/user/signup">Profile</a></li>
+                                <li class="nav-item"><a href="/user/logout">Log Out</a></li>
                                 {{else}}
                                 <li class="nav-item"><a href="/user/signup">Sign up</a></li>
-                                <li class="nav-item"><a href="/user/login">Log in</a></li>{{/if}}
+                                <li class="nav-item"><a href="/user/login">Log in</a></li>
+                                {{/if}}
 
                                 <li class="nav-item search-icon">
                                     <a href="#search_1">
@@ -265,7 +266,7 @@
                 </div>
                 <div class="col-lg-3 col-sm-4">
                     <div class="cta-link">
-                        <a href="#">Contact Us</a>
+                        <a href="/contact">Contact Us</a>
                     </div>
                 </div>
                 <!-- /# End column -->
