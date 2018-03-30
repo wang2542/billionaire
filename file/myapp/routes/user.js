@@ -117,7 +117,7 @@ router.post('/signup', function(req, res, next) {
 			email: signupEmail,
 			username: signupUsername,
 			password: signupPassword,
-			coin: 5
+			coin: 1000000
 		});
 
 		User.find({$or: [{username: signupUsername}, {email: signupEmail}]}, function(err, docs) {
