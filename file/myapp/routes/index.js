@@ -69,6 +69,15 @@ router.get('/new_profile' , function(req,res,next){
 router.get('/contact' , function(req,res,next){
     res.render('contact');
 });
+router.get('/knowledge' , function(req,res,next){
+    res.render('knowledge');
+});
+router.get('/tutorial' , function(req,res,next){
+    res.render('tutorial');
+});
+router.get('/strategies' , function(req,res,next){
+    res.render('strategies');
+});
 router.get('/game', function(req, res, next) {
 	if (!req.user) {
   		req.flash('error_msg', 'Login Required!');
