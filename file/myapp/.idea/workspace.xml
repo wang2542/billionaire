@@ -14,8 +14,18 @@
       <file leaf-file-name="knowledge.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/knowledge.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="105" column="46" lean-forward="false" selection-start-line="105" selection-start-column="46" selection-end-line="105" selection-end-column="46" />
+            <state relative-caret-position="414">
+              <caret line="342" column="119" lean-forward="false" selection-start-line="342" selection-start-column="119" selection-end-line="342" selection-end-column="119" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="watchlist.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/watchlist.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="100" column="36" lean-forward="false" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -111,8 +121,8 @@
       <find>javasc</find>
       <find>logout</find>
       <find>sign</find>
-      <find>Profile</find>
       <find>login</find>
+      <find>Profile</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -156,8 +166,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="305" />
-    <option name="y" value="113" />
+    <option name="x" value="385" />
+    <option name="y" value="182" />
     <option name="width" value="1353" />
     <option name="height" value="874" />
   </component>
@@ -325,10 +335,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20088000" />
+    <option name="totallyTimeSpent" value="23477000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="305" y="113" width="1353" height="874" extended-state="0" />
+    <frame x="385" y="182" width="1353" height="874" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -679,14 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/watchlist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="100" column="36" lean-forward="false" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/contact.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
@@ -847,10 +849,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/watchlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="100" column="36" lean-forward="false" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/knowledge.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="105" column="46" lean-forward="false" selection-start-line="105" selection-start-column="46" selection-end-line="105" selection-end-column="46" />
+        <state relative-caret-position="414">
+          <caret line="342" column="119" lean-forward="false" selection-start-line="342" selection-start-column="119" selection-end-line="342" selection-end-column="119" />
           <folding />
         </state>
       </provider>
