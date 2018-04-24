@@ -80,9 +80,8 @@ module.exports.updateAsset = function (userId, StockSymbol, quanlitiy, callback)
     //updating asset ---- Update the arrylist 
     user.set({ asset: asset });
     user.save(function (err, updatedUser) {
-      if (err) return handleError(err);
-      res.send(updatedUser);
+      callback(err,updatedUser);
     });
   });
-  callback();
+
 }
