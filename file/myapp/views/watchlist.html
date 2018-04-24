@@ -149,6 +149,7 @@
                             <form method="post" action="" id="submitFormT">
                             	<input type="text" name="object_id" value="1" style="display:none"/>
                                 <input type="text" name="symbol" value="1" style="display:none"/>
+                                <input type="text" name="stockName" value="1" style="display:none"/>
                             </form>
                       
                             <div class="row">
@@ -174,8 +175,8 @@
     	}
         function navigate(symbol) {
             var x = document.getElementById('submitFormT');
-            x.action += "/navigate"
-            document.getElementById("submitFormT").elements.namedItem("symbol").value = symbol;
+            x.action = "/stock"
+            document.getElementById("submitFormT").elements.namedItem("stockName").value = symbol;
             x.submit();
         }
     </script>

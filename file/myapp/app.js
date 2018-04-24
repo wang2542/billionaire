@@ -20,9 +20,8 @@ var user = require('./routes/user');
 var game = require('./routes/game');
 var stock = require('./model/stock');
 var stockRouter = require('./routes/stock');
-
+var transaction = require('./routes/transaction');
 var app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
@@ -85,7 +84,7 @@ app.use('/', index);
 app.use('/user', user);
 app.use('/game', game);
 app.use('/stock', stockRouter);
-
+app.use('/transaction', transaction);
 
 
 

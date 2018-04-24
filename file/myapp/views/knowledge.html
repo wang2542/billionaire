@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Billionaire</title>
+    <link href="../stylesheets/gamestyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="icoAdmin" class="icoAdmin random-data">
+       <div class="icoAdmin-overlay-box"></div>
+        <div class="icoAdmin-container">
+            <header class="icoAdmin-header">
+                <div class="icoAdmin-wrapper">
+                    <div class="icoAdmin-left-header">
+                        <div class="icoAdmin-logo">
+								<span class="logo-text">Billionaire<span class="hide-in-smallsize"></span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="icoAdmin-right-header">
+                        <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="icon-menu"></i></a></div>
+                        
+                        <div class="icoAdmin-rr-header">
+                            <ul>
+                                <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+										</a>
+                                   
+                                </li>
+                           
+                                <li class="icons">
+                                    <a href="javascript:void(0)"> <i class="fa fa-user" aria-hidden="true"></i> </a>
+                                    <div class="drop-down dropdown-profile">
+                                        <div class="dropdown-content-body">
+                                            <ul>
+                                                <li><a href="#"><i class="ti-settings"></i> <span>Profile</span></a></li>
+                                                <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="icoAdmin-main-container">
+                <div class="icoAdmin-wrapper">
+                    <nav class="icoAdmin-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="icoAdmin-inner-navbar">
+                            <div class="icoAdmin-search"> <span class="searchbar-toggle">  </span>
+                                <div class="icoAdmin-search-box ">
+                                    <input type="text" placeholder="Search"> <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </div>
+                            </div>
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="/"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
+                                </li>
+                            </ul>
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="/game"> <span class="icoAdmin-micon"><i class="icon-speedometer"></i></span> <span class="icoAdmin-mtext">Game Page</span></a>
+                                    
+                                </li>
+                            </ul>
+
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                            <a href="/game/watchlist"> <span class="icoAdmin-micon"><i class="icon-calender"></i></span> <span class="icoAdmin-mtext">Watchlist</span></a>
+                                </li>
+                            </ul>
+
+                            
+
+                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                      <a href="/user/profile"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
+                                </li>
+                            </ul>
+
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="/tutorial"> <span class="icoAdmin-micon"><i class="icon-puzzle"></i></span> <span class="icoAdmin-mtext">Tutorial</span></a>
+                                </li>
+                            </ul>
+
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="/knowledge"> <span class="icoAdmin-micon"><i class="icon-bulb"></i></span> <span class="icoAdmin-mtext">Knowledge</span></a>
+                                </li>
+                            </ul>
+
+
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="/strategies"> <span class="icoAdmin-micon"><i class="icon-book-open"></i></span> <span class="icoAdmin-mtext">Strategies</span></a>
+                                </li>
+                            </ul>
+
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="/contact"> <span class="icoAdmin-micon"><i class="icon-note"></i></span> <span class="icoAdmin-mtext">Contact us</span></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </nav>
+
+                    <!-- ________Side bar End___________________ -->
+
+                    <div class="icoAdmin-content">
+                        <div class="icoAdmin-inner-content container-fluid">
+                            <div class="row page-titles">
+                                <div class="col-md-2 align-self-center">
+                                    <h3 class="text-primary">Dashboard</h3>
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                        <li class="breadcrumb-item active">Dashboard</li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-10 align-self-center">
+                                    <div class="crypto-ticker">
+                                        <ul id="webticker-dark-icons">
+                                            <li data-update="item1"><i class="cc BTC"></i> APPL <span class="coin-value"> $11.039232</span></li>
+                                            <li data-update="item2"><i class="cc ETH"></i> AMAZ <span class="coin-value"> $1.2792</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- __________Header END______________  -->
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Knowledge Page</h4>
+                                    <h6 class="card-subtitle">Stock table common knowledge</h6>
+                                    <div class="table-responsive m-t-40">
+                                        <table id="example" class="table display table-bordered table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>Number</th>
+                                                <th>Name</th>
+                                                <th>Type</th>
+                                                <th>Web link</th>
+                                                <th>Description</th>
+
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            <tr>
+                                                <th>1</th>
+                                                <th>Dow theory</th>
+                                                <th>Technical analysis</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Dow_theory">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>2</th>
+                                                <th>Modern Portfolio Theory</th>
+                                                <th>Technical analysis</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Modern_portfolio_theory">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>3</th>
+                                                <th>Fundamental Analysis</th>
+                                                <th>Technical analysis</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Fundamental_analysis">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>4</th>
+                                                <th>Market trend</th>
+                                                <th>Technical analysis</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Market_trend">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>5</th>
+                                                <th>Technical analysis</th>
+                                                <th>Technical analysis</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Technical_analysis">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>6</th>
+                                                <th>Support and resistance</th>
+                                                <th>Technical analysis</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Support_and_resistance">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>7</th>
+                                                <th>Trend line</th>
+                                                <th>Technical analysis</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Trend_line_(technical_analysis)">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>8</th>
+                                                <th>Dead cat bounce</th>
+                                                <th>Technical analysis</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Dead_cat_bounce">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>9</th>
+                                                <th>Elliott wave principle</th>
+                                                <th>Technical analysis</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Elliott_wave_principle">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>10</th>
+                                                <th>Fibonacci retracement</th>
+                                                <th>Technical analysis</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Fibonacci_retracement">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>11</th>
+                                                <th>Pivot point</th>
+                                                <th>Technical analysis</th>
+                                                <th><a href="https://www.investopedia.com/terms/p/pivotpoint.asp">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <!-- Charts -->
+                                            <tr>
+                                                <th>12</th>
+                                                <th>Candlestick Chart</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Candlestick_chart">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>13</th>
+                                                <th>Chart Pattern</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://www.investopedia.com/university/technical/techanalysis8.asp">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>14</th>
+                                                <th>Open high low close chart</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Open-high-low-close_chart">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+                                            <tr>
+                                                <th>15</th>
+                                                <th>Line Chart</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://www.investopedia.com/terms/l/linechart.asp">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+                                            <tr>
+                                                <th>16</th>
+                                                <th>Point and Figure Chart</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Point_and_figure_chart">link</a></th>
+                                                <th><a href="https://www.investopedia.com/articles/technical/03/081303.asp">Extra information</a></th>
+                                            </tr>
+                                            <tr>
+                                                <th>17</th>
+                                                <th>Kagi Chart</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Kagi_chart">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+                                            <!-- Charts Patterns -->
+                                            <tr>
+                                                <th>18</th>
+                                                <th>Head and shoulders</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://www.investopedia.com/terms/h/head-shoulders.asp">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th>19</th>
+                                                <th>Cup and handle</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://www.investopedia.com/terms/c/cupandhandle.asp">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+                                            <tr>
+                                                <th>20</th>
+                                                <th>Double top and double bottom</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Double_top_and_double_bottom">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+                                            <tr>
+                                                <th>21</th>
+                                                <th>Triple top and triple bottom</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Triple_top_and_triple_bottom">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+                                            <tr>
+                                                <th>22</th>
+                                                <th>Broadening top</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Broadening_top">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+                                            <tr>
+                                                <th>23</th>
+                                                <th>Price channels</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://www.investopedia.com/terms/p/price-channel.asp">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+                                            <tr>
+                                                <th>24</th>
+                                                <th>Wedge pattern</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://en.wikipedia.org/wiki/Wedge_pattern">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+                                            <tr>
+                                                <th>25</th>
+                                                <th>Triangle</th>
+                                                <th>Charts</th>
+                                                <th><a href="https://www.investopedia.com/university/charts/charts5.asp">link</a></th>
+                                                <th>Null</th>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                      
+                            
+                            <!-- _____________CopyRight Start______________-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel-footer"> 2018 © cs407</div>
+                                </div>
+                                
+                                
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Common JS -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+    <!-- Sidebar -->
+    <script src="../assets/plugins/iconav/js/iconav.min.js"></script>
+    <script src="../assets/plugins/iconav/js/iconav-init.js"></script>
+    <!-- Peity chart -->
+    <script src="../assets/plugins/peity/jquery.peity.min.js"></script>
+
+
+    <!-- Amchart -->
+    <script src="../assets/plugins/amchart/serial.js"></script>
+    <script src="../assets/plugins/amchart/light.js"></script>
+    <script src="../assets/plugins/amchart/amstock.js"></script>
+    <script src="../assets/plugins/amchart/dashboard1-amchart-init.js"></script>
+    <!-- Custom dashboard script -->
+    <script src="../js/dashboard-1.js"></script>
+    <!-- Custom script -->
+    <script src="../js/custom.min.js"></script>
+</body>
+
+</html>

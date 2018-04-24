@@ -17,8 +17,7 @@
                 <div class="icoAdmin-wrapper">
                     <div class="icoAdmin-left-header">
                         <div class="icoAdmin-logo">
-								<span class="logo-text">Billionaire
-                                        <span class="hide-in-smallsize"></span></span>
+								<span class="logo-text">Billionaire<span class="hide-in-smallsize"></span></span>
                             </a>
                         </div>
                     </div>
@@ -37,8 +36,8 @@
                                     <div class="drop-down dropdown-profile">
                                         <div class="dropdown-content-body">
                                             <ul>
-                                                <li><a href="/profile"><i class="ti-settings"></i> <span>Profile</span></a></li>
-                                                <li><a href="/user/logout"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                <li><a href="#"><i class="ti-settings"></i> <span>Profile</span></a></li>
+                                                <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -54,9 +53,9 @@
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                         <div class="icoAdmin-inner-navbar">
                             <div class="icoAdmin-search"> <span class="searchbar-toggle">  </span>
-                                <form class="icoAdmin-search-box " action = "/stock" method="post">
-                                    <input type="text" placeholder="Search" name="stockName"> <button class="search-icon" type = "submit" ><i class="fa fa-search" aria-hidden="true"></i></span> </div>
-                                </form>
+                                <div class="icoAdmin-search-box ">
+                                    <input type="text" placeholder="Search"> <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </div>
+                            </div>
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
                                     <a href="/"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
@@ -75,7 +74,38 @@
                                 </li>
                             </ul>
 
-                        
+                            
+
+                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                      <a href="/user/profile"> <span class="icoAdmin-micon"><i class="icon-envelope"></i></span> <span class="icoAdmin-mtext">Profile</span></a>
+                                </li>
+                            </ul>
+
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="/tutorial"> <span class="icoAdmin-micon"><i class="icon-puzzle"></i></span> <span class="icoAdmin-mtext">Tutorial</span></a>
+                                </li>
+                            </ul>
+
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="/knowledge"> <span class="icoAdmin-micon"><i class="icon-bulb"></i></span> <span class="icoAdmin-mtext">Knowledge</span></a>
+                                </li>
+                            </ul>
+
+
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="/strategies"> <span class="icoAdmin-micon"><i class="icon-book-open"></i></span> <span class="icoAdmin-mtext">Strategies</span></a>
+                                </li>
+                            </ul>
+
+                            <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
+                                <li>
+                                    <a href="/contact"> <span class="icoAdmin-micon"><i class="icon-note"></i></span> <span class="icoAdmin-mtext">Contact us</span></a>
+                                </li>
+                            </ul>
                         </div>
                     </nav>
 
@@ -85,10 +115,10 @@
                         <div class="icoAdmin-inner-content container-fluid">
                             <div class="row page-titles">
                                 <div class="col-md-2 align-self-center">
-                                    <h3 class="text-primary">Profile</h3>
+                                    <h3 class="text-primary">Dashboard</h3>
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                        <li class="breadcrumb-item active">Profile</li>
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                        <li class="breadcrumb-item active">Dashboard</li>
                                     </ol>
                                 </div>
                                 <div class="col-md-10 align-self-center">
@@ -102,50 +132,7 @@
                             </div>
 
                             <!-- __________Header END______________  -->
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <h4>Profile</h4>
-                                        </div>
-                                        <div class="horizontal-form-elements">
-                                            <form class="form-horizontal" action="/user/profile" method="post">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="form-group">
-                                                            <label class="col-sm-4 control-label">User name</label>
-                                                            <div class="col-sm-10">
-                                                                <input class="form-control" type="text" name="username" value="{{username}}" readOnly>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-sm-4 control-label">Email</label>
-                                                            <div class="col-sm-10">
-                                                                <input type="email" class="form-control" name="email" value="{{email}}">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label class="col-sm-4 control-label">Password</label>
-                                                            <div class="col-sm-10">
-                                                                <input class="form-control" type="password" value="" name="password">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-sm-4 control-label">Confirm Password</label>
-                                                            <div class="col-sm-10">
-                                                                <input class="form-control" type="password" value="" name="passwordConfirm">
-                                                            </div>
-                                                        </div>
-                                                        <button type="submit" class="btn btn-default">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /# card -->
-                            </div>
+                      
                             
                             <!-- _____________CopyRight Start______________-->
                             <div class="row">
