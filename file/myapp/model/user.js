@@ -73,3 +73,16 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
   });
 };
 
+module.exports.updateAsset = function (userId, StockSymbol, quanlitiy, callback){
+  User.findById(userId, function (err, user) {
+    if (err) return handleError(err);
+    var asset = user.asset;
+    //updating asset ---- Update the arrylist 
+    user.set({ asset: asset });
+    user.save(function (err, updatedUser) {
+      if (err) return handleError(err);
+      res.send(updatedUser);
+    });
+  });
+  callback();
+}

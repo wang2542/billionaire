@@ -7,11 +7,9 @@ var transaction = require('../model/transaction');
 var User = require('../model/user');
 
 router.post('/', function(req,res,next){
-    var total; 
     console.log(req.query.stockName);
     stockInfo.searchStockBySymbl(req.query.stockName, function(err, infom) {
 		var stock = JSON.parse(JSON.stringify(infom));
-        console.log(stock[req.query.stockName].quote.latestPrice);
         var total = stock[req.query.stockName].quote.latestPrice * req.query.quantity;
 	});
     var trasnactionData = {
