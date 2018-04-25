@@ -35,10 +35,47 @@
                         
                         <div class="icoAdmin-rr-header">
                             <ul>
-                                <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
-										</a>
-                                   
-                                </li>
+                                <!-- _________________Notifications_______________ -->
+                                {{#if user}}
+                                    {{#if user.alert}}
+                                    <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+                                                <span class="icoAdmin-badge badge-success">{{user.alert.length}}</span>
+                                            </a>
+                                       <div class="drop-down">
+                                            <div class="dropdown-content-heading"> <span class="text-left">Recent Notifications</span> </div>
+                                            <div class="dropdown-content-body">
+                                                <ul>
+                                                    {{#each user.alert}}
+                                                    <li>
+                                                        <a href="#"> <img class="pull-left m-r-10 avatar-img" src="#" alt="" />
+                                                            <div class="notification-content"> <small class="notification-timestamp pull-right"></small>
+                                                                <div class="notification-text">{{this.msg}}</div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    {{/each}}
+                                                    <li class="text-center"> <a href="#" class="more-link" onclick="deleteAllMsg()">Read All</a> </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{else}}
+                                    <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+                                            </a>
+                                        <div class="drop-down">
+                                            <div class="dropdown-content-heading"> <span class="text-left">Recent Notifications</span> </div>
+                                            <div class="dropdown-content-body">
+                                                <ul>
+                                                    <li class="text-center"> <a class="more-link">There is no notifications</a> </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{/if}}
+                                {{else}}
+                                    <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+                                {{/if}}
+                                <!-- ___________________Notifications end_________________-->
                            
                                 <li class="icons">
                                     <a href="javascript:void(0)"> <i class="fa fa-user" aria-hidden="true"></i> </a>
@@ -291,6 +328,12 @@
             x.action = "/stock/add";
             x.method = "post";
             document.getElementById("submitFormT").elements.namedItem("symbol").value = symbol;
+            x.submit();
+        }
+        function deleteAllMsg(symbol) {
+            var x = document.getElementById('submitFormT');
+            x.action += "/deleteAllMsg"
+            //document.getElementById("submitFormT").elements.namedItem("symbol").value = symbol;
             x.submit();
         }
     </script>

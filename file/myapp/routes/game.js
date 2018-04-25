@@ -20,11 +20,19 @@ router.get('/', function(req,res,next) {
 	} else {
 		console.log(req.user.alert.length);
 		res.render('game',{
-			user: req.user,
-			num: req.user.alert.length
+			user: req.user
 		});
 	}
 });
+
+router.post('/deleteAllMsg', function(req, res, next) {
+	var len = req.user.alert.length;
+	req.user.alert.splice(0, len);
+	req.user.save();
+
+	res.redirect('/game');
+});
+
 router.get('/watchlist', function(req, res, next) {
 	//console.log(req);
 	if (!req.user) {
@@ -62,6 +70,7 @@ router.get('/watchlist', function(req, res, next) {
 			 		if (objsize == userlist.length - 1) {
 			 			//console.log(bigList);
 			 			res.render('watchlist', {
+			 				user: req.user,
 			 				bigList:bigList
 			 			});
 			 		}
@@ -118,68 +127,12 @@ router.post('/watchlist/navigate', function(req, res, next) {
 	//res.redirect('/game/watchlist');
 });
 
-router.post('/watchlist/checkNotify', function(req, res, next) {
-	var userlist = req.user.watchlist;
-	var listLength = userlist.length;
-
-	for (var i = 0; i < listLength; i++) {
-		stock.findOne({_id : userlist[i]}, function(err, stock){
-			var sym = stock.symbol;
-			
-			stockInfo.searchStockBySymbl(sym, function(err, inform) {
-				var s = JSON.parse(JSON.stringify(inform));
-				var changePercent = s[sym]['quote']['changePercent'],
-					companyName = s[sym]['quote']['companyName'],
-					price = s[sym]['quote']['latestPrice'],
-					pos_not_val = req.user.notification_value,
-					neg_not_val = req.user.notification_value * -1,
-					msg_list = req.user.alert;
-
-				var isInArray = false,
-					index = -1;
-
-				for (var j = 0; j < msg_list.length; j++) {
-					if (msg_list[j].sym === sym) {
-						isInArray = true;
-						if (isInArray) {
-							index = j;
-						}
-						break;
-					}
-				}
-				
-				if (changePercent > pos_not_val){
-					var msg = companyName + " have risen by " + changePercent + "%.", 
-						new_alert_msg = new Object({
-							sym: sym,
-							msg: msg
-						});
-					if (isInArray) {
-						req.user.alert.splice(index, 1);
-					}
-					req.user.alert.push(new_alert_msg);
-					req.user.save();
-				} else if (changePercent < neg_not_val) {
-					var msg = companyName + " have dropped by " + changePercent + "%.",
-						new_alert_msg = new Object({
-							sym: sym,
-							msg: msg
-						});
-					if (isInArray) {
-						req.user.alert.splice(index, 1);
-					}
-					req.user.alert.push(new_alert_msg);
-					req.user.save();
-				}
-
-			})
-		});
-	}
-
-	//console.log(req.user);
-
+router.post('/watchlist/deleteAllMsg', function(req, res, next) {
+	var len = req.user.alert.length;
+	req.user.alert.splice(0, len);
+	req.user.save();
 
 	res.redirect('/game/watchlist');
-
 });
+
 module.exports = router;

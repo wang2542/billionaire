@@ -118,4 +118,13 @@ router.get('/chart', function(req,res,next){
 		 });
 	
 });
+
+router.post('/deleteAllMsg', function(req, res, next) {
+	var len = req.user.alert.length;
+	req.user.alert.splice(0, len);
+	req.user.save();
+
+	res.redirect('/stock');
+});
+
 module.exports = router;
