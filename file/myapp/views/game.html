@@ -28,34 +28,41 @@
                         <div class="icoAdmin-rr-header">
                             <ul>
                                 <!-- _________________Notifications_______________ -->
+                                {{#if user.alert}}
                                 <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
-                                            <span class="icoAdmin-badge badge-success">2</span>
+                                            <span class="icoAdmin-badge badge-success">{{user.alert.length}}</span>
 										</a>
                                    <div class="drop-down">
                                         <div class="dropdown-content-heading"> <span class="text-left">Recent Notifications</span> </div>
                                         <div class="dropdown-content-body">
                                             <ul>
+                                                {{#each user.alert}}
                                                 <li>
                                                     <a href="#"> <img class="pull-left m-r-10 avatar-img" src="#" alt="" />
-                                                        <div class="notification-content"> <small class="notification-timestamp pull-right">21:45 PM</small>
-                                                            <div class="notification-heading">Daily report</div>
-                                                            <div class="notification-text">NASDAQ going down 500</div>
+                                                        <div class="notification-content"> <small class="notification-timestamp pull-right"></small>
+                                                            <div class="notification-text">{{this.msg}}</div>
                                                         </div>
                                                     </a>
                                                 </li>
-                                                <li>
-                                                    <a href="#"> <img class="pull-left m-r-10 avatar-img" src="../assets/images/avatar/3.jpg" alt="" />
-                                                        <div class="notification-content"> <small class="notification-timestamp pull-right">21:45 PM</small>
-                                                            <div class="notification-heading">Daily report</div>
-                                                            <div class="notification-text">NASDAQ going down 1500</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
+                                                {{/each}}
                                                 <li class="text-center"> <a href="#" class="more-link">See All</a> </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </li>
+                                {{else}}
+                                <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+                                        </a>
+                                    <div class="drop-down">
+                                        <div class="dropdown-content-heading"> <span class="text-left">Recent Notifications</span> </div>
+                                        <div class="dropdown-content-body">
+                                            <ul>
+                                                <li class="text-center"> <a class="more-link">There is no notifications</a> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                {{/if}}
                                 <!-- ___________________Notifications end_________________-->
                                 <li class="icons">
                                     <a href="javascript:void(0)"> <i class="fa fa-user" aria-hidden="true"></i> </a>

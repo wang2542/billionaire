@@ -101,6 +101,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h4 class="card-title">Watch list</h4>
+
                                             <div class="table-responsive">
                                                 <table class="table table-de mb-0">
                                                     <thead>
@@ -142,6 +143,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
+                                            <button class="btn btn-sm round btn-outline-success" onclick="checkNotify()">Check Notify</button>
                                         </div>
                                     </div>
                                 </div>
@@ -176,6 +178,11 @@
             var x = document.getElementById('submitFormT');
             x.action += "/navigate"
             document.getElementById("submitFormT").elements.namedItem("symbol").value = symbol;
+            x.submit();
+        }
+        function checkNotify() {
+            var x = document.getElementById('submitFormT');
+            x.action += "/checkNotify"
             x.submit();
         }
     </script>

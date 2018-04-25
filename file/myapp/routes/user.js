@@ -5,6 +5,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcryptjs');
 var async = require('async');
 
+var stock = require('../model/stock');
+var stockInfo = require('../model/stockInfo');
+
 var nodemailer = require('nodemailer');
 var crypto = require('crypto');
 
@@ -68,7 +71,8 @@ router.get('/profile', function(req, res, next) {
 		username : req.user.username,
 		password : req.user.password,
 		email: req.user.email,
-		coin : req.user.coin
+		coin : req.user.coin,
+		notification_value: req.user.notification_value
 	});
 });
 
@@ -117,7 +121,8 @@ router.post('/signup', function(req, res, next) {
 			email: signupEmail,
 			username: signupUsername,
 			password: signupPassword,
-			coin: 1000000
+			coin: 1000000,
+			notification_value: 0
 		});
 
 		User.find({$or: [{username: signupUsername}, {email: signupEmail}]}, function(err, docs) {
@@ -140,6 +145,65 @@ router.post('/signup', function(req, res, next) {
 
 router.post('/login', passport.authenticate('local', { failureRedirect: '/user/login', failureFlash: true }),
   function(req, res) {
+  	// NOTIFICATION UPDATE WHEN LOG IN
+  	var userlist = req.user.watchlist;
+	var listLength = userlist.length;
+
+	for (var i = 0; i < listLength; i++) {
+		stock.findOne({_id : userlist[i]}, function(err, stock){
+			var sym = stock.symbol;
+			
+			stockInfo.searchStockBySymbl(sym, function(err, inform) {
+				var s = JSON.parse(JSON.stringify(inform));
+				var changePercent = s[sym]['quote']['changePercent'],
+					companyName = s[sym]['quote']['companyName'],
+					price = s[sym]['quote']['latestPrice'],
+					pos_not_val = req.user.notification_value,
+					neg_not_val = req.user.notification_value * -1,
+					msg_list = req.user.alert;
+
+				var isInArray = false,
+					index = -1;
+
+				for (var j = 0; j < msg_list.length; j++) {
+					if (msg_list[j].sym === sym) {
+						isInArray = true;
+						if (isInArray) {
+							index = j;
+						}
+						break;
+					}
+				}
+				
+				if (changePercent > pos_not_val){
+					var msg = companyName + " has risen by " + changePercent + "%.", 
+						new_alert_msg = new Object({
+							sym: sym,
+							msg: msg
+						});
+					if (isInArray) {
+						req.user.alert.splice(index, 1);
+					}
+					req.user.alert.push(new_alert_msg);
+					req.user.save();
+				} else if (changePercent < neg_not_val) {
+					var msg = companyName + " has dropped by " + changePercent + "%.",
+						new_alert_msg = new Object({
+							sym: sym,
+							msg: msg
+						});
+					if (isInArray) {
+						req.user.alert.splice(index, 1);
+					}
+					req.user.alert.push(new_alert_msg);
+					req.user.save();
+				}
+
+			})
+		});
+	}
+	//END NOTIFICATION
+	
 	req.flash('success_msg', 'You are logged in');
     res.redirect('/');
  });
@@ -150,6 +214,7 @@ router.post('/profile', function(req, res, next){
 	var newEmail = req.body.email;
 	var newPassword = req.body.password;
 	var newConfirmPassword = req.body.passwordConfirm;
+	var newNotificationValue = req.body.newNotificationValue;
 
 	var query = {'username': req.user.username};
 
@@ -159,6 +224,7 @@ router.post('/profile', function(req, res, next){
 		if (newPassword.length === 0) {
 			User.findOneAndUpdate(query, {
 				'email': newEmail || '',
+				'notification_value': newNotificationValue
 			}, {upsert: true},
 			function(err, user){
 				if(err) throw err;
