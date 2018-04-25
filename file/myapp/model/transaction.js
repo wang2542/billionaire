@@ -4,6 +4,7 @@ var async = require('async');
 var path = require('path');
 var map = require('sorted-map')
 var schema = mongoose.Schema;
+var stockInfo = require('../model/stockInfo');
 
 var transactionSchema = schema({
     userId: {
@@ -23,22 +24,21 @@ var transactionSchema = schema({
         type: Number
     },
     date: {
-        teyp:Date
+        type:Date
     }
 });
 
 var transaction = module.exports = mongoose.model('transaction',transactionSchema);
 
 module.exports.createTransaction = function(newTransaction, callback){
+    console.log(newTransaction);
     newTransaction.save(callback);
 }
 
 module.exports.getTransactionByUserId =  function(userId, callback) {
     var query = {userId:userId};
 
-    transaction.find(query).sort({date:-1}).execFind(function(err,result){
-        callback (err,result);
-    });
+    transaction.find(query).sort({date:-1}).exec(callback);
 }
 
 module.exports.getRecentTransactionByUserId = function (userId, callback) {
@@ -50,9 +50,7 @@ module.exports.getRecentTransactionByUserId = function (userId, callback) {
             {date: {$gte:begin}},
             {date: {$lte:cutoff}}
         ]
-    }).execFind(function(err,result){
-        callback(err,result);
-    });
+    }).exec(callback);
 }
 
 module.exports.getPopularStock = function(callback) {
@@ -63,26 +61,45 @@ module.exports.getPopularStock = function(callback) {
             {date: {$gte:begin}},
             {date: {$lte:cutoff}}
         ]
-    }).execFind(function(err,result){
+    }).exec(function(err,result){
         var stockCount = new map();
         var transactions = JSON.parse(JSON.stringify(result));
         var topReuslt = new Array();
+       // console.log(transactions)
         async.series([
             function(next){
-                for(var symbol in transaction){
+                for(var temp in transactions){
+                    
+                    //console.log(transactions[temp].symbol);
+                    var symbol = transactions[temp].symbol;
                     if(stockCount.has(symbol))
                         stockCount.set(symbol,stockCount.get(symbol)+1);
                     else
                         stockCount.set(symbol,1);
+                    
                 }
                 next();
             },
             function(next){
-                for(var key in stockCount){
-                    if(stockCOunt.rank(key) <= 10)
-                        topReuslt.push(key);
-                }
-                next();
+                //console.log(stockCount);
+
+                async.forEachOf(stockCount._map,function(value,key,next){
+                    if(stockCount.rank(key) >= stockCount.length -10){
+                        stockInfo.searchStockPriceBySymbl(key, function(err, price) { 
+                            var data = {
+                                symbol: key,
+                                price: price
+                            }
+                            topReuslt.push(data);
+                            next();
+                        });
+                        
+                    } 
+                    else   next();
+                },function(err){
+                    next()
+                });
+               
             }
         ],function(err){
             callback(err,topReuslt)

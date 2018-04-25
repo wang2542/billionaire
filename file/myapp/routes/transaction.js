@@ -3,24 +3,56 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 
 var stockInfo = require('../model/stockInfo');
-var transaction = require('../model/transaction');
+var Transaction = require('../model/transaction');
 var User = require('../model/user');
 
 router.post('/', function(req,res,next){
     console.log(req.query.stockName);
-    stockInfo.searchStockBySymbl(req.query.stockName, function(err, infom) {
-		var stock = JSON.parse(JSON.stringify(infom));
-        var total = stock[req.query.stockName].quote.latestPrice * req.query.quantity;
+    
+    stockInfo.searchStockPriceBySymbl(req.query.stockName, function(err, price) {
+	
+        var total = price * req.query.quantity;
+        var transaction =  new Transaction({
+                 date : new Date(),
+                 userId: req.query.user_id,
+                 symbol: req.query.stockName,
+                 type: req.query.typeT,
+                 quantity: req.query.quantity,
+                 total: total,
+             });
+        
+        Transaction.createTransaction(transaction, function(err){
+            // call user.update asset 
+            console.log(err);
+            res.redirect('/');
+        })
 	});
-    var trasnactionData = {
-   //     date : new date(),
-        userId: req.query.user_id,
-        symbol: req.query.stockName,
-        type: req.query.type,
-        quantity: req.query.quantity,
-        total: total,
-
-    }
+  
 });
+
+router.get('/history', function(req,res,next){
+    var user_id = 1;
+    Transaction.getTransactionByUserId(user_id, (err,result)=> {
+        res.json(result);
+    });
+    
+})
+
+router.get('/history/recent', function(req,res,next){
+    var user_id = 1;
+    Transaction.getRecentTransactionByUserId(user_id, (err,result)=> {
+        res.json(result);
+    });
+    
+})
+
+router.get('/popular', function(req,res,next){
+    var user_id = 1;
+    Transaction.getPopularStock((err,result)=> {
+        res.json(result);
+    });
+    
+})
+
 
 module.exports = router;

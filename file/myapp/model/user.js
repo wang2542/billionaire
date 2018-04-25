@@ -75,10 +75,10 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
 
 module.exports.updateAsset = function (userId, StockSymbol, quanlitiy, callback){
   User.findById(userId, function (err, user) {
-    if (err) return handleError(err);
-    var asset = user.asset;
+    if (err) return callback(err,null);
+    var assets = user.assets;
     //updating asset ---- Update the arrylist 
-    user.set({ asset: asset });
+    user.set({ assets: assets });
     user.save(function (err, updatedUser) {
       callback(err,updatedUser);
     });
