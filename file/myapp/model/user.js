@@ -32,7 +32,7 @@ var userSchema = mongoose.Schema({
   	msg: String
   }],
   resetPasswordToken: String,
-  resetPasswordExpires: Date
+	resetPasswordExpires: Date
 });
 
 
@@ -86,14 +86,15 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
   });
 };
 
-module.exports.updateCoin = function (userId, callback){
-    Assete.getAssete(userId,function(err, total_assetes, total_price){
-        User.update({_id:userId},{$set:{
-          coin: parseInt(total_price)
-        }},callback);
-    });
+module.exports.updateCoin = function (userId,amount,callback){
+	User.findOne({_id:userId}).exec(function(err,user){
+		user.coin = parseInt(user.coin) + parseInt(amount);
+		user.save(callback);
 
+	});
 };
+
+
 module.exports.updateNotification = function(user, callback) {
 	//console.log(user);
 	var userlist = user.watchlist;

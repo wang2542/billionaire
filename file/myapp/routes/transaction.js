@@ -34,7 +34,7 @@ router.post('/', function(req,res,next){
 router.get('/history', function(req,res,next){
     var user_id = 1;
     Transaction.getTransactionByUserId(user_id, (err,result)=> {
-        res.json(result);
+        res.json(JSON.parse(JSON.stringify(result)));
     });
     
 })
@@ -42,7 +42,7 @@ router.get('/history', function(req,res,next){
 router.get('/history/recent', function(req,res,next){
     var user_id = 1;
     Transaction.getRecentTransactionByUserId(user_id, (err,result)=> {
-        res.json(result);
+        res.json(JSON.parse(JSON.stringify(result)));
     });
     
 })
@@ -55,11 +55,5 @@ router.get('/popular', function(req,res,next){
     
 })
 
-router.get('/assete', function(req,res,next){
-    var user_id = 1;
-    Asset.getAssete(user_id,(err,result)=> {
-        res.json(result);
-    });
-    
-})
+
 module.exports = router;
