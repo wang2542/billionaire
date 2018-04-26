@@ -104,14 +104,31 @@ router.get('/login', function(req, res, next) {
 });
 
 router.get('/profile', function(req, res, next) {
-  //res.send('respond with a resource');
-	res.render('profile', {
-		username : req.user.username,
-		password : req.user.password,
-		email: req.user.email,
-		coin : req.user.coin,
-		notification_value: req.user.notification_value
-	});
+	if (!req.user) {
+		req.flash('error_msg', 'invalid Attempt');
+		res.redirect('/');
+	} else {
+	  	stockInfo.searchPriceByFamousSymbol(function(callback) {
+			res.render('profile', {
+				aapl : callback['AAPL']['quote']['latestPrice'],
+				amzn : callback['AMZN']['quote']['latestPrice'],
+				goog : callback['GOOG']['quote']['latestPrice'],
+				nflx : callback['NFLX']['quote']['latestPrice'],
+				adbe : callback['ADBE']['quote']['latestPrice'],
+				gs : callback['GS']['quote']['latestPrice'],
+				jpm : callback['JPM']['quote']['latestPrice'],
+				c : callback['C']['quote']['latestPrice'],
+				ms : callback['MS']['quote']['latestPrice'],
+				bx : callback['BX']['quote']['latestPrice'],
+				ibm : callback['IBM']['quote']['latestPrice'],
+				username : req.user.username,
+				password : req.user.password,
+				email : req.user.email,
+				notification_value : req.user.notification_value,
+				user : req.user
+			});	
+		});
+	}
 });
 
 router.get('/logout', function(req, res) {
@@ -319,6 +336,15 @@ router.post('/profile', function(req, res, next){
 		req.flash('error_msg', 'Password does not match');
 	}
 });
+
+router.post('/profile/deleteAllMsg', function(req, res, next) {
+	var len = req.user.alert.length;
+	req.user.alert.splice(0, len);
+	req.user.save();
+
+	res.redirect('/user/profile');
+});
+
 
 //requesting token
 router.post('/resetpw', function(req, res, next) {

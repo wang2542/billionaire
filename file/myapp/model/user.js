@@ -32,7 +32,7 @@ var userSchema = mongoose.Schema({
   	msg: String
   }],
   resetPasswordToken: String,
-  resetPasswordExpires: Date
+	resetPasswordExpires: Date
 });
 
 
@@ -90,6 +90,8 @@ module.exports.updateCoin = function (userId, callback){
   
 
 };
+
+
 module.exports.updateNotification = function(user, callback) {
 	//console.log(user);
 	var userlist = user.watchlist;

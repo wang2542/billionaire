@@ -26,23 +26,59 @@
                         
                         <div class="icoAdmin-rr-header">
                             <ul>
-                                <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
-										</a>
-                                   
-                                </li>
+                                <!-- _________________Notifications_______________ -->
+                                {{#if user}}
+                                    {{#if user.alert}}
+                                    <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+                                                <span class="icoAdmin-badge badge-success">{{user.alert.length}}</span>
+                                            </a>
+                                       <div class="drop-down">
+                                            <div class="dropdown-content-heading"> <span class="text-left">Recent Notifications</span> </div>
+                                            <div class="dropdown-content-body">
+                                                <ul>
+                                                    {{#each user.alert}}
+                                                    <li>
+                                                        <a href="#"> <img class="pull-left m-r-10 avatar-img" src="#" alt="" />
+                                                            <div class="notification-content"> <small class="notification-timestamp pull-right"></small>
+                                                                <div class="notification-text">{{this.msg}}</div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    {{/each}}
+                                                    <li class="text-center"> <a href="#" class="more-link" onclick="deleteAllMsg()">Read All</a> </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{else}}
+                                    <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+                                            </a>
+                                        <div class="drop-down">
+                                            <div class="dropdown-content-heading"> <span class="text-left">Recent Notifications</span> </div>
+                                            <div class="dropdown-content-body">
+                                                <ul>
+                                                    <li class="text-center"> <a class="more-link">There is no notifications</a> </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{/if}}
+                                {{else}}
+                                {{/if}}
+                                <!-- ___________________Notifications end_________________-->
                            
                                 <li class="icons">
                                     <a href="javascript:void(0)"> <i class="fa fa-user" aria-hidden="true"></i> </a>
                                     <div class="drop-down dropdown-profile">
                                         <div class="dropdown-content-body">
                                             <ul>
-                                                    {{#if user}}
-                                                    <li><a href="/user/profile"><i class="ti-settings"></i> <span>Profile</span></a></li>
-                                                    <li><a href="/user/logout"><i class="ti-power-off"></i> <span>Logout</span></a></li>
-                                                    {{else}}
-                                                    <li><a href="/user/login"><i class="ti-settings"></i> <span>Login</span></a></li>
-                                                    <li><a href="/user/signup"><i class="ti-power-off"></i> <span>SignUp</span></a></li>
-                                                    {{/if}}
+                                                {{#if user}}
+                                                <li><a href="/user/profile"><i class="ti-settings"></i> <span>Profile</span></a></li>
+                                                <li><a href="/user/logout"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                {{else}}
+                                                <li><a href="/user/login"><i class="ti-settings"></i> <span>Login</span></a></li>
+                                                <li><a href="/user/signup"><i class="ti-power-off"></i> <span>SignUp</span></a></li>
+                                                {{/if}}
                                             </ul>
                                         </div>
                                     </div>
@@ -160,6 +196,10 @@
 
                             </div>
 
+                            <form method="post" action="" id="submitFormT">
+                                <input type="text" name="symbol" value="1" style="display:none"/>
+                            </form> 
+
                         </div>
                     </div>
                 </div>
@@ -167,6 +207,14 @@
         </div>
     </div>
 
+    <script>
+        function deleteAllMsg(symbol) {
+            var x = document.getElementById('submitFormT');
+            x.action += "/deleteAllMsg"
+            //document.getElementById("submitFormT").elements.namedItem("symbol").value = symbol;
+            x.submit();
+        }
+    </script>
 
     <!-- Common JS -->
     <script src="../assets/plugins/common/common.min.js"></script>
