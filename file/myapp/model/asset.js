@@ -20,6 +20,10 @@ var asseteSchema = mongoose.Schema({
 var Assete = module.exports = mongoose.model('assete', asseteSchema);
 
 module.exports.addAssete = function(userId, symbol,quantity,callback){
+<<<<<<< HEAD
+=======
+    var query = {userId:userId, symbol:symbol};
+>>>>>>> master
     Assete.findOne(query).exec(function(err,assete){
         if(assete == null){
             console.log("Adding the new asset");
@@ -28,18 +32,12 @@ module.exports.addAssete = function(userId, symbol,quantity,callback){
                 symbol: symbol,
                 quantity: quantity
             });
-            newAssete.save(function(){
-                //callback();
-                //user.updateCoin(userId, callback);
-            });
+            newAssete.save(callback);
         }
         else{
             console.log("updating the new asset");
             assete.quantity = parseInt(assete.quantity) + parseInt(quantity);
-            assete.save(function() {
-                //callback();
-               　//user.updateCoin(userId, callback);
-            });
+            assete.save(callback);
         }
     });
 }

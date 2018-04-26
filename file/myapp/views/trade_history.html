@@ -155,11 +155,11 @@
 
                                         <div id = "game_history_content">
                                             <button v-on:click="fetch">Hi</button>
-
-                                            <div v-for = "item in entries">
-                                                <label>{{item._id}}</label>
-                                                <label>ccc<label>
+                                            {{#each history}}
+                                                <label> {{this.symbol}}</label>
+                                             {{/each}}
                                             </div>
+                                           
                                         </div>
 
                                     </div>

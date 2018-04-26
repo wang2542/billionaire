@@ -86,12 +86,9 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
   });
 };
 
-module.exports.updateCoin = function (userId,amount,callback){
-	User.findOne({_id:userId}).exec(function(err,user){
-		user.coin = parseInt(user.coin) + parseInt(amount);
-		user.save(callback);
+module.exports.updateCoin = function (userId, callback){
+  
 
-	});
 };
 
 
