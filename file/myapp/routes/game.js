@@ -36,12 +36,70 @@ router.get('/', function(req,res,next) {
 	}
 });
 
+router.get('/knowledge' , function(req,res,next){
+    stockInfo.searchPriceByFamousSymbol(function(callback) {
+		res.render('knowledge', {
+		    aapl : callback['AAPL']['quote']['latestPrice'],
+		    amzn : callback['AMZN']['quote']['latestPrice'],
+		    goog : callback['GOOG']['quote']['latestPrice'],
+		    nflx : callback['NFLX']['quote']['latestPrice'],
+		    adbe : callback['ADBE']['quote']['latestPrice'],
+		    gs : callback['GS']['quote']['latestPrice'],
+		    jpm : callback['JPM']['quote']['latestPrice'],
+		    c : callback['C']['quote']['latestPrice'],
+		    ms : callback['MS']['quote']['latestPrice'],
+		    bx : callback['BX']['quote']['latestPrice'],
+		    ibm : callback['IBM']['quote']['latestPrice'],
+		    user : req.user
+		});	
+	});
+});
+router.get('/tutorial' , function(req,res,next){
+    res.render('tutorial');
+});
+
+router.get('/strategies' , function(req,res,next){
+    stockInfo.searchPriceByFamousSymbol(function(callback) {
+		res.render('strategies', {
+		    aapl : callback['AAPL']['quote']['latestPrice'],
+		    amzn : callback['AMZN']['quote']['latestPrice'],
+		    goog : callback['GOOG']['quote']['latestPrice'],
+		    nflx : callback['NFLX']['quote']['latestPrice'],
+		    adbe : callback['ADBE']['quote']['latestPrice'],
+		    gs : callback['GS']['quote']['latestPrice'],
+		    jpm : callback['JPM']['quote']['latestPrice'],
+		    c : callback['C']['quote']['latestPrice'],
+		    ms : callback['MS']['quote']['latestPrice'],
+		    bx : callback['BX']['quote']['latestPrice'],
+		    ibm : callback['IBM']['quote']['latestPrice'],
+		    user : req.user
+		});	
+	});
+});
+
+
 router.post('/deleteAllMsg', function(req, res, next) {
 	var len = req.user.alert.length;
 	req.user.alert.splice(0, len);
 	req.user.save();
 
 	res.redirect('/game');
+});
+
+router.post('/knowledge/deleteAllMsg', function(req, res, next) {
+	var len = req.user.alert.length;
+	req.user.alert.splice(0, len);
+	req.user.save();
+
+	res.redirect('/game/knowledge');
+});
+
+router.post('/strategies/deleteAllMsg', function(req, res, next) {
+	var len = req.user.alert.length;
+	req.user.alert.splice(0, len);
+	req.user.save();
+
+	res.redirect('/game/strategies');
 });
 
 router.get('/watchlist', function(req, res, next) {
@@ -106,12 +164,6 @@ router.get('/watchlist', function(req, res, next) {
 			});
 		});
 	}
-});
-
-
-
-router.post('/watchlist', function(req, res, next) {
-
 });
 
 router.post('/watchlist/remove', function(req, res, next) {
