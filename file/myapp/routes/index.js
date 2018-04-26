@@ -102,6 +102,9 @@ router.get('/tutorial' , function(req,res,next){
 router.get('/strategies' , function(req,res,next){
     res.render('strategies');
 });
+router.get('/trade_hist' , function(req,res,next){
+    res.render('trade_hist');
+});
 
 router.get('/game', function(req, res, next) {
 	if (!req.user) {
