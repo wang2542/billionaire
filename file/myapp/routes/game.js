@@ -166,6 +166,16 @@ router.get('/watchlist', function(req, res, next) {
 	}
 });
 
+
+router.get('/hisotry' , function(req,res,next){
+    res.render('trade_history');
+});
+
+
+router.post('/watchlist', function(req, res, next) {
+
+});
+
 router.post('/watchlist/remove', function(req, res, next) {
 	var object_id = req.body.object_id;
 	//console.log(object_id);
