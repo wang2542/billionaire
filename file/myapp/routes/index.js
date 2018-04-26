@@ -93,14 +93,10 @@ router.get('/contact' , function(req,res,next){
     	user : req.user
     });
 });
-<<<<<<< HEAD
-=======
-
 router.get('/lms' , function(req,res,next){
     res.render('trade');
 });
 
->>>>>>> master
 
 router.get('/game', function(req, res, next) {
 	if (!req.user) {
