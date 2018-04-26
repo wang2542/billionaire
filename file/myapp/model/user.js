@@ -3,7 +3,14 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
+<<<<<<< HEAD
 var Assete = require('./asset');
+=======
+var stock = require('../model/stock');
+var stockInfo = require('../model/stockInfo');
+
+
+>>>>>>> master
 // define the schema for our user model
 var userSchema = mongoose.Schema({
   username: {
@@ -19,13 +26,22 @@ var userSchema = mongoose.Schema({
   coin: {
     type: Number
   },
+  notification_value: {
+  	type: Number
+  },
   watchlist: [ {type : mongoose.Schema.ObjectId, ref : 'stock' } ],
+  alert: [{
+  	sym: String,
+  	msg: String
+  }],
   resetPasswordToken: String,
   resetPasswordExpires: Date
 });
 
+
 // create the model for users and expose it to our app
 var User = module.exports = mongoose.model('User', userSchema);
+
 
 // methods
 // generating a hash
@@ -81,3 +97,64 @@ module.exports.updateCoin = function (userId, callback){
     });
 
 };
+module.exports.updateNotification = function(user, callback) {
+	//console.log(user);
+	var userlist = user.watchlist;
+	//console.log(userlist);
+	var listLength = userlist.length;
+
+	for (var i = 0; i < listLength; i++) {
+		stock.findOne({_id : userlist[i]}, function(err, stock){
+			var sym = stock.symbol;
+			
+			stockInfo.searchStockBySymbl(sym, function(err, inform) {
+				var s = JSON.parse(JSON.stringify(inform));
+				var changePercent = s[sym]['quote']['changePercent'],
+					companyName = s[sym]['quote']['companyName'],
+					price = s[sym]['quote']['latestPrice'],
+					pos_not_val = user.notification_value,
+					neg_not_val = user.notification_value * -1,
+					msg_list = user.alert;
+
+				var isInArray = false,
+					index = -1;
+
+				for (var j = 0; j < msg_list.length; j++) {
+					if (msg_list[j].sym === sym) {
+						isInArray = true;
+						if (isInArray) {
+							index = j;
+						}
+						break;
+					}
+				}
+				
+				if (changePercent > pos_not_val){
+					var msg = companyName + " have risen by " + changePercent + "%.", 
+						new_alert_msg = new Object({
+							sym: sym,
+							msg: msg
+						});
+					if (isInArray) {
+						user.alert.splice(index, 1);
+					}
+					user.alert.push(new_alert_msg);
+					user.save();
+				} else if (changePercent < neg_not_val) {
+					var msg = companyName + " have dropped by " + changePercent + "%.",
+						new_alert_msg = new Object({
+							sym: sym,
+							msg: msg
+						});
+					if (isInArray) {
+						user.alert.splice(index, 1);
+					}
+					user.alert.push(new_alert_msg);
+					user.save();
+				}
+
+			})
+		});
+	}
+};
+

@@ -40,5 +40,19 @@ exports.searchStockPriceBySymbl = function(symbl, callback) {
         var price = stock[symbl].quote.latestPrice;
         callback(err,price);
     });
+}
 
+exports.searchPriceByFamousSymbol = function(callback) {
+    newsInfom.qs.symbols = 'AAPL, AMZN, GOOG, NFLX, ADBE, GS, JPM, C, MS, BX, IBM';
+    request(newsInfom, function(error, response, body) {
+        if (error) return callback(error);
+        else {
+            var json = JSON.parse(body);
+            if(json) {
+                callback(json);
+            }else {
+                callback(error,null);
+            }
+        }
+    });
 }
