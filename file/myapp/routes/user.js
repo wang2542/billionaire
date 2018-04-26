@@ -51,7 +51,21 @@ router.get('/signup', function(req, res, next) {
   		req.flash('error_msg', 'invalid Attempt');
   		res.redirect('/');
   	} else {
-		res.render('signup');
+  		stockInfo.searchPriceByFamousSymbol(function(callback) {
+			 res.render('signup', {
+			    aapl : callback['AAPL']['quote']['latestPrice'],
+			    amzn : callback['AMZN']['quote']['latestPrice'],
+			    goog : callback['GOOG']['quote']['latestPrice'],
+			    nflx : callback['NFLX']['quote']['latestPrice'],
+			    adbe : callback['ADBE']['quote']['latestPrice'],
+			    gs : callback['GS']['quote']['latestPrice'],
+			    jpm : callback['JPM']['quote']['latestPrice'],
+			    c : callback['C']['quote']['latestPrice'],
+			    ms : callback['MS']['quote']['latestPrice'],
+			    bx : callback['BX']['quote']['latestPrice'],
+			    ibm : callback['IBM']['quote']['latestPrice']
+			 });	
+	  	});
 	}
 });
 
@@ -61,7 +75,21 @@ router.get('/login', function(req, res, next) {
   		req.flash('error_msg', 'invalid Attempt');
   		res.redirect('/');
   	} else {
-		res.render('login');
+		stockInfo.searchPriceByFamousSymbol(function(callback) {
+			 res.render('login', {
+			    aapl : callback['AAPL']['quote']['latestPrice'],
+			    amzn : callback['AMZN']['quote']['latestPrice'],
+			    goog : callback['GOOG']['quote']['latestPrice'],
+			    nflx : callback['NFLX']['quote']['latestPrice'],
+			    adbe : callback['ADBE']['quote']['latestPrice'],
+			    gs : callback['GS']['quote']['latestPrice'],
+			    jpm : callback['JPM']['quote']['latestPrice'],
+			    c : callback['C']['quote']['latestPrice'],
+			    ms : callback['MS']['quote']['latestPrice'],
+			    bx : callback['BX']['quote']['latestPrice'],
+			    ibm : callback['IBM']['quote']['latestPrice']
+			 });	
+	  	});
 	}
 });
 

@@ -49,14 +49,28 @@ router.get('/', function(req,res,next){
 		
 		if(stock.quote.change < 0)
 			decrease = true;
-		res.render('stock',{
-			company : stock.company,
-			quote : stock.quote,
-			chart : stock.chart,
-			news : stock.news,
-			decrease : decrease,
-			user: user
-		});
+
+		stockInfo.searchPriceByFamousSymbol(function(callback) {
+			 res.render('stock', {
+			    aapl : callback['AAPL']['quote']['latestPrice'],
+			    amzn : callback['AMZN']['quote']['latestPrice'],
+			    goog : callback['GOOG']['quote']['latestPrice'],
+			    nflx : callback['NFLX']['quote']['latestPrice'],
+			    adbe : callback['ADBE']['quote']['latestPrice'],
+			    gs : callback['GS']['quote']['latestPrice'],
+			    jpm : callback['JPM']['quote']['latestPrice'],
+			    c : callback['C']['quote']['latestPrice'],
+			    ms : callback['MS']['quote']['latestPrice'],
+			    bx : callback['BX']['quote']['latestPrice'],
+			    ibm : callback['IBM']['quote']['latestPrice'],
+			    company : stock.company,
+				quote : stock.quote,
+				chart : stock.chart,
+				news : stock.news,
+				decrease : decrease,
+				user: user
+			 });	
+	  	});
 	}
 	else {
 		req.flash('error_msg', 'Can not find this Stock!');

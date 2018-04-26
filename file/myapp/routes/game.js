@@ -12,16 +12,27 @@ var ObjectId = require('mongodb').ObjectID;
 
 
 router.get('/', function(req,res,next) {
-
-
 	if (!req.user) {
 		req.flash('error_msg', 'Login Required!');
 		res.redirect('/user/login');
 	} else {
-		console.log(req.user.alert.length);
-		res.render('game',{
-			user: req.user
-		});
+		// console.log(req.user.alert.length);
+		stockInfo.searchPriceByFamousSymbol(function(callback) {
+			 res.render('/', {
+			    aapl : callback['AAPL']['quote']['latestPrice'],
+			    amzn : callback['AMZN']['quote']['latestPrice'],
+			    goog : callback['GOOG']['quote']['latestPrice'],
+			    nflx : callback['NFLX']['quote']['latestPrice'],
+			    adbe : callback['ADBE']['quote']['latestPrice'],
+			    gs : callback['GS']['quote']['latestPrice'],
+			    jpm : callback['JPM']['quote']['latestPrice'],
+			    c : callback['C']['quote']['latestPrice'],
+			    ms : callback['MS']['quote']['latestPrice'],
+			    bx : callback['BX']['quote']['latestPrice'],
+			    ibm : callback['IBM']['quote']['latestPrice'],
+			    user : req.user
+			 });	
+	  	});
 	}
 });
 
@@ -69,10 +80,27 @@ router.get('/watchlist', function(req, res, next) {
 					};	
 			 		if (objsize == userlist.length - 1) {
 			 			//console.log(bigList);
-			 			res.render('watchlist', {
-			 				user: req.user,
-			 				bigList:bigList
-			 			});
+			 			stockInfo.searchPriceByFamousSymbol(function(callback) {
+							res.render('watchlist', {
+							    aapl : callback['AAPL']['quote']['latestPrice'],
+							    amzn : callback['AMZN']['quote']['latestPrice'],
+							    goog : callback['GOOG']['quote']['latestPrice'],
+							    nflx : callback['NFLX']['quote']['latestPrice'],
+							    adbe : callback['ADBE']['quote']['latestPrice'],
+							    gs : callback['GS']['quote']['latestPrice'],
+							    jpm : callback['JPM']['quote']['latestPrice'],
+							    c : callback['C']['quote']['latestPrice'],
+							    ms : callback['MS']['quote']['latestPrice'],
+							    bx : callback['BX']['quote']['latestPrice'],
+							    ibm : callback['IBM']['quote']['latestPrice'],
+							    user : req.user,
+							    bigList : bigList
+							 });	
+						});
+			 			// res.render('watchlist', {
+			 			// 	user: req.user,
+			 			// 	bigList:bigList
+			 			// });
 			 		}
 			 	});
 			});

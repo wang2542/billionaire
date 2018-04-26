@@ -13,38 +13,58 @@ var User = require('../model/user');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   	news.getNews(function(result){
-	  	//var json = JSON.parse(result['posts'][0]);
-	  	//console.log(result);
-
-	  	//console.log(result['posts'][0]['title']);
-	  	//console.log(result['posts'][0]['text']);
-	  	//console.log(result['posts'][0]['url']);
-	  	if (!req.user) {
-		  	res.render('index', {
-		    	title_1 : result['posts'][0]['title'],
-		    	url_1 : result['posts'][0]['url'],
-		    	author_1 : result['posts'][0]['author'],
-		    	title_2 : result['posts'][3]['title'],
-		    	url_2 : result['posts'][3]['url'],
-		    	author_2 : result['posts'][3]['author'],
-		    	title_3 : result['posts'][2]['title'],
-		    	url_3 : result['posts'][2]['url'],
-		    	author_3 : result['posts'][2]['author']
-		 	});	
-	  	} else {
-	  		res.render('index', {
-	  			title_1 : result['posts'][0]['title'],
-		    	url_1 : result['posts'][0]['url'],
-		    	author_1 : result['posts'][0]['author'],
-		    	title_2 : result['posts'][3]['title'],
-		    	url_2 : result['posts'][3]['url'],
-		    	author_2 : result['posts'][3]['author'],
-		    	title_3 : result['posts'][2]['title'],
-		    	url_3 : result['posts'][2]['url'],
-		    	author_3 : result['posts'][2]['author'],
-				username: req.user.username
-			});
-	  	}
+	  	stockInfo.searchPriceByFamousSymbol(function(callback) {
+	  		//console.log(callback);
+	  		//console.log(callback['AAPL']['quote']['latestPrice']);
+		  	if (!req.user) {
+			  	res.render('index', {
+			    	title_1 : result['posts'][0]['title'],
+			    	url_1 : result['posts'][0]['url'],
+			    	author_1 : result['posts'][0]['author'],
+			    	title_2 : result['posts'][3]['title'],
+			    	url_2 : result['posts'][3]['url'],
+			    	author_2 : result['posts'][3]['author'],
+			    	title_3 : result['posts'][2]['title'],
+			    	url_3 : result['posts'][2]['url'],
+			    	author_3 : result['posts'][2]['author'],
+			    	aapl : callback['AAPL']['quote']['latestPrice'],
+			    	amzn : callback['AMZN']['quote']['latestPrice'],
+			    	goog : callback['GOOG']['quote']['latestPrice'],
+			    	nflx : callback['NFLX']['quote']['latestPrice'],
+			    	adbe : callback['ADBE']['quote']['latestPrice'],
+			    	gs : callback['GS']['quote']['latestPrice'],
+			    	jpm : callback['JPM']['quote']['latestPrice'],
+			    	c : callback['C']['quote']['latestPrice'],
+			    	ms : callback['MS']['quote']['latestPrice'],
+			    	bx : callback['BX']['quote']['latestPrice'],
+			    	ibm : callback['IBM']['quote']['latestPrice']
+			 	});	
+		  	} else {
+		  		res.render('index', {
+		  			title_1 : result['posts'][0]['title'],
+			    	url_1 : result['posts'][0]['url'],
+			    	author_1 : result['posts'][0]['author'],
+			    	title_2 : result['posts'][3]['title'],
+			    	url_2 : result['posts'][3]['url'],
+			    	author_2 : result['posts'][3]['author'],
+			    	title_3 : result['posts'][2]['title'],
+			    	url_3 : result['posts'][2]['url'],
+			    	author_3 : result['posts'][2]['author'],
+			    	aapl : callback['AAPL']['quote']['latestPrice'],
+			    	amzn : callback['AMZN']['quote']['latestPrice'],
+			    	goog : callback['GOOG']['quote']['latestPrice'],
+			    	nflx : callback['NFLX']['quote']['latestPrice'],
+			    	adbe : callback['ADBE']['quote']['latestPrice'],
+			    	gs : callback['GS']['quote']['latestPrice'],
+			    	jpm : callback['JPM']['quote']['latestPrice'],
+			    	c : callback['C']['quote']['latestPrice'],
+			    	ms : callback['MS']['quote']['latestPrice'],
+			    	bx : callback['BX']['quote']['latestPrice'],
+			    	ibm : callback['IBM']['quote']['latestPrice'],
+					username: req.user.username
+				});
+		  	}
+	  	});
  	});
 });
 router.get('/about' , function(req,res,next){
@@ -78,12 +98,28 @@ router.get('/tutorial' , function(req,res,next){
 router.get('/strategies' , function(req,res,next){
     res.render('strategies');
 });
+
 router.get('/game', function(req, res, next) {
 	if (!req.user) {
   		req.flash('error_msg', 'Login Required!');
   		res.redirect('/');
 	} else {
-		res.render('game');
+		stockInfo.searchPriceByFamousSymbol(function(callback) {
+			 res.render('game', {
+			    aapl : callback['AAPL']['quote']['latestPrice'],
+			    amzn : callback['AMZN']['quote']['latestPrice'],
+			    goog : callback['GOOG']['quote']['latestPrice'],
+			    nflx : callback['NFLX']['quote']['latestPrice'],
+			    adbe : callback['ADBE']['quote']['latestPrice'],
+			    gs : callback['GS']['quote']['latestPrice'],
+			    jpm : callback['JPM']['quote']['latestPrice'],
+			    c : callback['C']['quote']['latestPrice'],
+			    ms : callback['MS']['quote']['latestPrice'],
+			    bx : callback['BX']['quote']['latestPrice'],
+			    ibm : callback['IBM']['quote']['latestPrice'],
+			    user : req.user
+			 });	
+	  	});
 	}
 });
 
