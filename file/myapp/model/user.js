@@ -3,14 +3,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
-<<<<<<< HEAD
 var Assete = require('./asset');
-=======
 var stock = require('../model/stock');
 var stockInfo = require('../model/stockInfo');
 
 
->>>>>>> master
 // define the schema for our user model
 var userSchema = mongoose.Schema({
   username: {
