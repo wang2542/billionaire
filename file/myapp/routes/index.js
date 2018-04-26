@@ -68,7 +68,9 @@ router.get('/', function(req, res, next) {
  	});
 });
 router.get('/about' , function(req,res,next){
-	res.render('about');
+	res.render('about', {
+		user : req.user
+	});
 });
 
 router.get('/blank_page' , function(req,res,next){
@@ -87,7 +89,9 @@ router.get('/new_profile' , function(req,res,next){
     res.render('new_profile');
 });
 router.get('/contact' , function(req,res,next){
-    res.render('contact');
+    res.render('contact', {
+    	user : req.user
+    });
 });
 router.get('/knowledge' , function(req,res,next){
     res.render('knowledge');
@@ -153,7 +157,21 @@ router.post('/contact/send', function(req, res, next) {
 
 });
 
+router.post('/contact/deleteAllMsg', function(req, res, next) {
+	var len = req.user.alert.length;
+	req.user.alert.splice(0, len);
+	req.user.save();
 
+	res.redirect('/contact');
+});
+
+router.post('/about/deleteAllMsg', function(req, res, next) {
+	var len = req.user.alert.length;
+	req.user.alert.splice(0, len);
+	req.user.save();
+
+	res.redirect('/about');
+});
 
 
 
