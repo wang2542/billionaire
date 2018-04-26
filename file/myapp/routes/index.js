@@ -94,6 +94,9 @@ router.get('/contact' , function(req,res,next){
     });
 });
 
+router.get('/lms' , function(req,res,next){
+    res.render('trade');
+});
 
 
 router.get('/game', function(req, res, next) {
