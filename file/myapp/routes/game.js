@@ -109,6 +109,10 @@ router.get('/watchlist', function(req, res, next) {
 });
 
 
+router.get('/hisotry' , function(req,res,next){
+    res.render('trade_history');
+});
+
 
 router.post('/watchlist', function(req, res, next) {
 

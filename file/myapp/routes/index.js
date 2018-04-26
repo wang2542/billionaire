@@ -103,6 +103,7 @@ router.get('/strategies' , function(req,res,next){
     res.render('strategies');
 });
 
+
 router.get('/game', function(req, res, next) {
 	if (!req.user) {
   		req.flash('error_msg', 'Login Required!');
