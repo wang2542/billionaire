@@ -95,6 +95,7 @@ router.get('/contact' , function(req,res,next){
 });
 
 
+
 router.get('/game', function(req, res, next) {
 	if (!req.user) {
   		req.flash('error_msg', 'Login Required!');
