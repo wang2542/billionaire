@@ -93,7 +93,22 @@ router.get('/contact' , function(req,res,next){
     	user : req.user
     });
 });
+<<<<<<< HEAD
 
+=======
+router.get('/knowledge' , function(req,res,next){
+    res.render('knowledge');
+});
+router.get('/tutorial' , function(req,res,next){
+    res.render('tutorial');
+});
+router.get('/strategies' , function(req,res,next){
+    res.render('strategies');
+});
+router.get('/trade_hist' , function(req,res,next){
+    res.render('trade_hist');
+});
+>>>>>>> wjz95
 
 router.get('/game', function(req, res, next) {
 	if (!req.user) {
