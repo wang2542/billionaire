@@ -55,11 +55,5 @@ router.get('/popular', function(req,res,next){
     
 })
 
-router.get('/assete', function(req,res,next){
-    var user_id = 1;
-    Asset.getAssete(user_id,(err,result)=> {
-        res.json(result);
-    });
-    
-})
+
 module.exports = router;

@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
 var async = require('async');
 var stockInfo = require('./stockInfo');
-var user = require('../model/user');
+var user = require('./user');
 var asseteSchema = mongoose.Schema({
     userId: {
         type: String,
@@ -20,6 +20,7 @@ var asseteSchema = mongoose.Schema({
 var Assete = module.exports = mongoose.model('assete', asseteSchema);
 
 module.exports.addAssete = function(userId, symbol,quantity,callback){
+    user.updateCoin(userId, 100,callback);
     var query = {userId:userId, symbol:symbol};
     Assete.findOne(query).exec(function(err,assete){
         if(assete == null){
@@ -30,16 +31,16 @@ module.exports.addAssete = function(userId, symbol,quantity,callback){
                 quantity: quantity
             });
             newAssete.save(function(){
-                 callback();
-            //    user.updateCoin(userId, callback);
+                //callback();
+                //user.updateCoin(userId, callback);
             });
         }
         else{
             console.log("updating the new asset");
             assete.quantity = parseInt(assete.quantity) + parseInt(quantity);
             assete.save(function() {
-                callback();
-            //  user.updateCoin(userId, callback);
+                //callback();
+               　//user.updateCoin(userId, callback);
             });
         }
     });
