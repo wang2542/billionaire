@@ -30,16 +30,16 @@ module.exports.addAssete = function(userId, symbol,quantity,callback){
                 quantity: quantity
             });
             newAssete.save(function(){
-                 callback();
-            //    user.updateCoin(userId, callback);
+               //  callback();
+                 user.updateCoin(userId, callback);
             });
         }
         else{
             console.log("updating the new asset");
             assete.quantity = parseInt(assete.quantity) + parseInt(quantity);
             assete.save(function() {
-                callback();
-            //  user.updateCoin(userId, callback);
+               // callback();
+                user.updateCoin(userId, callback);
             });
         }
     });
