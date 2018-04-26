@@ -44,7 +44,7 @@ router.get('/history', function(req,res,next){
 router.get('/history/recent', function(req,res,next){
     var user_id = 1;
     Transaction.getRecentTransactionByUserId(user_id, (err,result)=> {
-       
+        console.log(result);
         res.json(JSON.parse(JSON.stringify(result)));
     });
     
