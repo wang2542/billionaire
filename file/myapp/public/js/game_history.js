@@ -36,7 +36,9 @@ var div_search_bar = new Vue({
                 type: "GET",
             
                 success : function(res) {
+                    
                     div_search_bar.entries = res
+                    console.log(div_search_bar.entries);
                 },
                 error: function(err) {
                   console.log(err)
