@@ -20,10 +20,7 @@ var asseteSchema = mongoose.Schema({
 var Assete = module.exports = mongoose.model('assete', asseteSchema);
 
 module.exports.addAssete = function(userId, symbol,quantity,callback){
-<<<<<<< HEAD
-=======
     var query = {userId:userId, symbol:symbol};
->>>>>>> master
     Assete.findOne(query).exec(function(err,assete){
         if(assete == null){
             console.log("Adding the new asset");
