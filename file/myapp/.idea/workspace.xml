@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9596794a-bdaa-4215-829f-c59f6fb69a7c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/asset.js" afterPath="$PROJECT_DIR$/model/asset.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/stock.html" afterPath="$PROJECT_DIR$/views/stock.html" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +38,8 @@
       <file leaf-file-name="trade.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/trade.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2385">
-              <caret line="159" column="82" lean-forward="false" selection-start-line="159" selection-start-column="82" selection-end-line="159" selection-end-column="82" />
+            <state relative-caret-position="369">
+              <caret line="151" column="39" lean-forward="false" selection-start-line="151" selection-start-column="39" selection-end-line="151" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -64,8 +63,8 @@
               <folding>
                 <marker date="1524783526000" expanded="true" signature="1125:1224" ph="{...}" />
                 <marker date="1524783526000" expanded="true" signature="1211:1224" ph="{...}" />
-                <marker date="1524783526000" expanded="true" signature="1517:1586" ph="{...}" />
                 <marker date="1524783526000" expanded="true" signature="1517:1529" ph="{...}" />
+                <marker date="1524783526000" expanded="true" signature="1517:1586" ph="{...}" />
                 <marker date="1524783526000" expanded="true" signature="1634:1726" ph="{...}" />
               </folding>
             </state>
@@ -92,21 +91,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="300">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+              <folding>
+                <marker date="1524783931000" expanded="true" signature="42473:42515" ph="..." />
+                <marker date="1524783931000" expanded="true" signature="42473:42533" ph="..." />
+                <marker date="1524783931000" expanded="true" signature="42473:42546" ph="..." />
+                <marker date="1524783931000" expanded="true" signature="42473:42561" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stock.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="stock.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/stock.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="281" column="45" lean-forward="true" selection-start-line="281" selection-start-column="45" selection-end-line="281" selection-end-column="45" />
+            <state relative-caret-position="305">
+              <caret line="275" column="50" lean-forward="false" selection-start-line="275" selection-start-column="50" selection-end-line="275" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -157,8 +161,9 @@
         <option value="$PROJECT_DIR$/views/watchlist.html" />
         <option value="$PROJECT_DIR$/views/trade.html" />
         <option value="$PROJECT_DIR$/views/tutorial.html" />
-        <option value="$PROJECT_DIR$/views/stock.html" />
         <option value="$PROJECT_DIR$/model/asset.js" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/views/stock.html" />
       </list>
     </option>
   </component>
@@ -340,12 +345,12 @@
       <workItem from="1522178027155" duration="14376000" />
       <workItem from="1524780587419" duration="527000" />
       <workItem from="1524781602515" duration="698000" />
-      <workItem from="1524783327511" duration="270000" />
+      <workItem from="1524783327511" duration="578000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33182000" />
+    <option name="totallyTimeSpent" value="33490000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="541" y="141" width="1103" height="874" extended-state="0" />
@@ -671,8 +676,8 @@
           <folding>
             <marker date="1524783526000" expanded="true" signature="1125:1224" ph="{...}" />
             <marker date="1524783526000" expanded="true" signature="1211:1224" ph="{...}" />
-            <marker date="1524783526000" expanded="true" signature="1517:1586" ph="{...}" />
             <marker date="1524783526000" expanded="true" signature="1517:1529" ph="{...}" />
+            <marker date="1524783526000" expanded="true" signature="1517:1586" ph="{...}" />
             <marker date="1524783526000" expanded="true" signature="1634:1726" ph="{...}" />
           </folding>
         </state>
@@ -697,26 +702,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/trade.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2385">
-          <caret line="159" column="82" lean-forward="false" selection-start-line="159" selection-start-column="82" selection-end-line="159" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/tutorial.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
           <caret line="183" column="126" lean-forward="false" selection-start-line="183" selection-start-column="126" selection-end-line="183" selection-end-column="126" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/stock.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="281" column="45" lean-forward="true" selection-start-line="281" selection-start-column="45" selection-end-line="281" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -731,8 +720,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="300">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <marker date="1524783931000" expanded="true" signature="42473:42515" ph="..." />
+            <marker date="1524783931000" expanded="true" signature="42473:42533" ph="..." />
+            <marker date="1524783931000" expanded="true" signature="42473:42546" ph="..." />
+            <marker date="1524783931000" expanded="true" signature="42473:42561" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/trade.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="151" column="39" lean-forward="false" selection-start-line="151" selection-start-column="39" selection-end-line="151" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/stock.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="275" column="50" lean-forward="false" selection-start-line="275" selection-start-column="50" selection-end-line="275" selection-end-column="50" />
           <folding />
         </state>
       </provider>
