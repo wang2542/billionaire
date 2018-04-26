@@ -7,7 +7,7 @@ var async = require('async');
 
 var nodemailer = require('nodemailer');
 var crypto = require('crypto');
-
+var Asset = require('../model/asset');
 var User = require('../model/user');
 
 passport.serializeUser(function(user, done) {
@@ -40,7 +40,17 @@ passport.use(new LocalStrategy( function(username, password, done) {
 		});
 }));
 
-
+router.get('/assete', function(req,res,next){
+    var user_id = 1;
+    Asset.getAssete(user_id,(err,total_assetes,total_amount)=> {
+		var result = {
+			total_amount: total_amount,
+			total_assetes: total_assetes
+		}
+        res.json(result);
+    });
+    
+});
 /* GET users listing. */
 router.get('/signup', function(req, res, next) {
 	//res.send('respond with a resource');

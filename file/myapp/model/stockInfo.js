@@ -35,7 +35,8 @@ exports.searchStockBySymbl = function(symbl, callback) {
 
 exports.searchStockPriceBySymbl = function(symbl, callback) {
     this.searchStockBySymbl(symbl, function(err, infom) {
-		var stock = JSON.parse(JSON.stringify(infom));
+        var stock = JSON.parse(JSON.stringify(infom));
+    
         var price = stock[symbl].quote.latestPrice;
         callback(err,price);
     });

@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
-
+var Assete = require('./asset');
 // define the schema for our user model
 var userSchema = mongoose.Schema({
   username: {
@@ -73,15 +73,11 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
   });
 };
 
-module.exports.updateAsset = function (userId, StockSymbol, quanlitiy, callback){
-  User.findById(userId, function (err, user) {
-    if (err) return callback(err,null);
-    var assets = user.assets;
-    //updating asset ---- Update the arrylist 
-    user.set({ assets: assets });
-    user.save(function (err, updatedUser) {
-      callback(err,updatedUser);
+module.exports.updateCoin = function (userId, callback){
+    Assete.getAssete(userId,function(err, total_assetes, total_price){
+        User.update({_id:userId},{$set:{
+          coin: parseInt(total_price)
+        }},callback);
     });
-  });
 
-}
+};
