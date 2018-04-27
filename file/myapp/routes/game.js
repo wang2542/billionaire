@@ -25,7 +25,7 @@ router.get('/', function(req,res,next) {
 			function(next){
 				
 				Asset.getAssete(req.user._id,(err,total_assetes,total_profit,total_value)=> {
-					var percent_increase = Number(((total_value+req.user.coin)/100000) -1 ).toFixed(2);  ;
+					var percent_increase = Number((((total_value+req.user.coin)/100000) -1) *100 ).toFixed(2); 
 					var result = {
 						total_profit: Number(total_profit).toFixed(2),
 						total_assetes: total_assetes,

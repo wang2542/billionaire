@@ -1,7 +1,7 @@
 var express = require('express');
 
 const webhoseio = require('webhoseio');
-const client = webhoseio.config({token: '5658dc29-47e9-4c39-bc56-fc66b296d4ec'});
+const client = webhoseio.config({token: 'b183014a-29fc-4839-9ca1-2687e8311817'});
 var bodyParser = require('body-parser');
 
 var query_params = {
