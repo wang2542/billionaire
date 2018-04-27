@@ -340,42 +340,11 @@
                     <div class="bottom-tag">
                         <h3>Hot Stock</h3>
                         <ul class="tag-list">
+                            {{#each hotStock}}
                             <li>
-                                <a href = "javascript: gotostock" onclick = gotostock('AAPL')>AAPL</a>
+                                <a href = "javascript: gotostock" onclick = gotostock('{{this.symbol}}')>{{this.symbol}}</a>
                             </li>
-                            <li>
-                                <a href = "javascript: gotostock" onclick = gotostock('AMZN')>AMZN</a>
-                            </li>
-                            <li>
-                                <a href = "javascript: gotostock" onclick = gotostock('GOOG')>GOOG</a>
-                            </li>
-                            <li>
-                                <a href = "javascript: gotostock" onclick = gotostock('NFLX')>NFLX</a>
-                            </li>
-                            <li>
-                                <a href = "javascript: gotostock" onclick = gotostock('ADBE')>ADBE</a>
-                            </li>
-                            <li>
-                                <a href = "javascript: gotostock" onclick = gotostock('GS')>GS</a>
-                            </li>
-                            <li>
-                                <a href = "javascript: gotostock" onclick = gotostock('JPM')>JPM</a>
-                            </li>
-                            <li>
-                                <a href = "javascript: gotostock" onclick = gotostock('C')>C</a>
-                            </li>
-                            <li>
-                                <a href = "javascript: gotostock" onclick = gotostock('MS')>MS</a>
-                            </li>
-                            <li>
-                                <a href = "javascript: gotostock" onclick = gotostock('BX')>BX</a>
-                            </li>
-                            <li>
-                               <a href = "javascript: gotostock" onclick = gotostock('BAC')>BAC</a>
-                            </li>
-                            <li>
-                                <a href = "javascript: gotostock" onclick = gotostock('IBM')>IBM</a>
-                            </li>
+                            {{/each}}
                         </ul>
                     </div>
                 </div>

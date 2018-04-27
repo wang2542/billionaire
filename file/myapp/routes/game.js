@@ -16,21 +16,12 @@ var async = require('async');
 router.get('/', function(req,res,next) {
 	var assete;
 	var transactionHistory;
-	var hotStock;
 	if (!req.user) {
 		req.flash('error_msg', 'Login Required!');
 		res.redirect('/user/login');
 	} else {
 		// console.log(req.user.alert.length);
 		async.parallel([
-			function(next){
-				
-				Transaction.getPopularStock((err,result)=> {
-					hotStock = result;
-					console
-					next();
-				});
-			},
 			function(next){
 				
 				Asset.getAssete(req.user._id,(err,total_assetes,total_profit,total_value)=> {
@@ -66,8 +57,7 @@ router.get('/', function(req,res,next) {
 				   ibm : callback['IBM']['quote']['latestPrice'],
 				   user : req.user,
 				   assete:assete,
-				   transactionHistory: transactionHistory,
-				   hotStock : hotStock
+				   transactionHistory: transactionHistory
 				});	
 			 });
 		});
