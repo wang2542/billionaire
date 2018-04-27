@@ -137,31 +137,20 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="panel-footer">
-                                        <div>
-                                        <label>Stock Symbol</label>
-                                        <input type="text" name="stock_symbol" value="{{sym}}" readonly>
-                                        </div>
-                                        <div>
-                                        <label>Price</label>
-                                        <input type="text" name="stock_symbol" value="{{price}}" readonly>
-                                        </div>
-                                        <div>
-                                        <label >Transaction</label>
+                                        <label style="font-size: 25px;" >Stock Symbol</label>
+                                        <label style="font-size: 25px;" >Transaction</label>
                                         <select>
-                                            <option value="buy">Buy</option>
-                                            <option value="sell">Sell</option>
+                                            <option value="volvo">Volvo</option>
+                                            <option value="saab">Saab</option>
+                                            <option value="opel">Opel</option>
+                                            <option value="audi">Audi</option>
                                         </select>
-                                        </div>
                                         
-                                        <div>
-                                        <label >Quantity</label>
-                                        <input type="text" name="quantity">
-                                        </div>
+                                        <label style="font-size: 25px;" >Quantity</label>
 
 
-                                        <div>
-                                            <button id = "btn_preview">Place the Order</button>
-                                        </div>
+
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -184,18 +173,7 @@
             </div>
         </div>
     </div>
-<!--     <script type="text/javascript">
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
-        document.getElementById("demo").innerHTML=getParameterByName("sym", window.location.href);
-    </script> -->
+
 
     <!-- Common JS -->
     <script src="../assets/plugins/common/common.min.js"></script>

@@ -6,6 +6,7 @@ var stock = require('../model/stock');
 var stockInfo = require('../model/stockInfo');
 var User = require('../model/user');
 var async = require('async');
+
 router.post('/', function(req, res, next){
 	console.log('search stock');
 	console.log(req.body.stockName=="");
@@ -113,6 +114,39 @@ router.post('/add', function(req, res, next) {
 
   
 });
+
+const url = require('url');
+
+router.post('/trade', function(req, res, next) {
+    console.log("moving to transaction page")
+	var stock_sym = req.body.symbol,
+		stock_price = req.body.price;
+    if (!req.user) {
+		req.flash('error_msg', 'Login Required!');
+		res.redirect('/user/login');
+	}
+
+	else {
+		console.log(stock_sym);
+		console.log(stock_price);
+
+		/*res.render('trade', {
+			sym : stock_sym,
+			price : stock_price
+		});*/
+		res.redirect(url.format({
+			pathname:"/lms",
+			query: {
+				"sym" : stock_sym,
+				"price" : stock_price
+			}
+		}));
+   }
+
+  
+});
+
+
 router.get('/chart', function(req,res,next){
 	console.log('geting stock chart');
 	var chart = JSON.parse(localStorage.getItem('Stock')).chart;
