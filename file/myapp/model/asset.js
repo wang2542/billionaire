@@ -89,8 +89,8 @@ module.exports.getAssete = function(userId,callback){
                     quantity: value.quantity,
                     total_price: total_price,
                     price: price,
-                    avg_cost: avg_cost,
-                    total_return: total_return,
+                    avg_cost:Number(avg_cost).toFixed(2) ,
+                    total_return: Number(total_return).toFixed(2),
                 };
                 
                 total_assetes.push(temp);
