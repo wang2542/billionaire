@@ -261,7 +261,7 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/user/l
 	//END NOTIFICATION
 	
 	req.flash('success_msg', 'You are logged in');
-    res.redirect('/');
+    res.redirect('/game');
  });
 
 router.post('/profile', function(req, res, next){

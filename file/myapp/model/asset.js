@@ -19,7 +19,7 @@ var asseteSchema = mongoose.Schema({
 
 var Assete = module.exports = mongoose.model('assete', asseteSchema);
 
-module.exports.addAssete = function(userId, symbol,quantity,callback){
+module.exports.modifyAssete = function(userId, symbol,quantity, type, callback){
     var query = {userId:userId, symbol:symbol};
     Assete.findOne(query).exec(function(err,assete){
         if(assete == null){
@@ -33,8 +33,9 @@ module.exports.addAssete = function(userId, symbol,quantity,callback){
         }
         else{
             console.log("updating the new asset");
-            assete.quantity = parseInt(assete.quantity) + parseInt(quantity);
-           
+            var typeT = type * -1;
+            assete.quantity = assete.quantity + (quantity * typeT);
+            console.log(assete.quantity);
             assete.save(callback);
         }
     });
@@ -43,11 +44,15 @@ module.exports.addAssete = function(userId, symbol,quantity,callback){
 module.exports.checkAssete = function(userId, symbol,quantity,callback){
     var query = {userId:userId, symbol:symbol};
     Assete.findOne(query).exec(function(err,assete){
-        console.log(assete.quantity > quantity);
-        if (assete.quantity > quantity)
-        callack(err,1);
-        else 
-        callback(err,0);
+        console.log(assete.quantity);
+        console.log(quantity);
+        console.log(assete.quantity >= quantity);
+        if (assete.quantity >= quantity) {
+            callback(err,1);
+        }
+        else {
+            callback(err,0);
+        }
     });
 }
 module.exports.getAssete = function(userId,callback){

@@ -17,59 +17,73 @@ router.get('/', function(req, res, callback) {
 });
 
 router.post('/', function (req, res, callback) {
+	console.log("transaction");
+	var price = parseFloat(req.body.price).toFixed(2),
+		quantity = parseInt(req.body.quantity),
+		typeStr = req.body.transaction,
+		user_id = req.user._id,
+		sym = req.body.sym,
+		typeT;
+	// price.toFixed(2);
+    var total = price*quantity;
 
+    if (typeStr === "Buy") {
+    	typeT = -1;
+    } else {
+    	typeT = 1;
+    }
 
-    var total = req.query.price * req.query.quantity;
     async.parallel([
         function(next) {
             //If user want to buy stock
-            if (req.query.typeT == -1) {
-                user_id = 1;
+            if (typeT == -1) {
                 User.checkCoin(user_id, total, (response)=>{
                     if(response == 0){
+                    	console.log("error not enough money");
                         res.json({ error: "sorry you do not have enough coin to buy" });
                         return;
                     }
-                    next();
+                    
                 })
+            } else {
+            	Asset.checkAssete(user_id, sym, quantity,(err,response)=>{
+	                if (response == 0){
+	                	console.log("error not enough stock");
+	                    res.json({ error: "sorry you do not have enough stock to sell" });
+	                    return;
+	                }
+	            });
             }
-        },
-        function(next) { 
-             //If user want to sell stock
-            if (req.query.typeT == 1) {
-            user_id = 1;
-            Asset.checkAssete(user_id, req.query.stockName,req.query.quantity,(err,response)=>{
-                if (response == 0){
-                    res.json({ error: "sorry you do not have enough stock to sell" });
-                    return;
-                }
-                total = -1 * total;
-                next();
-                
-            });
-            }
-            else next();
+            next();
         },
         function(next) {
             var transaction = new Transaction({
                 date: new Date(),
-                userId: req.query.user_id,
-                symbol: req.query.stockName,
-                type: req.query.typeT,
-                quantity: req.query.quantity,
+                userId: user_id,
+                symbol: sym,
+                type: typeT,
+                quantity: quantity,
                 total: total,
             });
+            console.log(transaction);
+
             Transaction.createTransaction(transaction, function (err) {
-                user_id = 1;
-                var quantity = parseInt(req.query.quantity) *-1* parseInt(req.query.typeT);
-                Asset.addAssete(user_id, req.query.stockName, quantity, function (err) {
-                   User.updateCoin(user_id,total,next);
+                //user_id = 1;
+                
+                Asset.modifyAssete(user_id, sym, quantity, typeT, function (err) {
+                	console.log("modifyasset");
+                	console.log(user_id);
+                	console.log(sym);
+                	console.log(quantity);
+                	console.log(typeT);
+                   	User.updateCoin(user_id,total,typeT, next);
+                   	console.log("updateCoin");
                 });
                 
             });
         }
     ], function(err, results) {
-        res.json("Sucesses");
+        res.redirect('/game');
     });
 
 });
