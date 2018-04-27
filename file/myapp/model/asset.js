@@ -79,7 +79,7 @@ module.exports.getAssete = function(userId,callback){
             
            
         },function(err){
-            console.log(total_amount);
+            //console.log(total_amount);
             callback(err,total_assetes,total_amount);
         });
        

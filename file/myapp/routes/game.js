@@ -14,7 +14,7 @@ var async = require('async');
 
 
 router.get('/', function(req,res,next) {
-	var assete;
+	var assete, three_things;
 	var transactionHistory;
 	if (!req.user) {
 		req.flash('error_msg', 'Login Required!');
@@ -26,10 +26,14 @@ router.get('/', function(req,res,next) {
 				
 				Asset.getAssete(req.user._id,(err,total_assetes,total_amount)=> {
 					var result = {
-						total_amount: total_amount,
-						total_assetes: total_assetes
+						coins: parseFloat(req.user.coin).toFixed(2),
+						total_amount: parseFloat(total_amount).toFixed(2),
+						total_assetes: total_assetes,
+						total_account_value: parseFloat(total_amount + req.user.coin).toFixed(2)
 					}
 					assete = result;
+					console.log(assete.total_assetes[0]['symbol']);
+
 					next();
 				});
 			},
@@ -55,6 +59,9 @@ router.get('/', function(req,res,next) {
 				   ibm : callback['IBM']['quote']['latestPrice'],
 				   user : req.user,
 				   assete:assete,
+				   // sym1 : assete.total_assetes[0]['symbol'],
+				   // sym2 : assete.total_assetes[1]['symbol'],
+				   // sym3 : assete.total_assetes[2]['symbol'],
 				   transactionHistory: transactionHistory
 				});	
 			 });
