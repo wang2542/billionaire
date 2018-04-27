@@ -231,27 +231,28 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="panel-footer">
+                                        
                                         <div>
-                                        <label  >Stock Symbol</label>
-                                        <input type="text" id="trade_symbol" value="{{sym}}" readonly>
+                                        <label class= "l_lbl">Stock Symbol</label>
+                                        <input class = "r_lbl "type="text" id="trade_symbol" value="{{sym}}" readonly>
                                         </div>
 
                                         <div>
-                                        <label >Transaction</label>
-                                        <select id = "trade_transaction">
+                                        <label class= "l_lbl">Transaction</label>
+                                        <select class = "r_lbl" id = "trade_transaction">
                                             <option value="Buy">Buy</option>
                                             <option value="Sell">Sell</option>
                                         </select>
                                         </div>
 
                                         <div>
-                                        <label  >Stock Price</label>
-                                        <input type="text" id="trade_price" value="{{price}}" readonly>
+                                        <label  class= "l_lbl">Stock Price</label>
+                                        <input class = "r_lbl" type="text" id="trade_price" value="{{price}}" readonly>
                                         </div>
                                         
                                         <div>
-                                            <label >Quantity</label>
-                                            <input type="text" id="trade_quantity">
+                                            <label class= "l_lbl">Quantity</label>
+                                            <input class = "r_lbl" type="text" id="trade_quantity">
                                         </div>
 
                                         <!--preview btn-->
@@ -268,23 +269,23 @@
                             <div id = "div_preview">
                                 <form class="icoAdmin-search-box " action = "/transaction" method="post">
                                     <div>
-                                        <label>Stock Symbol</label>
-                                        <input type="text"  id = "preview_symbol" name="sym" readonly="readonly" >
+                                        <label class= "p_left">Stock Symbol</label>
+                                        <input class= "p_right" type="text"  id = "preview_symbol" name="sym" readonly="readonly" >
                                     </div>
                             
                                     <div>
-                                        <label >Transaction</label>
-                                        <input type="text" id = "preview_transaction" name="transaction" readonly="readonly" >
+                                        <label class= "p_left">Transaction</label>
+                                        <input class= "p_right" type="text" id = "preview_transaction" name="transaction" readonly="readonly" >
                                     </div>
                                     
                                     <div>
-                                        <label>Price</label>
-                                        <input type="text"  id = "preview_price" name="price" readonly="readonly">
+                                        <label class= "p_left">Price</label>
+                                        <input class= "p_right" type="text"  id = "preview_price" name="price" readonly="readonly">
                                     </div>
 
                                     <div>
-                                        <label >Quantity</label>
-                                        <input type="text" id = "preview_quantity" name="quantity" readonly="readonly">
+                                        <label class= "p_left">Quantity</label>
+                                        <input class= "p_right" type="text" id = "preview_quantity" name="quantity" readonly="readonly">
                                     </div>
                             
 
