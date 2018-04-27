@@ -23,7 +23,6 @@ function preview() {
     document.getElementById("shell").style.display = "inline"
 
     console.log("1111")
-
 }
 
 function cancel(){

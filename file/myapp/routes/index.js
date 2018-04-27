@@ -93,6 +93,7 @@ router.get('/contact' , function(req,res,next){
     	user : req.user
     });
 });
+
 router.get('/lms' , function(req,res,next){
     res.render('trade');
 });
