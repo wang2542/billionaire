@@ -7,9 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Billionaire</title>
     <link href="../stylesheets/gamestyle.css" rel="stylesheet">
+    <link href="stylesheets/trade.css" rel="stylesheet">
 </head>
 
+
+
+
+
 <body>
+    <div id = "shell" onclick="cancel()"></div>
+
+
     <div id="icoAdmin" class="icoAdmin random-data">
        <div class="icoAdmin-overlay-box"></div>
         <div class="icoAdmin-container">
@@ -139,40 +147,70 @@
                                     <div class="panel-footer">
                                         <div>
                                         <label  >Stock Symbol</label>
-                                        <input type="text" name="stock_symbol">
+                                        <input type="text" id="trade_symbol">
                                         </div>
 
                                         <div>
                                         <label >Transaction</label>
-                                        <select>
+                                        <select id = "trade_transaction">
                                             <option value="buy">Buy</option>
                                             <option value="sell">Sell</option>
                                         </select>
                                         </div>
                                         
                                         <div>
-                                        <label >Quantity</label>
-                                        <input type="text" name="quantity">
+                                            <label >Quantity</label>
+                                            <input type="text" id="trade_quantity">
                                         </div>
 
-
+                                        <!--preview btn-->
                                         <div>
-                                            <button id = "btn_preview">Place the Order</button>
+                                            <button id = "btn_preview" onclick="preview()" >Preview</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        <!--end trading-->
 
+                        <!--preview-->
+                        
+                            <div id = "div_preview">
+                                <form class="icoAdmin-search-box " action = "/transaction" method="post">
+                                    <div>
+                                        <label>Stock Symbol</label>
+                                        <input type="text"  id = "preview_symbol" readonly="readonly" >
+                                    </div>
+                            
+                                    <div>
+                                        <label >Transaction</label>
+                                        <input type="text" id = "preview_transaction"  readonly="readonly" >
+                                    </div>
+                                                        
+                                    <div>
+                                        <label >Quantity</label>
+                                        <input type="text" id = "preview_quantity" name="quanity" readonly="readonly">
+                                    </div>
+                            
+                                    <div>
+                                        <label>Price</label>
+                                        <input type="text"  id = "preview_price" name="price" readonly="readonly">
+                                    </div>
+
+                                    <!--submiit btn-->
+                                    <div>
+                                    <button id = "btn_sub" type="submit">Place the Order</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!--end preview-->
                       
                             
                             <!-- _____________CopyRight Start______________-->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="panel-footer"> 2018 © cs407</div>
-                            </div>
-                                
-                                
-
+                                </div>
                             </div>
 
                         </div>
@@ -201,6 +239,7 @@
     <script src="../js/dashboard-1.js"></script>
     <!-- Custom script -->
     <script src="../js/custom.min.js"></script>
+    <script src="../js/trade.js"></script>
 </body>
 
 </html>
