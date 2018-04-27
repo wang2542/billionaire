@@ -256,8 +256,8 @@
                                             </div>
                                             <div class="stat-content">
                                                 <div class="text-left dib">
-                                                    <div class="stat-heading">Daily Profit</div>
-                                                    <div class="stat-text"> 0</div>
+                                                    <div class="stat-heading">Total Profit</div>
+                                                    <div class="stat-text"> ${{assete.total_profit}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -272,7 +272,7 @@
                                             <div class="stat-content">
                                                 <div class="text-left dib">
                                                     <div class="stat-heading">Percent change</div>
-                                                    <div class="stat-text"> 0 %</div>
+                                                    <div class="stat-text"> {{assete.percent_increase}} %</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -346,6 +346,8 @@
                                                             <th>Company</th>
                                                             <th>Shares</th>
                                                             <th>Price</th>
+                                                            <th>Avg Cost</th>
+                                                            <th>Total Return</th>
                                                             <th>Total value</th>
 
                                                         </tr>
@@ -357,6 +359,8 @@
                                                             <th>{{this.symbol}}</th>
                                                             <th>{{this.quantity}}</th>
                                                             <th>${{this.price}}</th>
+                                                            <th>{{this.avg_cost}}</th>
+                                                            <th>{{this.total_return}}</th>
                                                             <th>${{this.total_price}}</th>
                                                         </tr>
                                                         {{/each}}

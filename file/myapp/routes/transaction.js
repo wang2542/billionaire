@@ -91,7 +91,7 @@ router.post('/', function (req, res, callback) {
             console.log(transaction);
 
             Transaction.createTransaction(transaction, function (err) {
-                Asset.modifyAssete(user_id, sym, quantity, typeT, function (err) {
+                Asset.modifyAssete(user_id, sym, quantity,price, typeT, function (err) {
                    	User.updateCoin(user_id,total,typeT, function(err) {
 	                   	req.flash('success_msg', 'Transaction Successful!');
 	                   	res.redirect('/game');
