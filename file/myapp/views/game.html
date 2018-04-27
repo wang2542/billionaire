@@ -331,13 +331,48 @@
                                 </div>
                             </div>
 
+
+                            <!--  row ____________  #3.1  -->
+                            <div class="row">
+
+                                    <div class="col-lg-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Hot Stocks</h4>
+                                                <div class="trade-history-table">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-xs">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Company</th>
+                                                                <th>Price</th>
+                                                            </tr>
+                                                            </thead>
+                                                            
+                                                            <tbody>
+                                                            {{#each hotStock}}
+                                                            <tr>
+                                                                <th>{{this.symbol}}</th>
+                                                                <th>${{this.price}}</th>
+                                                            </tr>
+                                                            {{/each}}
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
                             <!--  row ____________  #3   -->
                             <div class="row">
 
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title">Stocks</h4>
+                                            <h4 class="card-title">Your Stocks</h4>
                                             <div class="trade-history-table">
                                                 <div class="table-responsive">
                                                     <table class="table table-xs">
