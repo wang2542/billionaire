@@ -45,15 +45,8 @@ module.exports.getTransactionByUserId =  function(userId, callback) {
 }
 
 module.exports.getRecentTransactionByUserId = function (userId, callback) {
-    var cutoff = new Date();
-    var begin = cutoff.getDate() - 7;
-    transaction.find({
-        userId:userId,
-        $or: [
-            {date: {$gte:begin}},
-            {date: {$lte:cutoff}}
-        ]
-    }).exec(callback);
+    var query = {userId:userId};
+    transaction.find(query).sort({date:-1}).limit(5).exec(callback);
 }
 
 module.exports.getPopularStock = function(callback) {
