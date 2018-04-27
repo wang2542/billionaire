@@ -10,10 +10,24 @@ var async = require('async');
 
 
 router.get('/', function(req, res, callback) {
-    res.render('trade', {
-        sym : req.query.sym,
-        price :  req.query.price
-    }); 
+    stockInfo.searchPriceByFamousSymbol(function(callback) {
+        res.render('trade', {
+            aapl : callback['AAPL']['quote']['latestPrice'],
+            amzn : callback['AMZN']['quote']['latestPrice'],
+            goog : callback['GOOG']['quote']['latestPrice'],
+            nflx : callback['NFLX']['quote']['latestPrice'],
+            adbe : callback['ADBE']['quote']['latestPrice'],
+            gs : callback['GS']['quote']['latestPrice'],
+            jpm : callback['JPM']['quote']['latestPrice'],
+            c : callback['C']['quote']['latestPrice'],
+            ms : callback['MS']['quote']['latestPrice'],
+            bx : callback['BX']['quote']['latestPrice'],
+            ibm : callback['IBM']['quote']['latestPrice'],
+            user : req.user,
+            sym : req.query.sym,
+            price :  req.query.price
+        }); 
+    });
 });
 
 router.post('/', function (req, res, callback) {
@@ -63,19 +77,48 @@ router.post('/', function (req, res, callback) {
     	if (err && err != -1) {
     		console.log("errorroror");
     		var error_msg = 'Transaction Failed. Check your assets or coins.';
-    		res.render('trade', {
-    			sym : sym,
-                price: price,
-                error_msg: error_msg
-    		});
+            stockInfo.searchPriceByFamousSymbol(function(callback) {
+                res.render('trade', {
+                    aapl : callback['AAPL']['quote']['latestPrice'],
+                    amzn : callback['AMZN']['quote']['latestPrice'],
+                    goog : callback['GOOG']['quote']['latestPrice'],
+                    nflx : callback['NFLX']['quote']['latestPrice'],
+                    adbe : callback['ADBE']['quote']['latestPrice'],
+                    gs : callback['GS']['quote']['latestPrice'],
+                    jpm : callback['JPM']['quote']['latestPrice'],
+                    c : callback['C']['quote']['latestPrice'],
+                    ms : callback['MS']['quote']['latestPrice'],
+                    bx : callback['BX']['quote']['latestPrice'],
+                    ibm : callback['IBM']['quote']['latestPrice'],
+                    user : req.user,
+                    sym : sym,
+                    price : price,
+                    error_msg : error_msg
+                }); 
+            });
     	} else if (isNaN(quantity)){
     		console.log("nanananan");
 			var error_msg = 'Transaction Failed. Quantity must be an integer.';
-			res.render('trade', {
-		  		sym : sym,
-		        price: price,
-		        error_msg: error_msg
-		 	});
+            stockInfo.searchPriceByFamousSymbol(function(callback) {
+                res.render('trade', {
+                    aapl : callback['AAPL']['quote']['latestPrice'],
+                    amzn : callback['AMZN']['quote']['latestPrice'],
+                    goog : callback['GOOG']['quote']['latestPrice'],
+                    nflx : callback['NFLX']['quote']['latestPrice'],
+                    adbe : callback['ADBE']['quote']['latestPrice'],
+                    gs : callback['GS']['quote']['latestPrice'],
+                    jpm : callback['JPM']['quote']['latestPrice'],
+                    c : callback['C']['quote']['latestPrice'],
+                    ms : callback['MS']['quote']['latestPrice'],
+                    bx : callback['BX']['quote']['latestPrice'],
+                    ibm : callback['IBM']['quote']['latestPrice'],
+                    user : req.user,
+                    sym : sym,
+                    price :  price,
+                    error_msg : error_msg
+                }); 
+            });
+
     	} else {
     		console.log("success");
         	//console.log("transaction");
