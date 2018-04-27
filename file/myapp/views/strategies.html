@@ -68,8 +68,13 @@
                                     <div class="drop-down dropdown-profile">
                                         <div class="dropdown-content-body">
                                             <ul>
+                                                {{#if user}}
                                                 <li><a href="/user/profile"><i class="ti-settings"></i> <span>Profile</span></a></li>
                                                 <li><a href="/user/logout"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                {{else}}
+                                                <li><a href="/user/login"><i class="ti-settings"></i> <span>Login</span></a></li>
+                                                <li><a href="/user/signup"><i class="ti-power-off"></i> <span>SignUp</span></a></li>
+                                                {{/if}}
                                             </ul>
                                         </div>
                                     </div>
@@ -86,7 +91,9 @@
                         <div class="icoAdmin-inner-navbar">
                             <div class="icoAdmin-search"> <span class="searchbar-toggle">  </span>
                                 <div class="icoAdmin-search-box ">
-                                    <input type="text" placeholder="Search"> <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </div>
+                                    <form class="icoAdmin-search-box " action = "/stock" method="post">
+                                        <input type="text" placeholder="Search" name="stockName"> <button class="search-icon" type = "submit" ><i class="fa fa-search" aria-hidden="true"></i></span> </div>
+                                    </form>
                             </div>
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>

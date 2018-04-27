@@ -26,18 +26,59 @@
                         
                         <div class="icoAdmin-rr-header">
                             <ul>
-                                <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
-										</a>
-                                   
-                                </li>
+                                <!-- _________________Notifications_______________ -->
+                                {{#if user}}
+                                    {{#if user.alert}}
+                                    <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+                                                <span class="icoAdmin-badge badge-success">{{user.alert.length}}</span>
+                                            </a>
+                                       <div class="drop-down">
+                                            <div class="dropdown-content-heading"> <span class="text-left">Recent Notifications</span> </div>
+                                            <div class="dropdown-content-body">
+                                                <ul>
+                                                    {{#each user.alert}}
+                                                    <li>
+                                                        <a href="#"> <img class="pull-left m-r-10 avatar-img" src="#" alt="" />
+                                                            <div class="notification-content"> <small class="notification-timestamp pull-right"></small>
+                                                                <div class="notification-text">{{this.msg}}</div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    {{/each}}
+                                                    <li class="text-center"> <a href="#" class="more-link" onclick="deleteAllMsg()">Read All</a> </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{else}}
+                                    <li class="icons"> <a href="javascript:void(0)"><i class="fa fa-bell" aria-hidden="true"></i>
+                                            </a>
+                                        <div class="drop-down">
+                                            <div class="dropdown-content-heading"> <span class="text-left">Recent Notifications</span> </div>
+                                            <div class="dropdown-content-body">
+                                                <ul>
+                                                    <li class="text-center"> <a class="more-link">There is no notifications</a> </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{/if}}
+                                {{else}}
+                                {{/if}}
+                                <!-- ___________________Notifications end_________________-->
                            
                                 <li class="icons">
                                     <a href="javascript:void(0)"> <i class="fa fa-user" aria-hidden="true"></i> </a>
                                     <div class="drop-down dropdown-profile">
                                         <div class="dropdown-content-body">
                                             <ul>
-                                                <li><a href="#"><i class="ti-settings"></i> <span>Profile</span></a></li>
-                                                <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                {{#if user}}
+                                                <li><a href="/user/profile"><i class="ti-settings"></i> <span>Profile</span></a></li>
+                                                <li><a href="/user/logout"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                                {{else}}
+                                                <li><a href="/user/login"><i class="ti-settings"></i> <span>Login</span></a></li>
+                                                <li><a href="/user/signup"><i class="ti-power-off"></i> <span>SignUp</span></a></li>
+                                                {{/if}}
                                             </ul>
                                         </div>
                                     </div>
@@ -53,9 +94,9 @@
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                         <div class="icoAdmin-inner-navbar">
                             <div class="icoAdmin-search"> <span class="searchbar-toggle">  </span>
-                                <div class="icoAdmin-search-box ">
-                                    <input type="text" placeholder="Search"> <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </div>
-                            </div>
+                                <form class="icoAdmin-search-box " action = "/stock" method="post">
+                                    <input type="text" placeholder="Search" name="stockName"> <button class="search-icon" type = "submit" ><i class="fa fa-search" aria-hidden="true"></i></span> </div>
+                                </form>
                             <ul class="icoAdmin-item icoAdmin-brand icoAdmin-left-item">
                                 <li>
                                     <a href="/"> <span class="icoAdmin-micon"><i class="icon-graph"></i></span> <span class="icoAdmin-mtext">Home Page</span> </a>
@@ -118,8 +159,50 @@
                                 <div class="col-md-10 align-self-center">
                                     <div class="crypto-ticker">
                                         <ul id="webticker-dark-icons">
-                                            <li data-update="item1"><i class="cc BTC"></i> APPL <span class="coin-value"> $11.039232</span></li>
-                                            <li data-update="item2"><i class="cc ETH"></i> AMAZ <span class="coin-value"> $1.2792</span></li>
+                                            <li data-update="item1">
+                                                <i class="cc BTC"></i> AAPL
+                                                <span class="coin-value"> ${{aapl}}</span>
+                                            </li>
+                                            <li data-update="item2">
+                                                <i class="cc ETH"></i> AMZN
+                                                <span class="coin-value"> ${{amzn}}</span>
+                                            </li>
+                                            <li data-update="item3">
+                                                <i class="cc GAME"></i> GOOG
+                                                <span class="coin-value"> ${{goog}}</span>
+                                            </li>
+                                            <li data-update="item4">
+                                                <i class="cc LBC"></i> NFLX
+                                                <span class="coin-value"> ${{nflx}}</span>
+                                            </li>
+                                            <li data-update="item5">
+                                                <i class="cc NEO"></i> ADBE
+                                                <span class="coin-value"> ${{adbe}}</span>
+                                            </li>
+                                            <li data-update="item6">
+                                                <i class="cc STEEM"></i> GS
+                                                <span class="coin-value"> ${{gs}}</span>
+                                            </li>
+                                            <li data-update="item7">
+                                                <i class="cc LTC"></i> JPM
+                                                <span class="coin-value"> ${{jpm}}</span>
+                                            </li>
+                                            <li data-update="item8">
+                                                <i class="cc NOTE"></i> C
+                                                <span class="coin-value"> ${{c}}</span>
+                                            </li>
+                                            <li data-update="item9">
+                                                <i class="cc MINT"></i> MS
+                                                <span class="coin-value"> ${{ms}}</span>
+                                            </li>
+                                            <li data-update="item10">
+                                                <i class="cc IOTA"></i> BX
+                                                <span class="coin-value"> ${{bx}}</span>
+                                            </li>
+                                            <li data-update="item11">
+                                                <i class="cc DASH"></i> IBM
+                                                <span class="coin-value"> ${{ibm}}</span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
