@@ -54,37 +54,22 @@ router.post('/', function (req, res, callback) {
 	                }
 	            });
             }
-        },
-        function(next) { 
-             //If user want to sell stock
-            if (req.query.typeT == 1) {
-    
-            Asset.checkAssete(user_id, req.query.stockName,req.query.quantity,(err,response)=>{
-                if (response == 0){
-                    res.json({ error: "sorry you do not have enough stock to sell" });
-                    return;
-                }
-                total = -1 * total;
-                next();
-                
-            });
-            }
-            else next();
+            next();
         },
         function(next) {
             var transaction = new Transaction({
                 date: new Date(),
                 userId: user_id,
                 symbol: sym,
-                type: typeT,
                 quantity: quantity,
+                price:price,
                 total: total,
+                type: typeStr
             });
             console.log(transaction);
 
             Transaction.createTransaction(transaction, function (err) {
                 //user_id = 1;
-                
                 Asset.modifyAssete(user_id, sym, quantity, typeT, function (err) {
                 	console.log("modifyasset");
                 	console.log(user_id);

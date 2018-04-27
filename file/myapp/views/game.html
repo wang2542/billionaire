@@ -327,33 +327,21 @@
                                                         <tr>
                                                             <th>Company</th>
                                                             <th>Shares</th>
-                                                            <th>Avg Cost</th>
-                                                            <th>Equity</th>
-                                                            <th>Portfolio Diversity</th>
-                                                            <th>Today's Return</th>
-                                                            <th>Total Return</th>
+                                                            <th>Price</th>
+                                                            <th>Total value</th>
+
                                                         </tr>
                                                         </thead>
-
+                                                        
                                                         <tbody>
+                                                        {{#each assete.total_assetes}}
                                                         <tr>
-                                                            <th>AAPL</th>
-                                                            <th>12</th>
-                                                            <th>116</th>
-                                                            <th>2000</th>
-                                                            <th>40%</th>
-                                                            <th>+$42.47</th>
-                                                            <th>+$420.41</th>
+                                                            <th>{{this.symbol}}</th>
+                                                            <th>{{this.quantity}}</th>
+                                                            <th>${{this.price}}</th>
+                                                            <th>${{this.total_price}}</th>
                                                         </tr>
-                                                        <tr>
-                                                            <th>FB</th>
-                                                            <th>12</th>
-                                                            <th>116</th>
-                                                            <th>2000</th>
-                                                            <th>60%</th>
-                                                            <th>+$42.47</th>
-                                                            <th>+$420.41</th>
-                                                        </tr>
+                                                        {{/each}}
                                                     </table>
                                                 </div>
                                             </div>
@@ -384,20 +372,16 @@
                                                         </thead>
 
                                                         <tbody>
+                                                        {{#each transactionHistory}}
                                                         <tr>
-                                                            <th>AAPL</th>
-                                                            <th>11:23:25</th>
-                                                            <th>11900.12</th>
-                                                            <th>0.215</th>
-                                                            <th>Buy</th>
+                                                            <th>{{this.symbol}}</th>
+                                                            <th>{{this.date}}</th>
+                                                            <th>${{this.price}}</th>
+                                                            <th>{{this.quantity}}</th>
+                                                            <th>{{this.type}}</th>
                                                         </tr>
-                                                        <tr>
-                                                            <th>AMAZ</th>
-                                                            <th>11:23:05</th>
-                                                            <th>11903.18</th>
-                                                            <th>1.545</th>
-                                                            <th>Sell</th>
-                                                        </tr>
+                                                        {{/each}}
+                                                   
                                                         </tbody>
                                                     </table>
                                                 </div>

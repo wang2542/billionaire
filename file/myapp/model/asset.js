@@ -33,9 +33,10 @@ module.exports.modifyAssete = function(userId, symbol,quantity, type, callback){
         }
         else{
             console.log("updating the new asset");
-            var typeT = type * -1;
-            assete.quantity = assete.quantity + (quantity * typeT);
-            console.log(assete.quantity);
+
+            console.log(parseInt(quantity) * type * -1);
+            assete.quantity = assete.quantity +  parseInt(quantity) * type * -1;
+            console.log("assete Quantity" + assete.quantity);
             assete.save(callback);
         }
     });
@@ -68,7 +69,8 @@ module.exports.getAssete = function(userId,callback){
                 var temp = {
                     symbol: value.symbol,
                     quantity: value.quantity,
-                    total_price: total_price
+                    total_price: total_price,
+                    price: price
                 }
                 
                 total_assetes.push(temp);

@@ -15,12 +15,15 @@ var transactionSchema = schema({
         type:String
     },
     type: {
-        type:Number
+        type:String
     },
     quantity: {
         type: Number
     },
     total: {
+        type: Number
+    },
+    price: {
         type: Number
     },
     date: {
@@ -31,7 +34,7 @@ var transactionSchema = schema({
 var transaction = module.exports = mongoose.model('transaction',transactionSchema);
 
 module.exports.createTransaction = function(newTransaction, callback){
-    console.log(newTransaction);
+    console.log("Adding the new Trasactions" + newTransaction);
     newTransaction.save(callback);
 }
 

@@ -7,32 +7,59 @@ var news = require('../model/news.js');
 var stock = require('../model/stock');
 var stockInfo = require('../model/stockInfo');
 var User = require('../model/user');
-
+var Transaction = require('../model/transaction');
+var Asset = require('../model/asset')
 var ObjectId = require('mongodb').ObjectID;
+var async = require('async');
 
 
 router.get('/', function(req,res,next) {
+	var assete;
+	var transactionHistory;
 	if (!req.user) {
 		req.flash('error_msg', 'Login Required!');
 		res.redirect('/user/login');
 	} else {
 		// console.log(req.user.alert.length);
-		stockInfo.searchPriceByFamousSymbol(function(callback) {
-			 res.render('/', {
-			    aapl : callback['AAPL']['quote']['latestPrice'],
-			    amzn : callback['AMZN']['quote']['latestPrice'],
-			    goog : callback['GOOG']['quote']['latestPrice'],
-			    nflx : callback['NFLX']['quote']['latestPrice'],
-			    adbe : callback['ADBE']['quote']['latestPrice'],
-			    gs : callback['GS']['quote']['latestPrice'],
-			    jpm : callback['JPM']['quote']['latestPrice'],
-			    c : callback['C']['quote']['latestPrice'],
-			    ms : callback['MS']['quote']['latestPrice'],
-			    bx : callback['BX']['quote']['latestPrice'],
-			    ibm : callback['IBM']['quote']['latestPrice'],
-			    user : req.user
-			 });	
-	  	});
+		async.parallel([
+			function(next){
+				
+				Asset.getAssete(req.user._id,(err,total_assetes,total_amount)=> {
+					var result = {
+						total_amount: total_amount,
+						total_assetes: total_assetes
+					}
+					assete = result;
+					next();
+				});
+			},
+			function(next){
+				Transaction.getRecentTransactionByUserId(req.user._id, (err, result) => {
+					transactionHistory = result;
+					next();
+				});
+			}
+		],function(err,results){
+			stockInfo.searchPriceByFamousSymbol(function(callback) {
+				res.render('game', {
+				   aapl : callback['AAPL']['quote']['latestPrice'],
+				   amzn : callback['AMZN']['quote']['latestPrice'],
+				   goog : callback['GOOG']['quote']['latestPrice'],
+				   nflx : callback['NFLX']['quote']['latestPrice'],
+				   adbe : callback['ADBE']['quote']['latestPrice'],
+				   gs : callback['GS']['quote']['latestPrice'],
+				   jpm : callback['JPM']['quote']['latestPrice'],
+				   c : callback['C']['quote']['latestPrice'],
+				   ms : callback['MS']['quote']['latestPrice'],
+				   bx : callback['BX']['quote']['latestPrice'],
+				   ibm : callback['IBM']['quote']['latestPrice'],
+				   user : req.user,
+				   assete:assete,
+				   transactionHistory: transactionHistory
+				});	
+			 });
+		});
+		
 	}
 });
 
