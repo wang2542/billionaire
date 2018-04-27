@@ -10,7 +10,7 @@ function preview() {
     symbol = document.getElementById("trade_symbol").value
     transaction = document.getElementById("trade_transaction").value
     quantity = document.getElementById("trade_quantity").value
-    price = 1
+    price = document.getElementById("trade_price").value
 
     document.getElementById("preview_symbol").value = symbol
     document.getElementById("preview_price").value = price

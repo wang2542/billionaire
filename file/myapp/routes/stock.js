@@ -135,7 +135,7 @@ router.post('/trade', function(req, res, next) {
 			price : stock_price
 		});*/
 		res.redirect(url.format({
-			pathname:"/lms",
+			pathname:"/transaction",
 			query: {
 				"sym" : stock_sym,
 				"price" : stock_price
