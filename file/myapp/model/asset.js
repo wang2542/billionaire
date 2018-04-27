@@ -45,10 +45,14 @@ module.exports.modifyAssete = function(userId, symbol,quantity, price,type, call
             total_cost = price* parseInt(quantity)* type *-1;
             console.log(total_cost);
             assete.quantity = assete.quantity +  parseInt(quantity) * type * -1;
+            if (assete.quantity <= 0 ){
+                Assete.remove(query, callback);
+            }
+            else {
             assete.total_cost = assete.total_cost + total_cost;
             console.log("assete total_cost" + assete.total_cost);
-            
             assete.save(callback);
+            }
         }
     });
 }
@@ -87,7 +91,7 @@ module.exports.getAssete = function(userId,callback){
                 var temp = {
                     symbol: value.symbol,
                     quantity: value.quantity,
-                    total_price: total_price,
+                    total_price:Number(total_price).toFixed(2),
                     price: price,
                     avg_cost:Number(avg_cost).toFixed(2) ,
                     total_return: Number(total_return).toFixed(2),
