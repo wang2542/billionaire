@@ -87,19 +87,34 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
 };
 
 module.exports.checkCoin = function (userId,amount, callback){
+<<<<<<< HEAD
 	User.findOne({_id:userId}).exec(function(err,user){
 		if(-1*amount > user.coin){
 		callback(0);
+=======
+	var query = {_id : userId};
+	User.findOne(query).exec(function(err,user){
+		if(amount > user.coin){
+			callback(0);
 		}
-		else 
-		callback(1);
+		else {
+			callback(1);
+>>>>>>> master
+		}
 	})
 
 };
 
+<<<<<<< HEAD
 module.exports.updateCoin = function (userId,amount, callback){
 	User.findOne({_id:userId}).exec(function(err,user){
 		user.coin = user.coin + amount; 
+=======
+module.exports.updateCoin = function (userId,amount,typeT, callback){
+	var query = {_id : userId};
+	User.findOne(query).exec(function(err,user){
+		user.coin = user.coin + (amount * typeT); 
+>>>>>>> master
 		user.save(callback);
 	})
 
