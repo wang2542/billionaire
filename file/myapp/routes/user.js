@@ -85,6 +85,7 @@ router.get('/login', function(req, res, next) {
   		req.flash('error_msg', 'invalid Attempt');
   		res.redirect('/');
   	} else {
+	
 		stockInfo.searchPriceByFamousSymbol(function(callback) {
 			 res.render('login', {
 			    aapl : callback['AAPL']['quote']['latestPrice'],

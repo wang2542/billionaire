@@ -34,11 +34,22 @@ module.exports.addAssete = function(userId, symbol,quantity,callback){
         else{
             console.log("updating the new asset");
             assete.quantity = parseInt(assete.quantity) + parseInt(quantity);
+           
             assete.save(callback);
         }
     });
 }
 
+module.exports.checkAssete = function(userId, symbol,quantity,callback){
+    var query = {userId:userId, symbol:symbol};
+    Assete.findOne(query).exec(function(err,assete){
+        console.log(assete.quantity > quantity);
+        if (assete.quantity > quantity)
+        callack(err,1);
+        else 
+        callback(err,0);
+    });
+}
 module.exports.getAssete = function(userId,callback){
     var query = {userId:userId};
     var total_assetes = new Array();
