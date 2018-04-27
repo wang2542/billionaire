@@ -17,14 +17,13 @@ router.get('/', function(req, res, callback) {
 });
 
 router.post('/', function (req, res, callback) {
-	console.log("transaction");
 	var price = parseFloat(req.body.price).toFixed(2),
-		quantity = parseInt(req.body.quantity),
 		typeStr = req.body.transaction,
 		user_id = req.user._id,
 		sym = req.body.sym,
 		typeT;
-	// price.toFixed(2);
+
+	var	quantity = Number(req.body.quantity);
     var total = price*quantity;
 
     if (typeStr === "Buy") {
@@ -40,23 +39,46 @@ router.post('/', function (req, res, callback) {
                 User.checkCoin(user_id, total, (response)=>{
                     if(response == 0){
                     	console.log("error not enough money");
-                        res.json({ error: "sorry you do not have enough coin to buy" });
-                        return;
+						next(true);
+                    	return;
+                    } else {
+                    	next(-1);
                     }
-                    
-                })
+                });
+
             } else {
             	Asset.checkAssete(user_id, sym, quantity,(err,response)=>{
 	                if (response == 0){
 	                	console.log("error not enough stock");
-	                    res.json({ error: "sorry you do not have enough stock to sell" });
-	                    return;
+	                    next(true);
+                    	return;
+	                } else {
+	                	next(-1);
 	                }
 	            });
             }
-            next();
-        },
-        function(next) {
+        }
+    ], function(err, results) {
+    	console.log(err);
+    	if (err && err != -1) {
+    		console.log("errorroror");
+    		var error_msg = 'Transaction Failed. Check your assets or coins.';
+    		res.render('trade', {
+    			sym : sym,
+                price: price,
+                error_msg: error_msg
+    		});
+    	} else if (isNaN(quantity)){
+    		console.log("nanananan");
+			var error_msg = 'Transaction Failed. Quantity must be an integer.';
+			res.render('trade', {
+		  		sym : sym,
+		        price: price,
+		        error_msg: error_msg
+		 	});
+    	} else {
+    		console.log("success");
+        	//console.log("transaction");
             var transaction = new Transaction({
                 date: new Date(),
                 userId: user_id,
@@ -69,21 +91,15 @@ router.post('/', function (req, res, callback) {
             console.log(transaction);
 
             Transaction.createTransaction(transaction, function (err) {
-                //user_id = 1;
                 Asset.modifyAssete(user_id, sym, quantity, typeT, function (err) {
-                	console.log("modifyasset");
-                	console.log(user_id);
-                	console.log(sym);
-                	console.log(quantity);
-                	console.log(typeT);
-                   	User.updateCoin(user_id,total,typeT, next);
-                   	console.log("updateCoin");
+                   	User.updateCoin(user_id,total,typeT, function(err) {
+	                   	req.flash('success_msg', 'Transaction Successful!');
+	                   	res.redirect('/game');
+                   	});
                 });
                 
             });
         }
-    ], function(err, results) {
-        res.redirect('/game');
     });
 
 });
