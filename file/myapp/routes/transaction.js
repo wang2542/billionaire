@@ -9,6 +9,13 @@ var Asset = require('../model/asset');
 var async = require('async');
 
 
+router.get('/', function(req, res, callback) {
+    res.render('trade', {
+        sym : req.query.sym,
+        price :  req.query.price
+    }); 
+});
+
 router.post('/', function (req, res, callback) {
     var total = req.query.price * req.query.quantity;
     var user_id = "5ab6b019af035b157a64b113";

@@ -93,8 +93,14 @@ router.get('/contact' , function(req,res,next){
     	user : req.user
     });
 });
+
 router.get('/lms' , function(req,res,next){
-    res.render('trade');
+	console.log(req.query.sym);
+
+    res.render('trade', {
+    	sym : req.query.sym,
+    	price :  req.query.price
+    });
 });
 
 
