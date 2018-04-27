@@ -84,7 +84,22 @@ router.get('/knowledge' , function(req,res,next){
 	});
 });
 router.get('/tutorial' , function(req,res,next){
-    res.render('tutorial');
+    stockInfo.searchPriceByFamousSymbol(function(callback) {
+		res.render('tutorial', {
+		    aapl : callback['AAPL']['quote']['latestPrice'],
+		    amzn : callback['AMZN']['quote']['latestPrice'],
+		    goog : callback['GOOG']['quote']['latestPrice'],
+		    nflx : callback['NFLX']['quote']['latestPrice'],
+		    adbe : callback['ADBE']['quote']['latestPrice'],
+		    gs : callback['GS']['quote']['latestPrice'],
+		    jpm : callback['JPM']['quote']['latestPrice'],
+		    c : callback['C']['quote']['latestPrice'],
+		    ms : callback['MS']['quote']['latestPrice'],
+		    bx : callback['BX']['quote']['latestPrice'],
+		    ibm : callback['IBM']['quote']['latestPrice'],
+		    user : req.user
+		});	
+	});
 });
 
 router.get('/strategies' , function(req,res,next){
@@ -107,29 +122,35 @@ router.get('/strategies' , function(req,res,next){
 });
 
 router.get('/trade_hist' , function(req,res,next){
-	Transaction.getTransactionByUserId(req.user._id, (err, result) => {
-		transactionHistory = result;
-		console.log(result);
-		stockInfo.searchPriceByFamousSymbol(function(callback) {
-			res.render('trade_hist', {
-				aapl : callback['AAPL']['quote']['latestPrice'],
-				amzn : callback['AMZN']['quote']['latestPrice'],
-				goog : callback['GOOG']['quote']['latestPrice'],
-				nflx : callback['NFLX']['quote']['latestPrice'],
-				adbe : callback['ADBE']['quote']['latestPrice'],
-				gs : callback['GS']['quote']['latestPrice'],
-				jpm : callback['JPM']['quote']['latestPrice'],
-				c : callback['C']['quote']['latestPrice'],
-				ms : callback['MS']['quote']['latestPrice'],
-				bx : callback['BX']['quote']['latestPrice'],
-				ibm : callback['IBM']['quote']['latestPrice'],
-				user : req.user,
-				transactions : result
+	if (!req.user) {
+		req.flash('error_msg', 'Login Required!');
+		res.redirect('/user/login');
+	} else {
+		Transaction.getTransactionByUserId(req.user._id, (err, result) => {
+			transactionHistory = result;
+			console.log(result);
+			stockInfo.searchPriceByFamousSymbol(function(callback) {
+				res.render('trade_hist', {
+					aapl : callback['AAPL']['quote']['latestPrice'],
+					amzn : callback['AMZN']['quote']['latestPrice'],
+					goog : callback['GOOG']['quote']['latestPrice'],
+					nflx : callback['NFLX']['quote']['latestPrice'],
+					adbe : callback['ADBE']['quote']['latestPrice'],
+					gs : callback['GS']['quote']['latestPrice'],
+					jpm : callback['JPM']['quote']['latestPrice'],
+					c : callback['C']['quote']['latestPrice'],
+					ms : callback['MS']['quote']['latestPrice'],
+					bx : callback['BX']['quote']['latestPrice'],
+					ibm : callback['IBM']['quote']['latestPrice'],
+					user : req.user,
+					transactions : result
+				});
 			});
 		});
-	});
+	}
     
 });
+
 
 
 router.post('/deleteAllMsg', function(req, res, next) {
@@ -138,6 +159,22 @@ router.post('/deleteAllMsg', function(req, res, next) {
 	req.user.save();
 
 	res.redirect('/game');
+});
+
+router.post('/tutorial/deleteAllMsg', function(req, res, next) {
+	var len = req.user.alert.length;
+	req.user.alert.splice(0, len);
+	req.user.save();
+
+	res.redirect('/game/trade_hist');
+});
+
+router.post('/trade_hist/deleteAllMsg', function(req, res, next) {
+	var len = req.user.alert.length;
+	req.user.alert.splice(0, len);
+	req.user.save();
+
+	res.redirect('/game/trade_hist');
 });
 
 router.post('/knowledge/deleteAllMsg', function(req, res, next) {
