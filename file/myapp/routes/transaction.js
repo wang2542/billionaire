@@ -10,14 +10,15 @@ var async = require('async');
 
 
 router.post('/', function (req, res, callback) {
-
-
     var total = req.query.price * req.query.quantity;
+    var user_id = "5ab6b019af035b157a64b113";
+   // var user_id = req.user._id;
+    console.log(user_id);
     async.parallel([
         function(next) {
             //If user want to buy stock
             if (req.query.typeT == -1) {
-                user_id = 1;
+              
                 User.checkCoin(user_id, total, (response)=>{
                     if(response == 0){
                         res.json({ error: "sorry you do not have enough coin to buy" });
@@ -30,7 +31,7 @@ router.post('/', function (req, res, callback) {
         function(next) { 
              //If user want to sell stock
             if (req.query.typeT == 1) {
-            user_id = 1;
+    
             Asset.checkAssete(user_id, req.query.stockName,req.query.quantity,(err,response)=>{
                 if (response == 0){
                     res.json({ error: "sorry you do not have enough stock to sell" });
