@@ -204,6 +204,7 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/user/l
   	// NOTIFICATION UPDATE WHEN LOG IN
   	var userlist = req.user.watchlist;
 	var listLength = userlist.length;
+	console.log(listLength);
 
 	for (var i = 0; i < listLength; i++) {
 		stock.findOne({_id : userlist[i]}, function(err, stock){
@@ -221,47 +222,74 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/user/l
 				var isInArray = false,
 					index = -1;
 
-				for (var j = 0; j < msg_list.length; j++) {
-					if (msg_list[j].sym === sym) {
-						isInArray = true;
-						if (isInArray) {
-							index = j;
-						}
-						break;
-					}
-				}
-				
+				// for (var j = 0; j < msg_list.length; j++) {
+				// 	if (msg_list[j].sym === sym) {
+				// 		isInArray = true;
+				// 		if (isInArray) {
+				// 			index = j;
+				// 		}
+				// 		break;
+				// 	}
+				// }
+
 				if (changePercent > pos_not_val){
 					var msg = companyName + " has risen by " + changePercent + "%.", 
 						new_alert_msg = new Object({
 							sym: sym,
 							msg: msg
 						});
-					if (isInArray) {
-						req.user.alert.splice(index, 1);
-					}
-					req.user.alert.push(new_alert_msg);
-					req.user.save();
+					// if (isInArray) {
+					// 	var	getIndex = 'alert.' + index + '.msg';
+					// 	User.findOneAndUpdate({_id : req.user._id}, {$set: {getIndex : msg}},
+					// 		function(error, success) {
+					// 			if (error) {
+					// 				console.log("error");
+					// 				console.log(error);
+					// 			} else {
+					// 				console.log("success");
+					// 				//console.log(success);
+					// 			}
+					// 		}
+					// 	);
+					// }
+
+					User.findOneAndUpdate({_id : req.user._id}, {$push: {alert : new_alert_msg}},
+						function(error, success) {
+							if (error) {
+								console.log("error");
+									//console.log(error);
+							} else {
+								console.log("success");
+								//console.log(success);
+							}
+						}
+					);
 				} else if (changePercent < neg_not_val) {
 					var msg = companyName + " has dropped by " + changePercent + "%.",
 						new_alert_msg = new Object({
 							sym: sym,
 							msg: msg
 						});
-					if (isInArray) {
-						req.user.alert.splice(index, 1);
-					}
-					req.user.alert.push(new_alert_msg);
-					req.user.save();
+					User.findOneAndUpdate({_id : req.user._id}, {$push: {alert : new_alert_msg}},
+						function(error, success) {
+							if (error) {
+								console.log("error");
+									//console.log(error);
+							} else {
+								console.log("success");
+								//console.log(success);
+							}
+						}
+					);
+					//User.update();
 				}
 
 			})
 		});
 	}
-	//END NOTIFICATION
 	
 	req.flash('success_msg', 'You are logged in');
-    res.redirect('/game');
+	res.redirect('/');
  });
 
 router.post('/profile', function(req, res, next){

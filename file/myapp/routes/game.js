@@ -56,6 +56,7 @@ router.get('/', function(req,res,next) {
 				   bx : callback['BX']['quote']['latestPrice'],
 				   ibm : callback['IBM']['quote']['latestPrice'],
 				   user : req.user,
+				   coins : parseFloat(req.user.coin).toFixed(2),
 				   assete:assete,
 				   transactionHistory: transactionHistory
 				});	
