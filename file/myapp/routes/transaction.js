@@ -70,7 +70,8 @@ router.post('/', function (req, res, callback) {
 
             Transaction.createTransaction(transaction, function (err) {
                 //user_id = 1;
-                Asset.modifyAssete(user_id, sym, quantity, typeT, function (err) {
+                console.log(price);
+                Asset.modifyAssete(user_id, sym, quantity,price, typeT, function (err) {
                 	console.log("modifyasset");
                 	console.log(user_id);
                 	console.log(sym);

@@ -24,10 +24,12 @@ router.get('/', function(req,res,next) {
 		async.parallel([
 			function(next){
 				
-				Asset.getAssete(req.user._id,(err,total_assetes,total_amount)=> {
+				Asset.getAssete(req.user._id,(err,total_assetes,total_profit,total_value)=> {
+					var percent_increase = ((total_value+req.user.coin)/10000) -1 ;
 					var result = {
-						total_amount: total_amount,
-						total_assetes: total_assetes
+						total_profit: total_profit,
+						total_assetes: total_assetes,
+						percent_increase:percent_increase
 					}
 					assete = result;
 					next();
