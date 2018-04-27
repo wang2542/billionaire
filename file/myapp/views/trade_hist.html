@@ -146,20 +146,16 @@
                                                         </thead>
 
                                                         <tbody>
-                                                        <tr>
-                                                            <th>APPL</th>
-                                                            <th>11:23:25</th>
-                                                            <th>11900.12</th>
-                                                            <th>0.215</th>
-                                                            <th>Buy</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>AMAZ</th>
-                                                            <th>11:23:05</th>
-                                                            <th>11903.18</th>
-                                                            <th>1.545</th>
-                                                            <th>Sell</th>
-                                                        </tr>
+                                                            {{#each transactions}}
+                                                            <tr>
+                                                                    <th>{{this.symbol}}</th>
+                                                                    <th>{{this.date}}</th>
+                                                                    <th>${{this.price}}</th>
+                                                                    <th>{{this.quantity}}</th>
+                                                                    <th>{{this.type}}</th>
+                                                                </tr>
+                                                            {{/each}}
+                                                
                                                         </tbody>
                                                     </table>
                                                 </div>
